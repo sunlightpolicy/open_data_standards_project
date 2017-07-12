@@ -1,0 +1,59 @@
+---
+layout: default
+title: Home
+---
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css" integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw==" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js" integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA==" crossorigin=""></script>
+
+
+{% include intro.html %}
+
+<section class="post-list">
+  <div class="container">
+  <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
+   integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="
+   crossorigin=""></script>
+  <div id="mapid" style="width: 600px; height: 400px; margin-bottom: -200px;"></div>
+  <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.0.1/leaflet-omnivore.min.js'></script>
+  <script>
+  var mymap = L.map('mapid').setView([39.0232,-94.4083],11);
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+    maxZoom: 18,
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+      '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+      'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    id: 'mapbox.streets'
+  }).addTo(mymap);
+  var marker = L.marker([39.0997265, -94.5785667]).addTo(mymap);
+  </script>
+  <script>
+  // omnivore.csv({{ site.data.kc_lic }}).addTo(mymap);
+  // omnivore.csv({{ site.data.ind_lic }}).addTo(mymap);
+  // var marker = L.marker([39.0997265, -94.5785667]).addTo(mymap);
+  </script>
+<!--   {% for lic_csv in site.data %}
+      <script>
+      omnivore.csv(lic_csv).addTo(mymap);
+      </script>
+  {% endfor %} -->
+
+  {% for post in site.posts %}
+    {% unless post.next %}
+      <!--<script type="text/javascript" src="js/business_license.js"></script>-->
+      
+      <h2 class="category-title">{{ post.date | date: '%Y' }}</h2>
+    {% else %}
+      {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+      {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+      {% if year != nyear %}
+        <h2 class="category-title">{{ post.date | date: '%Y' }}</h2>
+      {% endif %}
+    {% endunless %}
+    <article class="post-item">
+      <span class="post-meta date-label">{{ post.date | date: "%b %d" }}</span>
+      <div class="article-title"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></div>
+    </article>
+  {% endfor %}
+  </div>
+
+</section>
