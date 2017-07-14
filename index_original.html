@@ -13,7 +13,7 @@ title: Home
   <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
    integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="
    crossorigin=""></script>
-  <div id="mapid" style="width: 600px; height: 400px;"></div>
+  <div id="mapid" style="width: 600px; height: 400px; margin-bottom: -200px;"></div>
 
   <script>
 
@@ -26,43 +26,30 @@ title: Home
     id: 'mapbox.streets'
   }).addTo(mymap);
   </script>
+  <script>
 
-{% for data in site.data %}
-  {% assign data = data %}
-  <!--<h2 class="category-title">{{ site.data}}</h2>-->
-    <script>
+  var xhr = new XMLHttpRequest();
 
+  xhr.open("GET", 'https://data.kcmo.org/resource/rmk6-sicm.json',false);  
 
-    /*
-    var xhr = new XMLHttpRequest();
+  xhr.send();
 
-    xhr.open("GET", data, false);  
+  var json = JSON.parse(xhr.responseText);
 
-    xhr.send();
+  console.log(json);
 
-    var json = JSON.parse(xhr.responseText);
-    */
-      if ('{{data.City}}' == 'INDEPENDENCE'){
-            var marker = L.marker([{{data.Lat}}, {{data.Long}}]).bindPopup( '<a href="' + '{{data.BusinessName}}' + '" target="_blank">' + '{{data.BusinessDescription}}'+ '</a>' )
-              .addTo(mymap);}
-           
-      else{
-            var marker = L.marker([{{data.location_1.coordinates[0]}},{{data.location_1.coordinates[1]}}]).bindPopup( '<a href="' + '{{data.business_dba}}' + '" target="_blank">' + '{{data.business_type}}' + '</a>' )
-              .addTo(mymap);}
-
-      
-    </script>  
-{% endfor %}
-<!--for (var i = 0; i < json.length; i++) {
+  for (var i = 0; i < json.length; i++) {
 
 
-        if(json[i]['location_1']){
-        var coords = json[i]['location_1']['coordinates'];
+      if(json[i]['location_1']){
+      var coords = json[i]['location_1']['coordinates'];
 
-        var marker = L.marker([coords[1], coords[0]]).bindPopup( '<a href="' + json[i].business_dba + '" target="_blank">' + json[i].business_type + '</a>' )
-          .addTo(mymap);}}}
--->
+      var marker = L.marker([coords[1], coords[0]]).bindPopup( '<a href="' + json[i].business_dba + '" target="_blank">' + json[i].business_type + '</a>' )
+        .addTo(mymap);}}
 
+  
+
+  </script>  
 
 
   {% for post in site.posts %}
