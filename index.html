@@ -36,8 +36,7 @@ title: Home
   for (var i = 0; i < biz_lics[1].length; i++) {
     
     if(biz_lics[1][i].business_dba) {
-      var marker = L.marker([biz_lics[1][i]['latitude'], biz_lics[1][i]['longitude']]).bindPopup( '<a href="' + biz_lics[1][i].business_dba + '" target="_blank">' + biz_lics[1][i].business_type+ '</a>' )
-              .addTo(mymap);
+      var marker = L.marker([biz_lics[1][i]['latitude'], biz_lics[1][i]['longitude']]).bindPopup( '<a href="' + biz_lics[1][i].business_dba + '" target="_blank">' + biz_lics[1][i].business_dba+'</a>'+'<p>'+'</p>'+'<a href="' + biz_lics[1][i].business_type + '" target="_blank">'+biz_lics[1][i].business_type+ '</a>').addTo(mymap);
       }
     else {
       var marker = L.marker([biz_lics[1][i]['latitude'], biz_lics[1][i]['longitude']]).addTo(mymap);
