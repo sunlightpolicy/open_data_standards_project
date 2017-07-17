@@ -15,11 +15,21 @@ function show_map() {
 
 function show_data(table, mymap) {
 
+  var indIcon = L.icon({ iconUrl: '../images/ind.svg', iconSize: [19, 12] });
+  var kcIcon = L.icon({ iconUrl: '../images/kc.svg', iconSize: [19, 12] });
   var licenseIcon = L.icon({ iconUrl: '../images/license.svg', iconSize: [19, 12] });
   
   for (var i = 0; i < table[1].length; i++) {
-    var marker = L.marker([table[1][i]['latitude'], table[1][i]['longitude']], {icon: licenseIcon}).bindPopup( +'<p>'+ table[1][i].business_dba+'</p>'+'<p>'+table[1][i].business_type+ '</p>').addTo(mymap);
+
+    console.log(table[1][i]['city']);
+
+    if (table[1][i]['city'] === 'INDEPENDENCE'){
+      var marker = L.marker([table[1][i]['latitude'], table[1][i]['longitude']], {icon: licenseIcon}).bindPopup( +'<p>'+ table[1][i].business_dba+'</p>'+'<p>'+table[1][i].business_type+ '</p>').addTo(mymap);
     }
+    else {
+      var marker = L.marker([table[1][i]['latitude'], table[1][i]['longitude']], {icon: kcIcon}).bindPopup( +'<p>'+ table[1][i].business_dba+'</p>'+'<p>'+table[1][i].business_type+ '</p>').addTo(mymap);
+    }
+  }
 }
 
 
