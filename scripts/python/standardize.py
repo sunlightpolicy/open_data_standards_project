@@ -116,6 +116,9 @@ def read(file_name):
             print(row)
             df = pd.concat([df,pd.DataFrame(row).transpose()])
 
+def parse_df_dict(series):
+    return pd.DataFrame([[series.values()]], columns = [list(series.keys())])
+
 def ckan_to_df(soup):
     new_dict ={}
     for d in json.loads(str(soup))['result']['records']:
@@ -125,3 +128,34 @@ def ckan_to_df(soup):
             else: 
                 new_dict[key]=[d[key]]
     return pd.DataFrame(new_dict)
+
+def make_dfs(file_name):
+    permit_dfs = {}
+    with open(file_name, 'rt') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+        for index,row in enumerate(reader):
+            print(row)
+            url = row[1]
+            if row[0] == 'Location':
+                continue
+            elif 'json' in url:
+                df = pd.read_json(url)
+            elif 'csv' in url:
+                df = pd.read_csv(url)
+            elif 'civicdata' in url:
+                df = ckan_to_df(get_soup(url))
+            else:
+                return 'file in unknown format'
+            permit_dfs[row[0]]=df
+    return permit_dfs
+
+def get_same_cols(dfs):
+    headers_dict= {} 
+    for key,vals in dfs.items():
+        for col in vals.columns:
+            if col in headers_dict:
+                headers_dict[col]['count']+=1
+                headers_dict[col]['datasets'].append(key)
+            else:
+                headers_dict[col] = {'count':1,'datasets':[key]}
+    return headers_dict, pd.DataFrame(headers_dict).transpose().sort_values(by=['count'], ascending=False)
