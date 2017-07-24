@@ -7,6 +7,8 @@ import numpy as np
 import io
 import geocoder
 import geopandas as gp
+import csv 
+import json
 
 def scrape_datasets(main_url):
 	pattern_ev = r'.+(?=/browse)'
@@ -97,3 +99,29 @@ def combine_cols(series):
     else:
         return series[0]
 
+def read(file_name):
+    '''
+    This was to experiment with uploading a csv using python csv library.
+    Needless to say it is pretty slow.
+    '''
+    df = pd.DataFrame()
+
+    pattern = r'[(?!=.)]([a-z]*)'
+    file_type = re.findall(pattern, file_name)[0]
+
+    assert file_type == 'csv'
+    with open(file_name, 'rt') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+        for index,row in enumerate(reader):
+            print(row)
+            df = pd.concat([df,pd.DataFrame(row).transpose()])
+
+def ckan_to_df(soup):
+    new_dict ={}
+    for d in json.loads(str(soup))['result']['records']:
+        for key in  json.loads(str(soup))['result']['records'][0].keys():
+            if key in new_dict:
+                new_dict[key].append(d[key])
+            else: 
+                new_dict[key]=[d[key]]
+    return pd.DataFrame(new_dict)
