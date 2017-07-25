@@ -9,6 +9,10 @@ import geocoder
 import geopandas as gp
 import csv 
 import json
+import matplotlib
+import seaborn
+from matplotlib import pyplot as plt
+
 
 def scrape_datasets(main_url):
 	pattern_ev = r'.+(?=/browse)'
@@ -167,6 +171,8 @@ def make_dfs(file_name):
 
 def get_same_cols(dfs):
     headers_dict= {} 
+    dataset_dict = {}
+
     for key,vals in dfs.items():
         for col in vals.columns:
             lowered = col.lower().replace('_','')
@@ -176,5 +182,6 @@ def get_same_cols(dfs):
                 headers_dict[lowered]['datasets'].append(key)
             else:
                 headers_dict[lowered] = {'count':1,'datasets':[key]}
+
 
     return headers_dict, pd.DataFrame(headers_dict).transpose().sort_values(by=['count'], ascending=False)
