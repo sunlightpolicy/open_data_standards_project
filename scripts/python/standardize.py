@@ -145,7 +145,6 @@ def make_dfs(file_name):
     with open(file_name, 'rt') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         for index,row in enumerate(reader):
-            print(row)
             url = row[1]
             if index == 0:
                 continue
@@ -164,6 +163,7 @@ def make_dfs(file_name):
 
             df = df.rename(columns={ d:d.lower().replace('_','') for d in df.columns})
 
+            print(list(row)+[len(df.columns)])
             lat_long_dict = {'lat':'latitude','latitudeperm':'latitude','lon':'longitude','longitudeperm':'longitude'}
             permit_dfs[row[0]]=df.rename(columns = lat_long_dict)
 
