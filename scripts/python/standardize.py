@@ -64,6 +64,13 @@ def get_lat_long(series, coord):
         return series['coordinates'][1] 
     return series['coordinates'][0]
 
+def lat_long_from_loc(series,coord):
+    if type(series) == float:
+       return None
+    if coord == 'latitude':
+        return series['latitude']
+    return series['longitude']
+
 def get_zip(s):
     pattern = r'(?<![A-Z])[\d]{5}' 
     return re.search(pattern, s).group()
@@ -136,7 +143,7 @@ def make_dfs(file_name):
         for index,row in enumerate(reader):
             print(row)
             url = row[1]
-            if row[0] == 'Location':
+            if index == 0:
                 continue
             elif 'json' in url:
                 df = pd.read_json(url)
@@ -146,16 +153,28 @@ def make_dfs(file_name):
                 df = ckan_to_df(get_soup(url))
             else:
                 return 'file in unknown format'
-            permit_dfs[row[0]]=df
+
+            if 'boston' in url:
+                df['latitude'] = df.location.apply(lambda x: lat_long_from_loc(x,'latitude'))
+                df['longitude'] = df.location.apply(lambda x: lat_long_from_loc(x,'longitude'))
+
+            df = df.rename(columns={ d:d.lower().replace('_','') for d in df.columns})
+
+            lat_long_dict = {'lat':'latitude','latitudeperm':'latitude','lon':'longitude','longitudeperm':'longitude'}
+            permit_dfs[row[0]]=df.rename(columns = lat_long_dict)
+
     return permit_dfs
 
 def get_same_cols(dfs):
     headers_dict= {} 
     for key,vals in dfs.items():
         for col in vals.columns:
-            if col in headers_dict:
-                headers_dict[col]['count']+=1
-                headers_dict[col]['datasets'].append(key)
+            lowered = col.lower().replace('_','')
+
+            if lowered in headers_dict:
+                headers_dict[lowered]['count']+=1
+                headers_dict[lowered]['datasets'].append(key)
             else:
-                headers_dict[col] = {'count':1,'datasets':[key]}
+                headers_dict[lowered] = {'count':1,'datasets':[key]}
+
     return headers_dict, pd.DataFrame(headers_dict).transpose().sort_values(by=['count'], ascending=False)
