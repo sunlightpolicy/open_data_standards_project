@@ -142,6 +142,15 @@ def ckan_to_df(soup):
 
 def make_dfs(file_name):
     permit_dfs = {}
+    rename_dict = {'lat':'latitude',
+                            'latitudeperm':'latitude',
+                            'lon':'longitude',
+                            'longitudeperm':'longitude',
+                            'originalcity':'city',
+                            'originalstate':'state',
+                            'totalfees':'fee',
+                            'permittypedescr': 'permittype',
+                            'statuscurrent':'status'}
     with open(file_name, 'rt') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         for index,row in enumerate(reader):
@@ -149,7 +158,7 @@ def make_dfs(file_name):
             if index == 0:
                 continue
             elif 'json' in url:
-                df = pd.read_json(url)
+                df = soda_loop(url)
             elif 'csv' in url:
                 df = pd.read_csv(url)
             elif 'civicdata' in url:
@@ -164,8 +173,8 @@ def make_dfs(file_name):
             df = df.rename(columns={ d:d.lower().replace('_','') for d in df.columns})
 
             print(list(row)+[len(df.columns)])
-            lat_long_dict = {'lat':'latitude','latitudeperm':'latitude','lon':'longitude','longitudeperm':'longitude'}
-            permit_dfs[row[0]]=df.rename(columns = lat_long_dict)
+
+            permit_dfs[row[0]]=df.rename(columns = rename_dict)
 
     return permit_dfs
 
@@ -176,12 +185,84 @@ def get_same_cols(dfs):
     for key,vals in dfs.items():
         for col in vals.columns:
             lowered = col.lower().replace('_','')
-
             if lowered in headers_dict:
                 headers_dict[lowered]['count']+=1
                 headers_dict[lowered]['datasets'].append(key)
+                headers_dict[lowered]['missing'].remove(key)
             else:
-                headers_dict[lowered] = {'count':1,'datasets':[key]}
-
+                headers_dict[lowered] = {'count':1,'datasets':[key],'missing': ['Almeda',
+                                                                                 'Bernalillo',
+                                                                                 'Boston',
+                                                                                 'Chattanooga',
+                                                                                 'Deschutes',
+                                                                                 'Raleigh',
+                                                                                 'San Diego',
+                                                                                 'Seattle',
+                                                                                 'Tampa']}
+                headers_dict[lowered]['missing'].remove(key)
 
     return headers_dict, pd.DataFrame(headers_dict).transpose().sort_values(by=['count'], ascending=False)
+
+def soda_loop(url):
+    '''
+    This function takes an api key of a version of the identified 311 service call dataset saved in socrata
+    and loops through the dataset until all the data is retrieved
+    
+    Input:
+        url - chicago data portal api endpoint
+    Output:
+        pandas database
+    '''
+    offset_num = 0
+    df = pd.DataFrame()
+    count = 0
+    use_url = url
+    while len(pd.read_json(use_url)):
+
+        df = pd.concat([df,pd.read_json(use_url)])
+        
+        use_url = url
+  
+        offset_num+=10000
+   
+        use_url=url+'&$offset={}'.format(offset_num)
+                
+        count+=1
+        
+        print(use_url)
+        
+    return df
+
+def plot_confusion_matrix(data, col_name, labels, model_name):
+    '''
+    Given a pandas dataframe with a confusion confusion_matrix
+    and a list of axis lables plot the results
+    '''
+    sn.set(font_scale=1.4)#for label size
+
+    xticks =  labels
+    yticks =  labels
+    ax = plt.axes()
+    sn.heatmap(data, annot=True,annot_kws={"size": 16}, linewidths=.5, xticklabels = xticks,  
+              yticklabels = yticks, fmt = '')
+    ax.set_title('Confusion Matrix for' + ' ' + model_name + col_name)
+
+def combine_str_int(series):
+    return ' '.join([series[0],str(series[1])])
+
+def combine(series):
+    return ' '.join([series[0],series[1]])
+
+    
+def semantic_compare(df, state_list):
+    sem_dict = {}
+    for row in df.iterrows():
+        print([type(e) for e in row[1]], row)
+        if row[1][0] in sem_dict:
+            sem_dict[row[1][1]]['count'] +=1
+            sem_dict[row[1][1]]['state'].append(row[0])
+            sem_dict[row[1][1]]['missing'].remove(key)
+        else:
+            sem_dict[row[1][1]] = {'states':[row[1][0]],'count':1,'missing': state_list}
+            sem_dict[row[1][1]]['missing'].remove(key)
+    return sem_dict
