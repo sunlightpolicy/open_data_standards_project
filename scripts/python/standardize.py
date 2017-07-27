@@ -253,7 +253,7 @@ def combine_str_int(series):
 def combine(series):
     return ' '.join([series[0],series[1]])
 
-    
+
 def semantic_compare(df, state_list):
     sem_dict = {}
     for row in df.iterrows():
@@ -266,3 +266,29 @@ def semantic_compare(df, state_list):
             sem_dict[row[1][1]] = {'states':[row[1][0]],'count':1,'missing': state_list}
             sem_dict[row[1][1]]['missing'].remove(key)
     return sem_dict
+
+permittypemapped_list = ['Building',
+                        'Demolition',
+                        'Electrical',
+                        'Mechanical',
+                        'Plumbing',
+                        'Roof',
+                        'Fence',
+                        'Grading',
+                        'Pool/Spa']
+
+def get_permittypemapped(series,permittypemapped_list):
+    #print(series)
+    if type(series) == float:
+        return float('nan')
+    for pm_type in permittypemapped_list:
+        pm_type_up = pm_type.upper()
+        if pm_type_up in series.upper():
+            return pm_type_up
+
+def not_null_then_upper(series):
+    if series == None:
+        return float('nan')
+    else:
+        return series.upper()
+    
