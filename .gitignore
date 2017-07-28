@@ -1,4 +1,7 @@
 
 *_config
 */pickles
-*standardized_blds.csv
+*.csv
+*.RData
+*.Rhistory
+*Rapp.history
