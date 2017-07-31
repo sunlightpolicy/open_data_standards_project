@@ -229,6 +229,65 @@ make_streamgraph_jurisdiction<- function(jurisdiction){
 
 }
 
+make_streamgraph_jurisdiction_alt<- function(jurisdiction){
+  
+  # Read data in
+  
+  range_end <- as.Date(paste(format(Sys.Date(), "%Y-%m"), "-01", sep="")) - 1
+  range_start <- range_end - 365
+  
+  df <- read.csv(paste("Documents/open_data_standards_project/_data/blds_csvs/",jurisdiction,sep=""))
+  
+  jurisdictionBLDS_df<- df %>% 
+    mutate(issued_datetime = parse_datetime(issueddate, format = "%Y-%m-%d"))
+  
+  #jurisdictionBLDS_Imported[is.na(jurisdictionBLDS_Imported)] <- 'UNKNOWN'
+  
+  #jurisdictionBLDS_df = Filter(function(x)!all(is.na(x)), jurisdictionBLDS_Imported)
+  
+  jurisdictionBLDS_Imported_Last365Days <- jurisdictionBLDS_df %>%
+    select(issueddate, permittypemapped) %>%
+    mutate_each(issueddate, funs = "as.Date") %>%
+    filter(issueddate >= range_start & issueddate <= range_end) %>%
+    mutate(year = format(issueddate, "%Y"), year_month = format(issueddate, "%Y-%B"), day=format(issueddate, "%d"), complete_date=format(issueddate, "%Y-%B-%d")) %>%
+    mutate(first_of_month = as.Date(paste(year_month, "-01", sep=""),"%Y-%B-%d "))
+  
+  
+  jurisdictionBLDS_Imported_TopTenPermitTypes <- jurisdictionBLDS_Imported_Last365Days %>% 
+    select(permittypemapped) %>%
+    group_by(permittypemapped) %>%
+    tally(sort=TRUE) %>%
+    top_n(10)
+  
+  
+  jurisdictionBLDS_Last365Days_of_TopTenPermitTypes <- jurisdictionBLDS_Imported_Last365Days %>%
+    filter(permittypemapped %in% jurisdictionBLDS_Imported_TopTenPermitTypes$permittypemapped)
+  
+  
+  jurisdictionBLDS_MonthAggregation_of_TopTenPermitTypes <-jurisdictionBLDS_Last365Days_of_TopTenPermitTypes %>%
+    group_by(permittypemapped, first_of_month) %>%
+    tally()
+  
+  
+  #stateBLDS_YearAggregation_of_TopTenPermitTypes <-stateBLDS_Last365Days_of_TopTenPermitTypes %>%
+  #  group_by(permittypemapped, year) %>%
+  #  tally()
+  
+  #stateBLDS_MonthAggregation_of_TopTenPermitTypes[row(stateBLDS_MonthAggregation_of_TopTenPermitTypes) == col(stateBLDS_MonthAggregation_of_TopTenPermitTypes)] <-1
+  
+  jurisdictionBLDS_MonthAggregation_of_TopTenPermitTypes %>%
+    streamgraph("permittypemapped","n","first_of_month", offset="zero") %>%
+    sg_axis_x(tick_format = "%b") %>%
+    sg_axis_y(tick_count = 0)
+  
+  jurisdictionBLDS_MonthAggregation_of_TopTenPermitTypes %>%
+    streamgraph("permittypemapped","n","first_of_month") %>%
+    sg_axis_x(tick_format = "%b") %>%
+    sg_axis_y(tick_count = 0)
+  
+  
+}
+
 states<- unique(BulkBLDS_Imported$state)
 
 
@@ -286,6 +345,54 @@ make_streamgraph_city<- function(BulkBLDS_Imported,city){
     sg_axis_x(tick_format = "%b") %>%
     sg_axis_y(tick_count = 0)
   
+  #plot(main=city)
+  
+}
+
+make_streamgraph_state<- function(BulkBLDS_Imported,state){
+  
+  # Read data in
+  
+  df = BulkBLDS_Imported
+  df_state = subset(df,state == state)
+  
+  jurisdictionBLDS_df<- df_state %>% 
+    mutate(issued_datetime = parse_datetime(issueddate, format = "%Y-%m-%d %H:%M:%S"))
+  
+  jurisdictionBLDS_Imported_Last365Days <- jurisdictionBLDS_df %>%
+    select(issueddate, permittypemapped) %>%
+    mutate_each(issueddate, funs = "as.Date") %>%
+    filter(issueddate >= range_start & issueddate <= range_end) %>%
+    mutate(year = format(issueddate, "%Y"), year_month = format(issueddate, "%Y-%B"), day=format(issueddate, "%d"), complete_date=format(issueddate, "%Y-%B-%d")) %>%
+    mutate(first_of_month = as.Date(paste(year_month, "-01", sep=""),"%Y-%B-%d "))
+  
+  
+  jurisdictionBLDS_Imported_TopTenPermitTypes <- jurisdictionBLDS_Imported_Last365Days %>% 
+    select(permittypemapped) %>%
+    group_by(permittypemapped) %>%
+    tally(sort=TRUE) %>%
+    top_n(10)
+  
+  
+  jurisdictionBLDS_Last365Days_of_TopTenPermitTypes <- jurisdictionBLDS_Imported_Last365Days %>%
+    filter(permittypemapped %in% jurisdictionBLDS_Imported_TopTenPermitTypes$permittypemapped)
+  
+  
+  jurisdictionBLDS_MonthAggregation_of_TopTenPermitTypes <-jurisdictionBLDS_Last365Days_of_TopTenPermitTypes %>%
+    group_by(permittypemapped, first_of_month) %>%
+    tally()
+
+  jurisdictionBLDS_MonthAggregation_of_TopTenPermitTypes %>%
+    streamgraph("permittypemapped","n","first_of_month", offset="zero") %>%
+    sg_axis_x(tick_format = "%b") %>%
+    sg_axis_y(tick_count = 0)
+  
+  jurisdictionBLDS_MonthAggregation_of_TopTenPermitTypes %>%
+    streamgraph("permittypemapped","n","first_of_month") %>%
+    sg_axis_x(tick_format = "%b") %>%
+    sg_axis_y(tick_count = 0)
+  
+  #plot(main=city)
   
 }
 #credit Andrew Nicklin https://gist.github.com/technickle/67c3cebb687a3b370d0ea3435012b941#file-streamgraph-open311-bulk-data-r
