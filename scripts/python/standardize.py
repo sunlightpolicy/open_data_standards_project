@@ -289,19 +289,40 @@ def get_permittypemapped(series,permittypemapped_list):
 def not_null_then_upper(series):
     if series == None:
         return float('nan')
+    elif type(series) == float:
+        return float('nan')
     else:
         return series.upper()
 
-def add_year_month_day(dict_of_dfs, date_col):
+def add_year_month_day_dfs(dict_of_dfs, date_col):
     for jurisdiction, df in dict_of_dfs.items():
         df['issuedyear']= df[date_col].apply(lambda x: pd.to_datetime(x).year)
         df['issuedmonth']= df[date_col].apply(lambda x: pd.to_datetime(x).month)
-        df['issuedday']= df[date_col].apply(lambda x: pd.to_datetime(x).day)
+        df['issuedday']= df[date_col].apply(lambda x: pd.to_datetime(x).dayofweek)
 
-def make_barh(dict_of_dfs, month_col, item_col, pro_title):
+def add_year_month_day_df(df, date_col, date_pre):
+    df[date_pre+'Year']= df[date_col].apply(lambda x: pd.to_datetime(x).year)
+    df[date_pre+'Month']= df[date_col].apply(lambda x: pd.to_datetime(x).month)
+    df[date_pre+'Day']= df[date_col].apply(lambda x: pd.to_datetime(x).dayofweek)
+
+def make_barh_dfs(dict_of_dfs, month_col, item_col, pro_title):
     for jurisdiction, df in dict_of_dfs.items():
         pd.crosstab(df[month_col],df[item_col]).plot.barh(stacked=True, title=pro_title+' '+jurisdiction+' and month', figsize=(12,12))
 
-def make_area_stacked(dict_of_dfs, month_col, item_col, pro_title):
+def make_area_stacked_dfs(dict_of_dfs, month_col, item_col, pro_title):
     for jurisdiction, df in dict_of_dfs.items():
         pd.crosstab(df[month_col],df[item_col]).plot.area(stacked=True, title=pro_title+' '+jurisdiction+' and month', figsize=(12,12))
+
+def make_area_stacked_df(df, month_col, item_col, pro_title):
+    pd.crosstab(df[month_col],df[item_col]).plot.area(stacked=True, title=pro_title+' '+item_col+' and '+ month_col, figsize=(12,12))
+
+def make_barh_df(df, month_col, item_col, pro_title):
+    pd.crosstab(df[month_col],df[item_col]).plot.barh(stacked=True, title=pro_title+' '+item_col+' and '+ month_col, figsize=(12,12))
+
+def pick_dfs(permit_dfs):
+    for city,df in permit_dfs.items():
+        df.to_pickle('_data/pickles'+city+'.p')
+        
+def csv_dfs(permit_dfs):
+    for city,df in permit_dfs.items():
+        df.to_csv('_data/'+city+'.csv')
