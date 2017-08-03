@@ -178,6 +178,10 @@ def make_dfs(file_name):
 
     return permit_dfs
 
+def combine(series):
+    print(series)
+    return ' '.join([series[0].upper(),series[1]])
+
 def get_same_cols(dfs):
     headers_dict= {} 
     dataset_dict = {}
@@ -275,7 +279,8 @@ permittypemapped_list = ['Building',
                         'Roof',
                         'Fence',
                         'Grading',
-                        'Pool/Spa']
+                        'Pool',
+                        'Spa']
 
 def get_permittypemapped(series,permittypemapped_list):
     #print(series)
