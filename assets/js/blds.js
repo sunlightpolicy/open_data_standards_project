@@ -1,3 +1,6 @@
+---
+
+---
 
 function show_map() { 
 	var mymap = L.map('mapid', { zoomControl:false }).setView([42.3329,-71.0379],11);
@@ -15,8 +18,32 @@ function show_map() {
 
 function show_data(table, mymap) {
 
-	var demo = L.icon({iconUrl:'https://upload.wikimedia.org/wikipedia/commons/6/67/Hammer_icon_-_Noun_Project_8246.svg'}, iconSize: [19, 19] });
-	var fence = L.icon({iconUrl:'https://camo.githubusercontent.com/3d0b70e5e229dc6985ee795acb6c96fa03e0d5a7/68747470733a2f2f63646e312e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f7265616c2d6573746174652d7365742d322f3531322f34302d3531322e706e67',
-		}, iconSize: [19, 19] });
-	
+	var demo = L.icon({iconUrl:'https://upload.wikimedia.org/wikipedia/commons/6/67/Hammer_icon_-_Noun_Project_8246.svg', iconSize: [19, 19] });
+	var fence = L.icon({iconUrl:'https://camo.githubusercontent.com/3d0b70e5e229dc6985ee795acb6c96fa03e0d5a7/68747470733a2f2f63646e312e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f7265616c2d6573746174652d7365742d322f3531322f34302d3531322e706e67'
+		, iconSize: [19, 19] });
+	var roof = L.icon({iconUrl:'../images/roof.png', iconSize: [19, 19] });
+	var building = L.icon({iconUrl:'../images/building.png', iconSize: [19, 19] });
+	var pool = L.icon({iconUrl:'../images/pool.png', iconSize: [19, 19] });
+	var electric = L.icon({iconUrl:'../images/electric.png', iconSize: [19, 19] });
+	var grading = L.icon({iconUrl:'../images/grading.png', iconSize: [19, 19] });
+	var mechanic = L.icon({iconUrl:'../images/mechanic.png', iconSize: [19, 19] });
+	var plumbing = L.icon({iconUrl:'../images/mechanic.png', iconSize: [19, 19] });
+
+	if (table['permitypemapped'] === 'BUILDING'){
+	    var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
+	  }
+	  //else {
+	  //  var marker = L.marker([table['latitude'], table['longitude']], {icon: kcIcon}).bindPopup( '<p>'+ table['business_dba']+'</p>'+'<p>'+table['business_type']+ '</p>').addTo(mymap);
+	    //}
+	  //}
 }
+
+mymap = show_map();
+
+{% for table in site.data.blds_csvs.Tampa %}
+  
+  var table = {{ table | jsonify }};
+
+  show_data(table, mymap);
+
+{% endfor %}
