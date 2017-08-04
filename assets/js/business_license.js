@@ -23,17 +23,17 @@ function show_data(table, mymap) {
   var kcIcon = L.icon({ iconUrl: 'http://www.gaf.com/_Images/icon-star-on.svg', iconSize: [19, 19] });
   var licenseIcon = L.icon({ iconUrl: '../images/license.svg', iconSize: [19, 12] });
   
-  console.log(table[1]);
+  console.log(table);
 
   for (var i = 0; i < table.length; i++) {
 
     console.log(table[i].business_dba);
 
-    if (table[i]['city'] === 'INDEPENDENCE'){
-      var marker = L.marker([table[i]['latitude'], table[i]['longitude']], {icon: indIcon}).bindPopup( '<p>'+ table[i].business_dba+'</p>'+'<p>'+table[i].business_type+ '</p>').addTo(mymap);
+    if (table[1][i]['city'] === 'INDEPENDENCE'){
+      var marker = L.marker([table[1][i]['latitude'], table[1][i]['longitude']], {icon: indIcon}).bindPopup( '<p>'+ table[1][i].business_dba+'</p>'+'<p>'+table[1][i].business_type+ '</p>').addTo(mymap);
     }
     else {
-      var marker = L.marker([table[i]['latitude'], table[i]['longitude']], {icon: kcIcon}).bindPopup( '<p>'+ table[i].business_dba+'</p>'+'<p>'+table[i].business_type+ '</p>').addTo(mymap);
+      var marker = L.marker([table[1][i]['latitude'], table[1][i]['longitude']], {icon: kcIcon}).bindPopup( '<p>'+ table[1][i].business_dba+'</p>'+'<p>'+table[1][i].business_type+ '</p>').addTo(mymap);
     }
   }
 }
