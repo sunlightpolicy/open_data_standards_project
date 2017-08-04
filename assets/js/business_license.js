@@ -29,11 +29,11 @@ function show_data(table, mymap) {
 
     //console.log(table[i].business_dba);
 
-  if (table[i]['city'] === 'INDEPENDENCE'){
-    var marker = L.marker([table[i]['latitude'], table[i]['longitude']], {icon: indIcon}).bindPopup( '<p>'+ table[i].business_dba+'</p>'+'<p>'+table[1][i].business_type+ '</p>').addTo(mymap);
+  if (table['city'] === 'INDEPENDENCE'){
+    var marker = L.marker([table['latitude'], table['longitude']], {icon: indIcon}).bindPopup( '<p>'+ table['business_dba']+'</p>'+'<p>'+table['business_type']+ '</p>').addTo(mymap);
   }
   else {
-    var marker = L.marker([table[i]['latitude'], table[i]['longitude']], {icon: kcIcon}).bindPopup( '<p>'+ table[i].business_dba+'</p>'+'<p>'+table[1][i].business_type+ '</p>').addTo(mymap);
+    var marker = L.marker(table['latitude'], table['longitude']], {icon: kcIcon}).bindPopup( '<p>'+ table['business_dba']+'</p>'+'<p>'+table['business_type']+ '</p>').addTo(mymap);
     //}
   }
 }
