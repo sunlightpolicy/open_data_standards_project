@@ -1,7 +1,7 @@
 
 *_config
 */pickles
-*.csv
+*/blds_csvs
 *.RData
 *.Rhistory
 *Rapp.history
