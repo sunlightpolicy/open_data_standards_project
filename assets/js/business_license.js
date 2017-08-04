@@ -23,7 +23,9 @@ function show_data(table, mymap) {
   var kcIcon = L.icon({ iconUrl: 'http://www.gaf.com/_Images/icon-star-on.svg', iconSize: [19, 19] });
   var licenseIcon = L.icon({ iconUrl: '../images/license.svg', iconSize: [19, 12] });
   
-  for (var i = 0; i < table[1].length; i++) {
+  console.log(table)
+  
+  for (var i = 0; i < table.length; i++) {
 
     console.log(table[1][i].business_dba);
 
