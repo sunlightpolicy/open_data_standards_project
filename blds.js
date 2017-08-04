@@ -30,22 +30,18 @@ function show_data(table, mymap) {
 	var mechanic = L.icon({iconUrl:'../images/mechanic.png'}, iconSize: [19, 19] });
 	var plumbing = L.icon({iconUrl:'../images/mechanic.png'}, iconSize: [19, 19] });
 
-	for (var i = 0; i < table[1].length; i++) {
-
-	    console.log(table[1][i].business_dba);
-
-	    if (table[1][i]['permittypemapped'] === 'BUILDING'){
-	      var marker = L.marker([table[1][i]['latitude'], table[1][i]['longitude']], {icon: indIcon}).bindPopup( '<p>'+ table[1][i].business_dba+'</p>'+'<p>'+table[1][i].business_type+ '</p>').addTo(mymap);
-	    }
-	    //else {
-	    //  var marker = L.marker([table[1][i]['latitude'], table[1][i]['longitude']], {icon: kcIcon}).bindPopup( '<p>'+ table[1][i].business_dba+'</p>'+'<p>'+table[1][i].business_type+ '</p>').addTo(mymap);
-	    //}
+	if (table['permitypemapped'] === 'BUILDING'){
+	    var marker = L.marker([table['latitude'], table['longitude']], {icon: indIcon}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  }
+	  //else {
+	  //  var marker = L.marker([table['latitude'], table['longitude']], {icon: kcIcon}).bindPopup( '<p>'+ table['business_dba']+'</p>'+'<p>'+table['business_type']+ '</p>').addTo(mymap);
+	    //}
+	  //}
 }
 
 mymap = show_map();
 
-{% for table in site.data.blds_csvs.Boston %}
+{% for table in site.data.blds_csvs.Tampa %}
   
   var table = {{ table | jsonify }};
 
