@@ -39,7 +39,7 @@ function show_data(table, mymap) {
 
 mymap = show_map();
 
-{% for table in site.data%}
+{% for table in site.data.jackson%}
   
   var table = {{ table | jsonify }};
 
