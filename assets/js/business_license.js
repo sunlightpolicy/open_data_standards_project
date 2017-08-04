@@ -29,7 +29,7 @@ function show_data(table, mymap) {
 
     console.log(table[i].business_dba);
 
-    if (table[1][i]['city'] === 'INDEPENDENCE'){
+    if (table[i]['city'] === 'INDEPENDENCE'){
       var marker = L.marker([table[i]['latitude'], table[i]['longitude']], {icon: indIcon}).bindPopup( '<p>'+ table[i].business_dba+'</p>'+'<p>'+table[i].business_type+ '</p>').addTo(mymap);
     }
     else {
