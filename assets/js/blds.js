@@ -3,7 +3,7 @@
 ---
 
 function show_map() { 
-	var mymap = L.map('mapid', { zoomControl:false }).setView([42.3329,-71.0379],11);
+	var mymap = L.map('mapid', { zoomControl:false }).setView([32.8184,-116.3356],11);
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 	maxZoom: 18,
 	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
@@ -53,7 +53,7 @@ function show_data(table, mymap) {
 
 mymap = show_map();
 
-{% for table in site.data.Tampa %}
+{% for table in site.data.San_Diego %}
   
   var table = {{ table | jsonify }};
 
