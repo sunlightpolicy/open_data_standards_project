@@ -31,11 +31,11 @@ function show_data(table, mymap) {
 
 	console.log(table);
 	
-	if(table['permitypemapped'] != null){
-		pt = table['permitypemapped'].toLowerCase();
+	if(table['permittypemapped'] != null){
+		pt = table['permittypemapped'].toLowerCase();
 	}
 	else{
-		pt = table['permitypemapped']
+		pt = table['permittypemapped']
 	}
 
 	console.log( pt, table['latitude'], table['longitude']);
