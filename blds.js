@@ -31,7 +31,7 @@ function show_data(table, mymap) {
 	var plumbing = L.icon({iconUrl:'../images/mechanic.png', iconSize: [19, 19] });
 
 	if (table['permitypemapped'] === 'BUILDING'){
-	    var marker = L.marker([table['latitude'], table['longitude']], {icon: indIcon}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
+	    var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  }
 	  //else {
 	  //  var marker = L.marker([table['latitude'], table['longitude']], {icon: kcIcon}).bindPopup( '<p>'+ table['business_dba']+'</p>'+'<p>'+table['business_type']+ '</p>').addTo(mymap);
@@ -41,7 +41,7 @@ function show_data(table, mymap) {
 
 mymap = show_map();
 
-{% for table in site.data.blds_csvs.Tampa %}
+{% for table in site.data.Tampa %}
   
   var table = {{ table | jsonify }};
 
