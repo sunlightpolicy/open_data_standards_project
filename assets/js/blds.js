@@ -41,7 +41,9 @@ function show_data(table, mymap) {
 	console.log( pt, table['latitude'], table['longitude']);
 
 	if (pt === 'building'){
+		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
+	  	}
 	  }
 	  //else {
 	  //  var marker = L.marker([table['latitude'], table['longitude']], {icon: kcIcon}).bindPopup( '<p>'+ table['business_dba']+'</p>'+'<p>'+table['business_type']+ '</p>').addTo(mymap);
