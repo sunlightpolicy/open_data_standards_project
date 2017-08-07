@@ -44,31 +44,31 @@ function show_data(table, mymap) {
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  	}
-	elif (pt === 'roof'){
+	else if (pt === 'roof'){
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  	}
-  	elif (pt === 'demo'){
+  	else if (pt === 'demo'){
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  	}
-	elif (pt === 'fence'){
+	else if (pt === 'fence'){
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  	}
-	elif (pt === 'pool'){
+	else if (pt === 'pool'){
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  	]
-	elif (pt === 'mechanic'){
+	else if (pt === 'mechanic'){
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  	}
-	elif (pt === 'electric'){
+	else if (pt === 'electric'){
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  	]
-	elif (pt === 'grading'){
+	else if (pt === 'grading'){
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  	}
