@@ -44,34 +44,42 @@ function show_data(table, mymap) {
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  	}
+	  }
 	else if (pt === 'roofing'){
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: roof}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  	}
+	 }
   	else if (pt === 'demolition'){
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: demo}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  	}
+	  }
 	else if (pt === 'fencing'){
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: fence}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  	}
+	  }
 	else if (pt === 'pool' || pt == 'spa'){
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: pool}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  	}
+	  }
 	else if (pt === 'mechanical'){
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: mechanic}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  	}
+	  }
 	else if (pt === 'electrical'){
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: electric}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  	}
+	  }
 	else if (pt === 'grading'){
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: grading}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  	}
+	  }
 	else {
 		if(table['latitude'] != null){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: plumbing}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
