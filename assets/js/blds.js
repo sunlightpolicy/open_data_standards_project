@@ -29,6 +29,8 @@ function show_data(table, mymap) {
 	var mechanic = L.icon({iconUrl:'../images/mechanic.png', iconSize: [19, 19] });
 	var plumbing = L.icon({iconUrl:'../images/mechanic.png', iconSize: [19, 19] });
 
+	console.log(table);
+
 	if (table['permittypemapped'] === 'BUILDING'){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  }
