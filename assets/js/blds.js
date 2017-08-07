@@ -40,7 +40,7 @@ function show_data(table, mymap) {
 
 mymap = show_map();
 
-{% for table in site.data.blds_csvs.Tampa %}
+{% for table in site.data.Tampa %}
   
   var table = {{ table | jsonify }};
 
