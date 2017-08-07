@@ -31,7 +31,7 @@ function show_data(table, mymap) {
 
 	console.log(table);
 	
-	if(table['permitypemapped']){
+	if(table['permitypemapped'] != null){
 		pt = table['permitypemapped'].toLowerCase();
 	}
 	else{
@@ -39,7 +39,7 @@ function show_data(table, mymap) {
 	}
 
 	console.log( pt, table['latitude'], table['longitude']);
-	
+
 	if (pt === 'building'){
 	    var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
 	  }
