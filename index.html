@@ -8,7 +8,7 @@ title: Home
 
 {% include intro.html %}
 
-<section class="post-list">
+<!--<section class="post-list">
   <div class="container">
   <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
    integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="
@@ -18,7 +18,7 @@ title: Home
   <script src = 'assets/js/business_license.js'></script>
 
   </div>
-  
+
 <section class="post-list">
   <div class="container">
   <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
@@ -27,7 +27,22 @@ title: Home
   <div id="mapid" style="width: 600px; height: 400px;"></div>
 
 
-  <script src = 'assets/js/blds.js'></script>
+  <script src = 'assets/js/blds.js'></script>-->
+
+  <table>
+    <tbody>
+      <tr>
+        <td style = 'text-align: center; border: none'>
+          <iframe src='kc_ind.html' width = '616' height = '416'>
+          </iframe>
+        </td>
+        <td style = 'text-align: center; border: none'>
+          <iframe src='blds.html' width = '616' height = '416'>
+          </iframe>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
   {% for post in site.posts %}
     {% unless post.next %}
