@@ -104,6 +104,15 @@ function update_dict(permit_dict,pt){
 
 function create_line_chart(permit_dict, element){
 		var ctx = document.getElementById(element);
+
+		building = {{ site.data.SD_Building | jsonify }}
+		mechanical = {{ site.data.SD_Mechanical | jsonify }}
+		pool = {{ site.data.SD_Pool_Spa | jsonify }}
+		other = {{ site.data.Other | jsonify }}
+		plumbing = {{ site.data.Plumbing | jsonify }}
+
+		console.log(building)
+
 		var myChart = new Chart(ctx, {
 			type : 'line',
 			data:{
@@ -166,5 +175,6 @@ permit_dict =  {
 
 {% endfor %}
 
-create_line_chart(permit_dict, 'myChart');
+
+create_line_chart(permit_dict,'myChart');
 

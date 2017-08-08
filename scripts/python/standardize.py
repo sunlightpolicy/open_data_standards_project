@@ -330,4 +330,4 @@ def pick_dfs(permit_dfs):
         
 def csv_dfs(permit_dfs):
     for city,df in permit_dfs.items():
-        df.to_csv('_data/'+city+'.csv')
+        df.to_csv('_data/blds_csvs/cities/'+city+'.csv')
