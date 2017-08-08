@@ -102,7 +102,7 @@ function update_dict(permit_dict,pt){
 }
 
 
-function create_line_chart(Chart, permit_dict, element){
+function create_line_chart(permit_dict, element){
 		var ctx = document.getElementById(element);
 		var myChart = new Chart(ctx, {
 			type : 'line',
