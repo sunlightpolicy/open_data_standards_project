@@ -107,10 +107,10 @@ function create_line_chart(Chart, permit_dict, element){
 		var myChart = new Chart(ctx, {
 			type : 'line',
 			data:{
-				labels: permit_dict.keys(),
+				labels: Object.keys(permit_dict),
 				datasets: [{
 					label: 'Buildling Permits by type in San Diego by Month',
-					data: permit_dict.values(),
+					data: Object.values(permit_dict),
 					backgroundColor: [
 					                'rgba(255, 99, 132, 0.2)',
 					                'rgba(54, 162, 235, 0.2)',
