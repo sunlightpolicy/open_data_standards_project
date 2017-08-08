@@ -104,7 +104,6 @@ function update_dict(permit_dict,pt){
 
 
 function create_line_chart(permit_dict, element,document){
-		var Chart = require('node_modules/chartjs/chart.js');
 		var ctx = document.getElementById(element);
 		var myChart = new Chart(ctx, {
 			type : 'line',
