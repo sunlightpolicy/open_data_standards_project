@@ -2,6 +2,8 @@
 
 ---
 
+import create_line_chart from blds_chart;
+
 function show_map() { 
 	var mymap = L.map('mapid', { zoomControl:false }).setView([32.8715,-116.7723],9);
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
@@ -89,14 +91,43 @@ function show_data(table, mymap) {
 	  //  var marker = L.marker([table['latitude'], table['longitude']], {icon: kcIcon}).bindPopup( '<p>'+ table['business_dba']+'</p>'+'<p>'+table['business_type']+ '</p>').addTo(mymap);
 	    //}
 	  //}
+	return pt;
 }
 
+function update_dict(permit_dict,pt){
+
+	if (table['permittypemapped'] != null){
+		permit_dict[pt]+=1
+	}
+	return permit_dict;
+}
+
+
+
+
 mymap = show_map();
+
+permit_dict =  {
+	'building': 0,
+	'roofing': 0,
+	'demolition':0,
+	'fencing':0,
+	'pool/spa':0,
+	'electrical':0,
+	'grading':0,
+	'plumbing':0
+
+}
 
 {% for table in site.data.San_Diego %}
   
   var table = {{ table | jsonify }};
 
-  show_data(table, mymap);
+  pt = show_data(table, mymap);
+
+  permit_dict = update_dict(permit_dict,pt)
 
 {% endfor %}
+
+create_line_chart(permit_dict);
+
