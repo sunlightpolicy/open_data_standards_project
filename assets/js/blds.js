@@ -141,7 +141,7 @@ require(['assets/js/chartjs/chart.js'], function create_line_chart(Chart, permit
 		        }
 		    }
 		});
-	}
+	})
 
 mymap = show_map();
 
