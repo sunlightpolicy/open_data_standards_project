@@ -101,15 +101,63 @@ function update_dict(permit_dict,pt){
 	return permit_dict;
 }
 
+function make_permit_cat_dict(permit_cat_data){
+	permit_cat_dict = {
+		'building': {
+			'month':[],
+			'tally':[]},
+		'roofing': {
+			'month':[],
+			'tally':[]},
+		'demolition':{
+			'month':[],
+			'tally':[]},
+		'fencing':{
+			'month':[],
+			'tally':[]},
+		'pool/spa':{
+			'month':[],
+			'tally':[]},
+		'electrical':{
+			'month':[],
+			'tally':[]},
+		'grading':{
+			'month':[],
+			'tally':[]},
+		'plumbing':{
+			'month':[],
+			'tally':[]},
+		
+	}
+
+	for(row in permit_cat_data){
+		for(key in Object.keys(permit_cat_dict)){
+		permit_cat_dict[key]['tally'].push(row['tally']);
+		permit_cat_dict[key]['month'].push(row['issuedMonth']);
+		}
+	}
+
+	return permit_cat_dict;
+}
+
+building = {{ site.data.SD_Building | jsonify }};
+building_dict = make_permit_cat_dict(building);
+
+mechanical = {{ site.data.SD_Mechanical | jsonify }};
+mechanical_dict = make_permit_cat_dict(mechanical);
+
+pool = {{ site.data.SD_Pool_Spa | jsonify }};
+pool_dict = make_permit_cat_dict(pool);
+
+other = {{ site.data.Other | jsonify }};
+other_dict = make_permit_cat_dict(other);
+
+plumbing = {{ site.data.Plumbing | jsonify }};
+plumbing_dict = make_permit_cat_dict(plumbing);
+
 
 function create_line_chart(permit_dict, element){
 		var ctx = document.getElementById(element);
-
-		building = {{ site.data.SD_Building | jsonify }}
-		mechanical = {{ site.data.SD_Mechanical | jsonify }}
-		pool = {{ site.data.SD_Pool_Spa | jsonify }}
-		other = {{ site.data.Other | jsonify }}
-		plumbing = {{ site.data.Plumbing | jsonify }}
 
 		console.log(building.issuedMonth, building.tally)
 
