@@ -102,8 +102,7 @@ function update_dict(permit_dict,pt){
 }
 
 
-
-requirejs(['assets/js/chartjs/chart.js'], function create_line_chart(Chart, permit_dict, element){
+function create_line_chart(Chart, permit_dict, element){
 		var ctx = document.getElementById(element);
 		var myChart = new Chart(ctx, {
 			type : 'line',
@@ -141,7 +140,7 @@ requirejs(['assets/js/chartjs/chart.js'], function create_line_chart(Chart, perm
 		        }
 		    }
 		});
-	})
+	}
 
 mymap = show_map();
 
