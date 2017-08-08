@@ -111,7 +111,7 @@ function create_line_chart(permit_dict, element){
 		other = {{ site.data.Other | jsonify }}
 		plumbing = {{ site.data.Plumbing | jsonify }}
 
-		console.log(building)
+		console.log(building.issuedMonth, building.tally)
 
 		var myChart = new Chart(ctx, {
 			type : 'line',
