@@ -129,5 +129,5 @@ permit_dict =  {
 
 {% endfor %}
 
-create_line_chart(permit_dict);
+create_line_chart(permit_dict, 'myChart','blds.html');
 
