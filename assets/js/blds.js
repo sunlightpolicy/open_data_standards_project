@@ -103,7 +103,7 @@ function update_dict(permit_dict,pt){
 
 
 
-require(['assets/js/chartjs/chart.js'], function create_line_chart(Chart, permit_dict, element){
+requirejs(['assets/js/chartjs/chart.js'], function create_line_chart(Chart, permit_dict, element){
 		var ctx = document.getElementById(element);
 		var myChart = new Chart(ctx, {
 			type : 'line',
