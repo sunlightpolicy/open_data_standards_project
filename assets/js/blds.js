@@ -103,7 +103,7 @@ function update_dict(permit_dict,pt){
 
 
 
-function create_line_chart(permit_dict, element,document){
+function create_line_chart(permit_dict, element){
 		var ctx = document.getElementById(element);
 		var myChart = new Chart(ctx, {
 			type : 'line',
@@ -167,5 +167,5 @@ permit_dict =  {
 
 {% endfor %}
 
-create_line_chart(permit_dict, 'myChart','blds.html');
+create_line_chart(permit_dict, 'myChart');
 
