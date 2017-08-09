@@ -153,7 +153,7 @@ function create_line_chart(permit_dict, element){
 					                'rgba(255, 159, 64, 1)'
 					            ],
 					            borderWidth: 1
-					        }
+					        },
 					        {
 					label: tallies[2][0],
 					data: tallies[2].slice(1,13),
@@ -174,7 +174,7 @@ function create_line_chart(permit_dict, element){
 					                'rgba(255, 159, 64, 1)'
 					            ],
 					            borderWidth: 1
-					        }
+					        },
 					        {
 					label: tallies[3][0],
 					data: tallies[3].slice(1,13),
@@ -195,7 +195,7 @@ function create_line_chart(permit_dict, element){
 					                'rgba(255, 159, 64, 1)'
 					            ],
 					            borderWidth: 1
-					        }
+					        },
 					        {
 					label: tallies[4][0],
 					data: tallies[4].slice(1,13),
@@ -216,7 +216,7 @@ function create_line_chart(permit_dict, element){
 					                'rgba(255, 159, 64, 1)'
 					            ],
 					            borderWidth: 1
-					        }
+					        },
 					        {
 					label: tallies[5][0],
 					data: tallies[5].slice(1,13),
