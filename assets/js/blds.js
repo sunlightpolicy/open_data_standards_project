@@ -169,9 +169,11 @@ permit_dict =  {
 
 {% endfor %}
 
-test = {{ side.data.sd_tallies | jsonify }}
-
-console.log(test)
+{% for line in  side.data.sd_tallies %}
+	
+	var line = {{ line | jsonify}}
+	console.log(line)
+{% endfor %}
 
 create_line_chart(permit_dict,'myChart');
 
