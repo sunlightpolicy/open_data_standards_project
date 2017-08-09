@@ -171,10 +171,13 @@ permit_dict =  {
 
 {% for line in  site.data.sd_tallies %}
 	
-	var line_json = {{ line | jsonify}}
-	console.log(line['0'], line[0])
-	console.log(line)
+	var line = {{ line | jsonify}}
+	
 {% endfor %}
+
+var test = {{ site.data.sd_tallies | jsonify}}
+
+console.log(test)
 
 create_line_chart(permit_dict,'myChart');
 
