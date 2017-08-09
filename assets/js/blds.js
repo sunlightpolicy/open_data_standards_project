@@ -159,7 +159,6 @@ plumbing_dict = make_permit_cat_dict(plumbing);
 function create_line_chart(permit_dict, element){
 		var ctx = document.getElementById(element);
 
-		console.log(building.issuedMonth, building.tally)
 
 		var myChart = new Chart(ctx, {
 			type : 'line',
@@ -223,6 +222,9 @@ permit_dict =  {
 
 {% endfor %}
 
+test = {{ side.data.sd_tallies | jsonify}}
+
+console.log(test)
 
 create_line_chart(permit_dict,'myChart');
 
