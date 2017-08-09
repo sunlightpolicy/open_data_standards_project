@@ -331,3 +331,20 @@ def pick_dfs(permit_dfs):
 def csv_dfs(permit_dfs):
     for city,df in permit_dfs.items():
         df.to_csv('_data/blds_csvs/cities/'+city+'.csv')
+
+    #df is the permittype specific df
+def make_tally_list(df,permittype,permit_col, month_col):
+    tallies = [0]*12
+    tallies.insert(0,permittype)
+    df_by_permittype= df[df[permit_col]==permittype]
+    for m in range(1,13):
+        if m in set(df_by_permittype['issuedMonth'].values):
+            tallies[m] = int(df_by_permittype[df_by_permittype['issuedMonth'] == m].tally)
+    return tallies
+
+def tallies_by_permit(df,permit_col, month_col):
+    tally_permit_list = []
+    for p_type in set(df[permit_col].values):
+        print(p_type)
+        tally_permit_list.append(make_tally_list(df, p_type, permit_col,month_col))
+    return tally_permit_list
