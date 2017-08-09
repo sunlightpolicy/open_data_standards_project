@@ -114,7 +114,7 @@ function create_line_chart(permit_dict, element){
 				'October','November','December'],
 				datasets: [{
 					label: tallies[0][0],
-					data: tallies[0].slice(1,13),
+					data: tallies[0].slice(1,13);,
 					backgroundColor: [
 					                'rgba(255, 99, 132, 0.2)',
 					                'rgba(54, 162, 235, 0.2)',
@@ -135,7 +135,7 @@ function create_line_chart(permit_dict, element){
 					        },
 					        {
 					label: tallies[1][0],
-					data: tallies[1].slice(1,13),
+					data: tallies[1].slice(1,13);,
 					backgroundColor: [
 					                'rgba(255, 99, 132, 0.2)',
 					                'rgba(54, 162, 235, 0.2)',
@@ -156,7 +156,7 @@ function create_line_chart(permit_dict, element){
 					        },
 					        {
 					label: tallies[2][0],
-					data: tallies[2].slice(1,13),
+					data: tallies[2].slice(1,13);,
 					backgroundColor: [
 					                'rgba(255, 99, 132, 0.2)',
 					                'rgba(54, 162, 235, 0.2)',
@@ -177,7 +177,7 @@ function create_line_chart(permit_dict, element){
 					        },
 					        {
 					label: tallies[3][0],
-					data: tallies[3].slice(1,13),
+					data: tallies[3].slice(1,13);,
 					backgroundColor: [
 					                'rgba(255, 99, 132, 0.2)',
 					                'rgba(54, 162, 235, 0.2)',
@@ -198,7 +198,7 @@ function create_line_chart(permit_dict, element){
 					        },
 					        {
 					label: tallies[4][0],
-					data: tallies[4].slice(1,13),
+					data: tallies[4].slice(1,13);,
 					backgroundColor: [
 					                'rgba(255, 99, 132, 0.2)',
 					                'rgba(54, 162, 235, 0.2)',
@@ -219,7 +219,7 @@ function create_line_chart(permit_dict, element){
 					        },
 					        {
 					label: tallies[5][0],
-					data: tallies[5].slice(1,13),
+					data: tallies[5].slice(1,13);,
 					backgroundColor: [
 					                'rgba(255, 99, 132, 0.2)',
 					                'rgba(54, 162, 235, 0.2)',
