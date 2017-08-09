@@ -4,7 +4,7 @@
 
 
 function show_map() { 
-	var mymap = L.map('mapid', { zoomControl:false }).setView([32.8250,-117.1078],9);
+	var mymap = L.map('mapid', { zoomControl:false }).setView([33.0398,-116.9687],9);
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 	maxZoom: 18,
 	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
@@ -114,52 +114,46 @@ function create_line_chart(permit_dict, element){
 				'October','November','December'],
 				datasets: [{
 					label: tallies[0][0],
-					data: [Object.values(tallies[0]).slice(1,13)],
-					backgroundColor: [
-					                'rgba(255, 255, 255, 0.2)'],
+					data: Object.values(tallies[0]).slice(1,13),
+					backgroundColor: 'rgba(255, 255, 255, 0.2)',
 					            borderColor: [
 					                'rgba(255,99,132,1)'],
 					            borderWidth: 1
 					        },
 					        {
 					label: tallies[1][0],
-					data: [Object.values(tallies[1]).slice(1,13)],
-					backgroundColor: [
-					                'rgba(255, 255, 255, 0.2)'],
+					data: Object.values(tallies[1]).slice(1,13),
+					backgroundColor: 'rgba(255, 255, 255, 0.2)',
 					            borderColor: [
 					                'rgba(54, 162, 235, 1)'],
 					            borderWidth: 1
 					        },
 					        {
 					label: tallies[2][0],
-					data: [Object.values(tallies[2]).slice(1,13)],
-					backgroundColor: [
-					                'rgba(255, 255, 255, 0.2)'],
+					data: Object.values(tallies[2]).slice(1,13),
+					backgroundColor: 'rgba(255, 255, 255, 0.2)',
 					            borderColor: [
 					                'rgba(255, 206, 86, 1)'],
 					            borderWidth: 1
 					        },
 					        {
 					label: tallies[3][0],
-					data: [Object.values(tallies[3]).slice(1,13)],
-					backgroundColor: [
-					                'rgba(255, 255, 255, 0.2)'],
+					data: Object.values(tallies[3]).slice(1,13),
+					backgroundColor: 'rgba(255, 255, 255, 0.2)',
 					            borderColor: ['rgba(75, 192, 192, 1)'],
 					            borderWidth: 1
 					        },
 					        {
 					label: tallies[4][0],
-					data: [Object.values(tallies[4]).slice(1,13)],
-					backgroundColor: [
-					                'rgba(255, 255, 255, 0.2)'],
+					data: Object.values(tallies[4]).slice(1,13),
+					backgroundColor: 'rgba(255, 255, 255, 0.2)',
 					            borderColor: ['rgba(153, 102, 255, 1)'],
 					            borderWidth: 1
 					        },
 					        {
 					label: tallies[5][0],
-					data: [Object.values(tallies[5]).slice(1,13)],
-					backgroundColor: [
-					                'rgba(255, 255, 255, 0.2)'],
+					data: Object.values(tallies[5]).slice(1,13),
+					backgroundColor: 'rgba(255, 255, 255, 0.2)',
 					            borderColor: ['rgba(255, 159, 64, 1)'],
 					            borderWidth: 1
 					        }]
