@@ -171,7 +171,8 @@ permit_dict =  {
 
 {% for line in  site.data.sd_tallies %}
 	
-	var line = {{ line | jsonify}}
+	var line_json = {{ line | jsonify}}
+	console.log(line['0'], line[0])
 	console.log(line)
 {% endfor %}
 
