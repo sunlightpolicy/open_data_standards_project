@@ -115,6 +115,8 @@ function create_line_chart(permit_dict, element){
 				datasets: [{
 					label: tallies[0][0],
 					data: Object.values(tallies[0]).slice(1,13),
+					backgroundColor: [
+					                'rgba(255, 255, 255, 0.2)'],
 					            borderColor: [
 					                'rgba(255,99,132,1)'],
 					            borderWidth: 1
@@ -122,6 +124,8 @@ function create_line_chart(permit_dict, element){
 					        {
 					label: tallies[1][0],
 					data: Object.values(tallies[1]).slice(1,13),
+					backgroundColor: [
+					                'rgba(255, 255, 255, 0.2)'],
 					            borderColor: [
 					                'rgba(54, 162, 235, 1)'],
 					            borderWidth: 1
@@ -129,6 +133,8 @@ function create_line_chart(permit_dict, element){
 					        {
 					label: tallies[2][0],
 					data: Object.values(tallies[2]).slice(1,13),
+					backgroundColor: [
+					                'rgba(255, 255, 255, 0.2)'],
 					            borderColor: [
 					                'rgba(255, 206, 86, 1)'],
 					            borderWidth: 1
@@ -136,20 +142,25 @@ function create_line_chart(permit_dict, element){
 					        {
 					label: tallies[3][0],
 					data: Object.values(tallies[3]).slice(1,13),
-					
+					backgroundColor: [
+					                'rgba(255, 255, 255, 0.2)'],
 					            borderColor: ['rgba(75, 192, 192, 1)'],
 					            borderWidth: 1
 					        },
 					        {
 					label: tallies[4][0],
 					data: Object.values(tallies[4]).slice(1,13),
+					backgroundColor: [
+					                'rgba(255, 255, 255, 0.2)'],
 					            borderColor: ['rgba(153, 102, 255, 1)'],
 					            borderWidth: 1
 					        },
 					        {
 					label: tallies[5][0],
 					data: Object.values(tallies[5]).slice(1,13),
-								borderColor: ['rgba(255, 159, 64, 1)'],
+					backgroundColor: [
+					                'rgba(255, 255, 255, 0.2)'],
+					            borderColor: ['rgba(255, 159, 64, 1)'],
 					            borderWidth: 1
 					        }]
 					    },
