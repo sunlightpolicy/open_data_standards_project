@@ -168,12 +168,12 @@ colors = ['rgba(255,99,132,1)',
 
 {% endfor %}
 
-exp = {{ site.data.San_Diego | }};
+exp = {{ site.data.San_Diego.permittypemapped }};
 
-console.log(exp.permittypemapped)
+console.log(exp)
 
 
-var tallies = {{ site.data.sd_tallies.permittypemapped }}
+var tallies = {{ site.data.sd_tallies | jsonify}}
 
 
 data_info = tallies.map(function(i){
