@@ -173,7 +173,7 @@ exp = {{ site.data.San_Diego | }};
 console.log(exp.permittypemapped)
 
 
-var tallies = {{ site.data.sd_tallies | jsonify}}
+var tallies = {{ site.data.sd_tallies }}
 
 
 data_info = tallies.map(function(i){
