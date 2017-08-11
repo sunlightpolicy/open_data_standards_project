@@ -157,7 +157,7 @@ function create_line_chart(tallies, colors, element){
 					//             borderColor: ['rgba(255, 159, 64, 1)'],
 					//             borderWidth: 1
 					//         }
-					[JSON.parse(data_info)]
+					data_info
 					    },
 					    options: {
 					        scales: {
@@ -210,12 +210,14 @@ var tallies = {{ site.data.sd_tallies | jsonify}}
 console.log(tallies)
 
 data_info = tallies.map(function(i){
-  return {label: i[0],
+  data_obj = {label: i[0],
             data : Object.values(i).slice(1,13),
             backgroundColor : ['rgba(255,255,255,0.2)'],
             borderColor : [i[13]],
             borderWidth: 1}
-                                });
+                                }
+  return JSON.parse(data_obj)
+                                );
 
 create_line_chart(data_info,'myChart');
 
