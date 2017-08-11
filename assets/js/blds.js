@@ -30,7 +30,7 @@ function show_data(table, mymap) {
 	var mechanic = L.icon({iconUrl:'/open_data_standards_project/images/mechanic.png', iconSize: [19, 19] });
 	var plumbing = L.icon({iconUrl:'/open_data_standards_project/images/mechanic.png', iconSize: [19, 19] });
 
-	console.log(table);
+	//console.log(table);
 	
 	if(table['permittypemapped'] != null){
 		pt = table['permittypemapped'].toLowerCase();
@@ -39,7 +39,7 @@ function show_data(table, mymap) {
 		pt = table['permittypemapped']
 	}
 
-	console.log( pt, table['latitude'], table['longitude']);
+	//console.log( pt, table['latitude'], table['longitude']);
 
 	if (pt === 'building'){
 		if(table['latitude'] != null){
@@ -103,7 +103,7 @@ function update_dict(permit_dict,pt){
 
 
 
-function create_line_chart(permit_dict, element){
+function create_line_chart(tallies, element){
 		var ctx = document.getElementById(element);
 
 
@@ -112,51 +112,59 @@ function create_line_chart(permit_dict, element){
 			data:{
 				labels: ['January','February','March','April','May','June','July','August','September',
 				'October','November','December'],
-				datasets: [{
-					label: tallies[0][0],
-					data: Object.values(tallies[0]).slice(1,13),
-					backgroundColor: 'rgba(255, 255, 255, 0.2)',
-					            borderColor: [
-					                'rgba(255,99,132,1)'],
-					            borderWidth: 1
-					        },
-					        {
-					label: tallies[1][0],
-					data: Object.values(tallies[1]).slice(1,13),
-					backgroundColor: 'rgba(255, 255, 255, 0.2)',
-					            borderColor: [
-					                'rgba(54, 162, 235, 1)'],
-					            borderWidth: 1
-					        },
-					        {
-					label: tallies[2][0],
-					data: Object.values(tallies[2]).slice(1,13),
-					backgroundColor: 'rgba(255, 255, 255, 0.2)',
-					            borderColor: [
-					                'rgba(255, 206, 86, 1)'],
-					            borderWidth: 1
-					        },
-					        {
-					label: tallies[3][0],
-					data: Object.values(tallies[3]).slice(1,13),
-					backgroundColor: 'rgba(255, 255, 255, 0.2)',
-					            borderColor: ['rgba(75, 192, 192, 1)'],
-					            borderWidth: 1
-					        },
-					        {
-					label: tallies[4][0],
-					data: Object.values(tallies[4]).slice(1,13),
-					backgroundColor: 'rgba(255, 255, 255, 0.2)',
-					            borderColor: ['rgba(153, 102, 255, 1)'],
-					            borderWidth: 1
-					        },
-					        {
-					label: tallies[5][0],
-					data: Object.values(tallies[5]).slice(1,13),
-					backgroundColor: 'rgba(255, 255, 255, 0.2)',
-					            borderColor: ['rgba(255, 159, 64, 1)'],
-					            borderWidth: 1
-					        }]
+				datasets: [
+					// {
+					// label: tallies[0][0],
+					// data: Object.values(tallies[0]).slice(1,13),
+					// backgroundColor: 'rgba(255, 255, 255, 0.2)',
+					//             borderColor: [
+					//                 'rgba(255,99,132,1)'],
+					//             borderWidth: 1
+					//         },
+					//         {
+					// label: tallies[1][0],
+					// data: Object.values(tallies[1]).slice(1,13),
+					// backgroundColor: 'rgba(255, 255, 255, 0.2)',
+					//             borderColor: [
+					//                 'rgba(54, 162, 235, 1)'],
+					//             borderWidth: 1
+					//         },
+					//         {
+					// label: tallies[2][0],
+					// data: Object.values(tallies[2]).slice(1,13),
+					// backgroundColor: 'rgba(255, 255, 255, 0.2)',
+					//             borderColor: [
+					//                 'rgba(255, 206, 86, 1)'],
+					//             borderWidth: 1
+					//         },
+					//         {
+					// label: tallies[3][0],
+					// data: Object.values(tallies[3]).slice(1,13),
+					// backgroundColor: 'rgba(255, 255, 255, 0.2)',
+					//             borderColor: ['rgba(75, 192, 192, 1)'],
+					//             borderWidth: 1
+					//         },
+					//         {
+					// label: tallies[4][0],
+					// data: Object.values(tallies[4]).slice(1,13),
+					// backgroundColor: 'rgba(255, 255, 255, 0.2)',
+					//             borderColor: ['rgba(153, 102, 255, 1)'],
+					//             borderWidth: 1
+					//         },
+					//         {
+					// label: tallies[5][0],
+					// data: Object.values(tallies[5]).slice(1,13),
+					// backgroundColor: 'rgba(255, 255, 255, 0.2)',
+					//             borderColor: ['rgba(255, 159, 64, 1)'],
+					//             borderWidth: 1
+					//         }
+					tallies.map(function(i){
+  							return {label: i[0],
+					            data : Object.values(i).slice(1,13),
+					            backgroundColor : 'rgba(255,255,255,0.2)',
+					            borderColor : colors[i],
+					            borderWidth: 1}
+                                })]
 					    },
 					    options: {
 					        scales: {
