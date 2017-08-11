@@ -16,6 +16,13 @@ function show_map() {
 	return mymap;
 }
 
+function Data_obj(label,data,backgroundColor,borderColor,borderWidth){
+	this.label = label;
+	this.data = data;
+	this.backgroundColor = backgroundColor;
+	this.borderColor = borderColor;
+	this.borderWidth = borderWidth;
+}
 
 function show_data(table, mymap) {
 
@@ -157,7 +164,10 @@ function create_line_chart(tallies, colors, element){
 				// 	            borderColor: ['rgba(255, 159, 64, 1)'],
 				// 	            borderWidth: 1
 				// 	        }]
-					data_info.map(function(i){return i;})
+					tallies.map(function(i){
+					  return new Data_obj(i[0],Object.values(i).slice(1,13),
+					           	['rgba(255,255,255,0.2)'],
+					            [i[13]],1);})
 					    },
 					    options: {
 					        scales: {
@@ -214,20 +224,6 @@ data_info = tallies.map(function(i){
             borderColor : i[13],
             borderWidth: 1}});
 
-function Data_obj(label,data,backgroundColor,borderColor,borderWidth){
-	this.label = label;
-	this.data = data;
-	this.backgroundColor = backgroundColor;
-	this.borderColor = borderColor;
-	this.borderWidth = borderWidth;
-}
 
-data_info_1 = tallies.map(function(i){
-  return new Data_obj(i[0],Object.values(i).slice(1,13),
-           	['rgba(255,255,255,0.2)'],
-            [i[13]],1);});
-
-console.log(data_info_1);
-
-create_line_chart(data_info_1, colors, 'myChart');
+create_line_chart(tallies, colors, 'myChart');
 
