@@ -214,6 +214,7 @@ data_info = tallies.map(function(i){
             borderColor : i[13],
             borderWidth: 1}});
 
+function Data_obj(label,data,backgroundColor,borderColor,borderWidth){
 	this.label = label;
 	this.data = data;
 	this.backgroundColor = backgroundColor;
