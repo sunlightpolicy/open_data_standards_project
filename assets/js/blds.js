@@ -210,14 +210,11 @@ var tallies = {{ site.data.sd_tallies | jsonify}}
 console.log(tallies)
 
 data_info = tallies.map(function(i){
-  data_obj = {label: i[0],
+  return JSON.parse({label: i[0],
             data : Object.values(i).slice(1,13),
             backgroundColor : ['rgba(255,255,255,0.2)'],
             borderColor : [i[13]],
-            borderWidth: 1}
-                                }
-  return JSON.parse(data_obj)
-                                );
+            borderWidth: 1})});
 
 create_line_chart(data_info,'myChart');
 
