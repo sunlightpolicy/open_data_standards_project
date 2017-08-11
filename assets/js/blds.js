@@ -168,7 +168,7 @@ colors = ['rgba(255,99,132,1)',
 
 {% endfor %}
 
-exp = {{ site.data.San_Diego.permittypemapped }};
+exp = {{ site.data.San_Diego.permittypemapped | jsonify}};
 
 console.log(exp)
 
