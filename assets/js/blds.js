@@ -214,8 +214,8 @@ console.log(tallies)
 data_info = tallies.map(function(i){
   return {label: i[0],
             data : Object.values(i).slice(1,13),
-            backgroundColor : 'rgba(255,255,255,0.2)',
-            borderColor : i[13],
+            backgroundColor : ['rgba(255,255,255,0.2)'],
+            borderColor : [i[13]],
             borderWidth: 1}
                                 });
 
