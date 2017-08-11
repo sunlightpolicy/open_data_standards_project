@@ -111,7 +111,7 @@ function create_line_chart(tallies, colors, element){
 			data:{
 				labels: ['January','February','March','April','May','June','July','August','September',
 				'October','November','December'],
-				datasets: [
+				datasets: 
 					// {
 					// label: tallies[0][0],
 					// data: Object.values(tallies[0]).slice(1,13),
@@ -157,7 +157,7 @@ function create_line_chart(tallies, colors, element){
 					//             borderColor: ['rgba(255, 159, 64, 1)'],
 					//             borderWidth: 1
 					//         }
-					data_info]
+					data_info
 					    },
 					    options: {
 					        scales: {
@@ -200,8 +200,6 @@ colors = ['rgba(255,99,132,1)',
   var table = {{ table | jsonify }};
 
   pt = show_data(table, mymap);
-
-  permit_dict = update_dict(permit_dict, colors, pt)
 
 {% endfor %}
 
