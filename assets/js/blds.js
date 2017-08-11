@@ -207,14 +207,14 @@ colors = ['rgba(255,99,132,1)',
 var tallies = {{ site.data.sd_tallies | jsonify}}
 
 
-console.log(tallies)
-
 data_info = tallies.map(function(i){
-  return JSON.parse({label: i[0],
+  return {label: i[0],
             data : Object.values(i).slice(1,13),
             backgroundColor : ['rgba(255,255,255,0.2)'],
             borderColor : [i[13]],
-            borderWidth: 1})});
+            borderWidth: 1}});
+
+console.log(data_info);
 
 create_line_chart(data_info,'myChart');
 
