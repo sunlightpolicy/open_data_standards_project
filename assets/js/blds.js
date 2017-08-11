@@ -102,7 +102,7 @@ function update_dict(permit_dict,pt){
 }
 
 
-function create_line_chart(tallies, element){
+function create_line_chart(tallies, colors, element){
 		var ctx = document.getElementById(element);
 
 
@@ -185,13 +185,23 @@ permit_dict =  {
 
 }
 
+colors = ['rgba(255,99,132,1)',
+         'rgba(54, 162, 235, 1)',
+         'rgba(255, 206, 86, 1)',
+         'rgba(75, 192, 192, 1)',
+         'rgba(153, 102, 255, 1)',
+         'rgba(255, 159, 64, 1)',
+         'rgba(255, 51, 153, 1)',
+         'rgba(0, 204, 204, 1)',
+         'rgba(0, 0, 153, 1)']
+
 {% for table in site.data.San_Diego %}
   
   var table = {{ table | jsonify }};
 
   pt = show_data(table, mymap);
 
-  permit_dict = update_dict(permit_dict,pt)
+  permit_dict = update_dict(permit_dict, colors, pt)
 
 {% endfor %}
 
