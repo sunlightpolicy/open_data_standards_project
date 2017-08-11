@@ -101,7 +101,13 @@ function update_dict(permit_dict,pt){
 	return permit_dict;
 }
 
-
+data_info = tallies.map(function(i){
+  return {label: i[0],
+            data : Object.values(i).slice(1,13),
+            backgroundColor : 'rgba(255,255,255,0.2)',
+            borderColor : colors[i],
+            borderWidth: 1}
+                                })
 
 function create_line_chart(tallies, element){
 		var ctx = document.getElementById(element);
@@ -158,13 +164,7 @@ function create_line_chart(tallies, element){
 					//             borderColor: ['rgba(255, 159, 64, 1)'],
 					//             borderWidth: 1
 					//         }
-					tallies.map(function(i){
-  							return {label: i[0],
-					            data : Object.values(i).slice(1,13),
-					            backgroundColor : 'rgba(255,255,255,0.2)',
-					            borderColor : colors[i],
-					            borderWidth: 1}
-                                })]
+					data_info]
 					    },
 					    options: {
 					        scales: {
