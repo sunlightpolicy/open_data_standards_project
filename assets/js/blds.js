@@ -107,7 +107,7 @@ data_info = tallies.map(function(i){
             backgroundColor : 'rgba(255,255,255,0.2)',
             borderColor : colors[i],
             borderWidth: 1}
-                                })
+                                });
 
 function create_line_chart(tallies, element){
 		var ctx = document.getElementById(element);
