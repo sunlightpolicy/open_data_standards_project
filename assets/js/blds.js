@@ -157,7 +157,7 @@ function create_line_chart(tallies, colors, element){
 				// 	            borderColor: ['rgba(255, 159, 64, 1)'],
 				// 	            borderWidth: 1
 				// 	        }]
-					data_info
+					data_info.map(function(i){return i;});
 					    },
 					    options: {
 					        scales: {
