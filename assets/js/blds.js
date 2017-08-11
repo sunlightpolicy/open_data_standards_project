@@ -214,7 +214,7 @@ data_info = tallies.map(function(i){
             borderColor : [i[13]],
             borderWidth: 1}});
 
-console.lo(data_info)
+console.log(data_info);
 
 create_line_chart(data_info,'myChart');
 
