@@ -211,10 +211,22 @@ data_info = tallies.map(function(i){
   return {label: i[0],
             data : Object.values(i).slice(1,13),
             backgroundColor : ['rgba(255,255,255,0.2)'],
-            borderColor : [i[13]],
+            borderColor : i[13],
             borderWidth: 1}});
 
-console.log(data_info);
+	this.label = label;
+	this.data = data;
+	this.backgroundColor = backgroundColor;
+	this.borderColor = borderColor;
+	this.borderWidth = borderWidth;
+}
 
-create_line_chart(data_info, colors, 'myChart');
+data_info_1 = tallies.map(function(i){
+  return new Data_obj(i[0],Object.values(i).slice(1,13),
+           	['rgba(255,255,255,0.2)'],
+            [i[13]],1);});
+
+console.log(data_info_1);
+
+create_line_chart(data_info_1, colors, 'myChart');
 
