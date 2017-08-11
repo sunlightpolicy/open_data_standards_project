@@ -216,5 +216,5 @@ data_info = tallies.map(function(i){
 
 console.log(data_info);
 
-create_line_chart(tallies,'myChart',colors);
+create_line_chart(tallies, colors, 'myChart');
 
