@@ -111,7 +111,7 @@ function create_line_chart(tallies, colors, element){
 			data:{
 				labels: ['January','February','March','April','May','June','July','August','September',
 				'October','November','December'],
-				datasets: 
+				datasets: [
 					{
 					label: tallies[0][0],
 					data: Object.values(tallies[0]).slice(1,13),
@@ -156,7 +156,7 @@ function create_line_chart(tallies, colors, element){
 					backgroundColor: 'rgba(255, 255, 255, 0.2)',
 					            borderColor: ['rgba(255, 159, 64, 1)'],
 					            borderWidth: 1
-					        }
+					        }]
 					//data_info
 					    },
 					    options: {
