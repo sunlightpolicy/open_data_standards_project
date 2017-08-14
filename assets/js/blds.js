@@ -42,7 +42,10 @@ function plot_icon(pt, row, mymap){
 	pt_dict['grading'] = L.icon({iconUrl:'/open_data_standards_project/images/grading.png', iconSize: [19, 19] });
 	pt_dict['plumbing'] = L.icon({iconUrl:'/open_data_standards_project/images/mechanic.png', iconSize: [19, 19] });
 	
-
+	if(!(pt in Object.values(pt_dict))){
+		console.log(pt);
+	};
+	
 	if(row['latitude'] != null){
 	    var marker = L.marker([row['latitude'], row['longitude']], {icon: pt_dict[pt]}).bindPopup( '<p>'+ row['description']+'</p>'+'<p>'+row['issueddate']+ '</p>').addTo(mymap);
 	  	};
