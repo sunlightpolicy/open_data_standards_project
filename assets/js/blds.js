@@ -16,12 +16,34 @@ function show_map() {
 	return mymap;
 }
 
+
+
 function Data_obj(label,data,backgroundColor,borderColor,borderWidth){
 	this.label = label;
 	this.data = data;
 	this.backgroundColor = backgroundColor;
 	this.borderColor = borderColor;
 	this.borderWidth = borderWidth;
+}
+
+function plot_icon(pt, row){
+	
+	pt_dict = {
+	'building': L.icon({iconUrl:'/open_data_standards_project/images/building.png', iconSize: [19, 19] });,
+	'roofing': L.icon({iconUrl:'/open_data_standards_project/images/roof.png', iconSize: [19, 19] });,
+	'demolition': L.icon({iconUrl:'https://upload.wikimedia.org/wikipedia/commons/6/67/Hammer_icon_-_Noun_Project_8246.svg', iconSize: [19, 19] });,
+	'fencing': L.icon({iconUrl:'https://camo.githubusercontent.com/3d0b70e5e229dc6985ee795acb6c96fa03e0d5a7/68747470733a2f2f63646e312e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f7265616c2d6573746174652d7365742d322f3531322f34302d3531322e706e67'
+		, iconSize: [19, 19] });,
+	'pool': L.icon({iconUrl:'/open_data_standards_project/images/pool.png', iconSize: [19, 19] });,
+	'mechanical': L.icon({iconUrl:'/open_data_standards_project/images/mechanic.png', iconSize: [19, 19] });,
+	'electrical': L.icon({iconUrl:'/open_data_standards_project/images/mechanic.png', iconSize: [19, 19] });,
+	'grading':L.icon({iconUrl:'/open_data_standards_project/images/grading.png', iconSize: [19, 19] });,
+	'plumbing': L.icon({iconUrl:'/open_data_standards_project/images/mechanic.png', iconSize: [19, 19] });
+	};
+
+	if(row['latitude'] != null){
+	    var marker = L.marker([row['latitude'], row'longitude']], {icon: pt_dict[pt}).bindPopup( '<p>'+ row['description']+'</p>'+'<p>'+row['issueddate']+ '</p>').addTo(mymap);
+	  	};
 }
 
 function show_data(table, mymap) {
@@ -48,51 +70,52 @@ function show_data(table, mymap) {
 
 	//console.log( pt, table['latitude'], table['longitude']);
 
-	if (pt === 'building'){
-		if(table['latitude'] != null){
-	    var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
-	  	}
-	  }
-	else if (pt === 'roofing'){
-		if(table['latitude'] != null){
-	    var marker = L.marker([table['latitude'], table['longitude']], {icon: roof}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
-	  	}
-	 }
-  	else if (pt === 'demolition'){
-		if(table['latitude'] != null){
-	    var marker = L.marker([table['latitude'], table['longitude']], {icon: demo}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
-	  	}
-	  }
-	else if (pt === 'fencing'){
-		if(table['latitude'] != null){
-	    var marker = L.marker([table['latitude'], table['longitude']], {icon: fence}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
-	  	}
-	  }
-	else if (pt === 'pool' || pt == 'spa'){
-		if(table['latitude'] != null){
-	    var marker = L.marker([table['latitude'], table['longitude']], {icon: pool}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
-	  	}
-	  }
-	else if (pt === 'mechanical'){
-		if(table['latitude'] != null){
-	    var marker = L.marker([table['latitude'], table['longitude']], {icon: mechanic}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
-	  	}
-	  }
-	else if (pt === 'electrical'){
-		if(table['latitude'] != null){
-	    var marker = L.marker([table['latitude'], table['longitude']], {icon: electric}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
-	  	}
-	  }
-	else if (pt === 'grading'){
-		if(table['latitude'] != null){
-	    var marker = L.marker([table['latitude'], table['longitude']], {icon: grading}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
-	  	}
-	  }
-	else {
-		if(table['latitude'] != null){
-	    var marker = L.marker([table['latitude'], table['longitude']], {icon: plumbing}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
-	  	}
-	  }
+	plot_icon(pt,table);
+	// if (pt === 'building'){
+	// 	if(table['latitude'] != null){
+	//     var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
+	//   	}
+	//   }
+	// else if (pt === 'roofing'){
+	// 	if(table['latitude'] != null){
+	//     var marker = L.marker([table['latitude'], table['longitude']], {icon: roof}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
+	//   	}
+	//  }
+ //  	else if (pt === 'demolition'){
+	// 	if(table['latitude'] != null){
+	//     var marker = L.marker([table['latitude'], table['longitude']], {icon: demo}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
+	//   	}
+	//   }
+	// else if (pt === 'fencing'){
+	// 	if(table['latitude'] != null){
+	//     var marker = L.marker([table['latitude'], table['longitude']], {icon: fence}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
+	//   	}
+	//   }
+	// else if (pt === 'pool' || pt == 'spa'){
+	// 	if(table['latitude'] != null){
+	//     var marker = L.marker([table['latitude'], table['longitude']], {icon: pool}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
+	//   	}
+	//   }
+	// else if (pt === 'mechanical'){
+	// 	if(table['latitude'] != null){
+	//     var marker = L.marker([table['latitude'], table['longitude']], {icon: mechanic}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
+	//   	}
+	//   }
+	// else if (pt === 'electrical'){
+	// 	if(table['latitude'] != null){
+	//     var marker = L.marker([table['latitude'], table['longitude']], {icon: electric}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
+	//   	}
+	//   }
+	// else if (pt === 'grading'){
+	// 	if(table['latitude'] != null){
+	//     var marker = L.marker([table['latitude'], table['longitude']], {icon: grading}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
+	//   	}
+	//   }
+	// else {
+	// 	if(table['latitude'] != null){
+	//     var marker = L.marker([table['latitude'], table['longitude']], {icon: plumbing}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
+	//   	}
+	//   }
 	  //else {
 	  //  var marker = L.marker([table['latitude'], table['longitude']], {icon: kcIcon}).bindPopup( '<p>'+ table['business_dba']+'</p>'+'<p>'+table['business_type']+ '</p>').addTo(mymap);
 	    //}
