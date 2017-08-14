@@ -26,7 +26,7 @@ function Data_obj(label,data,backgroundColor,borderColor,borderWidth){
 	this.borderWidth = borderWidth;
 }
 
-function plot_icon(pt, row){
+function plot_icon(pt, row, mymap){
 	
 	pt_dict = {
 	'building': L.icon({iconUrl:'/open_data_standards_project/images/building.png', iconSize: [19, 19] }),
@@ -70,7 +70,7 @@ function show_data(table, mymap) {
 
 	//console.log( pt, table['latitude'], table['longitude']);
 
-	plot_icon(pt,table);
+	plot_icon(pt,table, mymap);
 	// if (pt === 'building'){
 	// 	if(table['latitude'] != null){
 	//     var marker = L.marker([table['latitude'], table['longitude']], {icon: building}).bindPopup( '<p>'+ table['description']+'</p>'+'<p>'+table['issueddate']+ '</p>').addTo(mymap);
