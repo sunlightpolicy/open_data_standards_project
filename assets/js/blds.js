@@ -45,10 +45,13 @@ function plot_icon(pt, row, mymap){
 	if(!(pt in Object.values(pt_dict))){
 		console.log(pt);
 	};
-	
+
 	if(row['latitude'] != null){
+		if(pt != null){
+
 	    var marker = L.marker([row['latitude'], row['longitude']], {icon: pt_dict[pt]}).bindPopup( '<p>'+ row['description']+'</p>'+'<p>'+row['issueddate']+ '</p>').addTo(mymap);
-	  	};
+	  	}
+	 };
 }
 
 function show_data(table, mymap) {
