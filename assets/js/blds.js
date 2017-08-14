@@ -41,10 +41,12 @@ function plot_icon(pt, row, mymap){
 	pt_dict['electrical'] = L.icon({iconUrl:'/open_data_standards_project/images/mechanic.png', iconSize: [19, 19] });
 	pt_dict['grading'] = L.icon({iconUrl:'/open_data_standards_project/images/grading.png', iconSize: [19, 19] });
 	pt_dict['plumbing'] = L.icon({iconUrl:'/open_data_standards_project/images/mechanic.png', iconSize: [19, 19] });
+	pt_dict['other'] =  L.icon({iconUrl:'https://upload.wikimedia.org/wikipedia/commons/2/25/Icon-round-Question_mark.jpg',
+		iconSize: [19, 19] });
 	
 	console.log(Object.keys(pt_dict));
 
-	if(!(pt in Object.keys(pt_dict))){
+	if(!pt_dict.hasOwnProperty(pt)){
 		console.log(pt);
 	};
 
