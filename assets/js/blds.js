@@ -93,7 +93,7 @@ function create_line_chart(tallies, colors, element){
 				 datasets: 
 					tallies.map(function(i){
 					  return new Data_obj(i[0],Object.values(i).slice(1,13),
-					           	['rgba(255,255,255,0.2)'],
+					           	['rgba(0,0,0,0.2)'],
 					            [i[13]],1);})
 					    },
 					    options: {
