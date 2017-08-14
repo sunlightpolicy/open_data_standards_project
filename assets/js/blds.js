@@ -38,9 +38,9 @@ function plot_icon(pt, row, mymap){
 	pt_dict['pool'] = L.icon({iconUrl:'/open_data_standards_project/images/pool.png', iconSize: [19, 19] });
 	pt_dict['pool/spa'] = L.icon({iconUrl:'/open_data_standards_project/images/pool.png', iconSize: [19, 19] });
 	pt_dict['mechanical'] = L.icon({iconUrl:'/open_data_standards_project/images/mechanic.png', iconSize: [19, 19] });
-	pt_dict['electrical'] = L.icon({iconUrl:'/open_data_standards_project/images/mechanic.png', iconSize: [19, 19] });
+	pt_dict['electrical'] = L.icon({iconUrl:'/open_data_standards_project/images/electric.png', iconSize: [19, 19] });
 	pt_dict['grading'] = L.icon({iconUrl:'/open_data_standards_project/images/grading.png', iconSize: [19, 19] });
-	pt_dict['plumbing'] = L.icon({iconUrl:'/open_data_standards_project/images/mechanic.png', iconSize: [19, 19] });
+	pt_dict['plumbing'] = L.icon({iconUrl:'/open_data_standards_project/images/toilet.png', iconSize: [19, 19] });
 	pt_dict['other'] =  L.icon({iconUrl:'https://upload.wikimedia.org/wikipedia/commons/2/25/Icon-round-Question_mark.jpg',
 		iconSize: [19, 19] });
 	
