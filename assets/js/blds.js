@@ -42,7 +42,7 @@ function plot_icon(pt, row){
 	};
 
 	if(row['latitude'] != null){
-	    var marker = L.marker([row['latitude'], row'longitude']], {icon: pt_dict[pt]}).bindPopup( '<p>'+ row['description']+'</p>'+'<p>'+row['issueddate']+ '</p>').addTo(mymap);
+	    var marker = L.marker([row['latitude'], row['longitude']], {icon: pt_dict[pt]}).bindPopup( '<p>'+ row['description']+'</p>'+'<p>'+row['issueddate']+ '</p>').addTo(mymap);
 	  	};
 }
 
