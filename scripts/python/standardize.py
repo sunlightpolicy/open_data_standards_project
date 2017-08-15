@@ -303,11 +303,11 @@ def not_null_then_upper(series):
     else:
         return series.upper()
 
-def add_year_month_day_dfs(dict_of_dfs, date_col):
+def add_year_month_day_dfs(dict_of_dfs, date_col, date_pre):
     for jurisdiction, df in dict_of_dfs.items():
-        df['issuedyear']= df[date_col].apply(lambda x: pd.to_datetime(x).year)
-        df['issuedmonth']= df[date_col].apply(lambda x: pd.to_datetime(x).month)
-        df['issuedday']= df[date_col].apply(lambda x: pd.to_datetime(x).dayofweek)
+        df[date_pre+'Year']= df[date_col].apply(lambda x: pd.to_datetime(x).year)
+        df[date_pre+'Month']= df[date_col].apply(lambda x: pd.to_datetime(x).month)
+        df[date_pre+'Day']= df[date_col].apply(lambda x: pd.to_datetime(x).dayofweek)
 
 def add_year_month_day_df(df, date_col, date_pre):
     df[date_pre+'Year']= df[date_col].apply(lambda x: pd.to_datetime(x).year)
