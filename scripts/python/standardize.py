@@ -5,7 +5,7 @@ import re
 import pandas as pd
 import numpy as np
 import io
-import geocoder
+#import geocoder
 import geopandas as gp
 import csv 
 import json
@@ -26,6 +26,10 @@ def scrape_datasets(main_url):
 
 	return [[x['href'].strip(url_pre) for x in bs4.BeautifulSoup(make_html(pm,results),'html.parser').find_all('a','browse2-result-name-link') if x['href']] for results in all_results]
 
+def print_nums(df):
+    for name in proc_data.city.unique():
+        print(name+': '+str(len(proc_data[proc_data.city==name])))
+        
 
 def make_one_column(datasets, name):
     return pd.concat([pd.Series(d) for d in datasets]).to_frame().rename(columns={0:name})
