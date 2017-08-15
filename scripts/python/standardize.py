@@ -26,9 +26,9 @@ def scrape_datasets(main_url):
 
 	return [[x['href'].strip(url_pre) for x in bs4.BeautifulSoup(make_html(pm,results),'html.parser').find_all('a','browse2-result-name-link') if x['href']] for results in all_results]
 
-def print_nums(df):
-    for name in proc_data.city.unique():
-        print(name+': '+str(len(proc_data[proc_data.city==name])))
+def print_nums(df, name_col):
+    for name in df[name_col].unique():
+        print(name+': '+str(len(df[df[name_col]==name])))
         
 
 def make_one_column(datasets, name):
