@@ -12,10 +12,11 @@ colors = ['rgba(255,99,132,1)',
          'rgba(0, 204, 204, 1)',
          'rgba(0, 0, 153, 1)']
 
-function Data_obj(label,data,colors){
+function Data_obj(label, data, xs, colors){
 	this.type = 'bubble';
 	this.label = city;
 	this.data = data;
+	this.labels == xs;
 	if(this.label == 'Washington DC'){
 		this.backgroundColor = colors[0];
 		this.borderColor = 'transparent';
@@ -38,10 +39,9 @@ function create_bubble_chart(procurement, colors, element, labels){
 
 		var myChart = new Chart(ctx, {
 			data:{
-				labels: labels,
 				 datasets: 
 					procurement.map(function(i){
-					  return new Data_obj(i[1],i[2],
+					  return new Data_obj(i[1],i[2], i[0],
 					           	colors);})
 					    },
 					    options: {
