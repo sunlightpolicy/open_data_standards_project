@@ -36,7 +36,7 @@ function unique_vals(procurement){
 	procurement.map(function(row){
 		console.log(row);
 		if(!(row[1] in unique_list)){
-			unique_list.push(Object.values(row[1]));
+			unique_list.push(row[1]);
 		}});
 
 	return unique_list;
