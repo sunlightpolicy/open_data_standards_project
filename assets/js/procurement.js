@@ -34,8 +34,8 @@ function Data_obj(label, data, xs, colors){
 function unique_vals(procurement){
 	unique_list = [];
 	for(row in procurement){
-		if(!(row['categoryMonth'] in unique_list)){
-			unique_list.push(row['categoryMonth']);
+		if(!(row[0] in unique_list)){
+			unique_list.push(row[0]);
 		}
 	}
 
