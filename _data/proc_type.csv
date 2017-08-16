@@ -1,0 +1,70 @@
+,categoryMonth,freqCat,city
+0,good 1,0.002201389152465176,Washington DC
+1,good 2,0.002239344137852507,Washington DC
+2,good 3,0.0023532090940144986,Washington DC
+3,good 4,0.0057691577788742555,Washington DC
+4,good 5,0.0060727976619729005,Washington DC
+5,good 6,0.0018597942839792007,Washington DC
+6,good 10,0.002011614225528523,Washington DC
+7,good 11,0.002011614225528523,Washington DC
+8,good 12,0.0026568489771131437,Washington DC
+9,service 1,0.015371769081868903,Washington DC
+10,service 2,0.017117698409686112,Washington DC
+11,service 3,0.030629673207575814,Washington DC
+12,service 4,0.016472463658101493,Washington DC
+13,service 5,0.028200554142786657,Washington DC
+14,service 6,0.01085512582077656,Washington DC
+15,service 10,0.01935704254753862,Washington DC
+16,service 11,0.025923255019546818,Washington DC
+17,service 12,0.027555319391202034,Washington DC
+18,work 1,0.06600371958856796,Washington DC
+19,work 2,0.07644134057008388,Washington DC
+20,work 3,0.09796181728470034,Washington DC
+21,work 4,0.07606179071621058,Washington DC
+22,work 5,0.11314381143963259,Washington DC
+23,work 6,0.04205412380916233,Washington DC
+24,work 10,0.12263255778646526,Washington DC
+25,work 11,0.10354120013663795,Washington DC
+26,work 12,0.08350096785212738,Washington DC
+27,good 1,0.004733218588640275,Baton Rouge
+28,good 2,0.0015060240963855422,Baton Rouge
+29,good 3,0.003227194492254733,Baton Rouge
+30,good 4,0.0015060240963855422,Baton Rouge
+31,good 5,0.013123924268502582,Baton Rouge
+32,good 6,0.00193631669535284,Baton Rouge
+33,good 7,0.0015060240963855422,Baton Rouge
+34,good 8,0.0006454388984509467,Baton Rouge
+35,service 1,0.022160068846815834,Baton Rouge
+36,service 2,0.020438898450946645,Baton Rouge
+37,service 3,0.017426850258175558,Baton Rouge
+38,service 4,0.018072289156626505,Baton Rouge
+39,service 5,0.027538726333907058,Baton Rouge
+40,service 6,0.01161790017211704,Baton Rouge
+41,service 7,0.016781411359724614,Baton Rouge
+42,service 8,0.009036144578313253,Baton Rouge
+43,work 1,0.05959552495697074,Baton Rouge
+44,work 2,0.04539586919104992,Baton Rouge
+45,work 3,0.0770223752151463,Baton Rouge
+46,work 4,0.0660499139414802,Baton Rouge
+47,work 5,0.125,Baton Rouge
+48,work 6,0.08261617900172118,Baton Rouge
+49,work 7,0.06755593803786575,Baton Rouge
+50,work 8,0.058089500860585196,Baton Rouge
+51,good 1,0.046,Miami
+52,good 2,0.05198,Miami
+53,good 3,0.07574,Miami
+54,good 4,0.06708,Miami
+55,good 5,0.07974,Miami
+56,good 6,0.04724,Miami
+57,service 1,0.01298,Miami
+58,service 2,0.01392,Miami
+59,service 3,0.01508,Miami
+60,service 4,0.01276,Miami
+61,service 5,0.01232,Miami
+62,service 6,0.00928,Miami
+63,work 1,0.0907,Miami
+64,work 2,0.09398,Miami
+65,work 3,0.10364,Miami
+66,work 4,0.09028,Miami
+67,work 5,0.10508,Miami
+68,work 6,0.0722,Miami
