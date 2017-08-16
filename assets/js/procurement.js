@@ -51,6 +51,7 @@ function create_bubble_chart(procurement, colors, element, labels){
 				 labels: labels,
 				 datasets: 
 					procurement.map(function(i){
+					  console.log(i);
 					  return new Data_obj(i[2],i[0],i[1],
 					           	colors);})
 					    },
