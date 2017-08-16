@@ -34,9 +34,9 @@ function Data_obj(label, data, xs, colors){
 function unique_vals(procurement){
 	unique_list = [];
 	procurement.map(function(row){
-		console.log(row);
-		if(!(row[1] in unique_list)){
-			unique_list.push(row[1]);
+		console.log(row['categoryMonth']);
+		if(!(row['categoryMonth'] in unique_list)){
+			unique_list.push(row['categoryMonth']);
 		}});
 
 	return unique_list;
