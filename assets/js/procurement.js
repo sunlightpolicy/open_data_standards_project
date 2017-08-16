@@ -14,7 +14,7 @@ colors = ['rgba(255,99,132,1)',
 
 function Data_obj(label, x,y, colors){
 	this.type = 'bubble';
-	this.label = city;
+	this.label = label;
 	this.x = x;
 	this.y = y;
 	if(this.label == 'Washington DC'){
