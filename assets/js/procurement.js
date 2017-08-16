@@ -33,7 +33,7 @@ function Data_obj(label, data, xs, colors){
 
 function unique_vals(procurement){
 	unique_list = [];
-	for(row in procurement){
+	for(row in Object.values(procurement)){
 		console.log(row);
 		if(!(Object.values(row)[1] in unique_list)){
 			unique_list.push(Object.values(row)[1]);
@@ -71,6 +71,6 @@ function create_bubble_chart(procurement, colors, element, labels){
 
 var procurement = {{ site.data.proc_type | jsonify}}
 
-console.log(unique_vals(Object.values(procurement[1])));
+console.log(unique_vals(procurement));
 
 //create_bubble_chart(procurement, colors, 'myChart2', Array.from(new Set(procurement[0])));
