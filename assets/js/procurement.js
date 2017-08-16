@@ -41,7 +41,7 @@ function create_bubble_chart(procurement, colors, element, labels){
 				labels: labels,
 				 datasets: 
 					procurement.map(function(i){
-					  return new Data_obj(i['city'],i['freqCat'],
+					  return new Data_obj(i[1],i[2],
 					           	colors);})
 					    },
 					    options: {
@@ -61,4 +61,4 @@ var procurement = {{ site.data.proc_type | jsonify}}
 
 console.log(procurement);
 
-create_bubble_chart(procurement, colors, 'myChart2');
+create_bubble_chart(procurement, colors, 'myChart2', Object.unique(array(procurement.categoryMonth)));
