@@ -34,6 +34,7 @@ function Data_obj(label, data, xs, colors){
 function unique_vals(procurement){
 	unique_list = [];
 	for(row in procurement){
+		console.log(row);
 		if(!(Object.values(row)[1] in unique_list)){
 			unique_list.push(Object.values(row)[1]);
 		}
