@@ -71,6 +71,6 @@ function create_bubble_chart(procurement, colors, element, labels){
 
 var procurement = {{ site.data.proc_type | jsonify}}
 
-console.log(unique_vals(Object.values(procurement)));
+console.log(unique_vals(Object.values(procurement[1])));
 
 //create_bubble_chart(procurement, colors, 'myChart2', Array.from(new Set(procurement[0])));
