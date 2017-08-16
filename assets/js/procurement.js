@@ -2,13 +2,32 @@
 
 ---
 
-function Data_obj(label,data,backgroundColor,borderColor,borderWidth){
+colors = ['rgba(255,99,132,1)',
+         'rgba(54, 162, 235, 1)',
+         'rgba(255, 206, 86, 1)',
+         'rgba(75, 192, 192, 1)',
+         'rgba(153, 102, 255, 1)',
+         'rgba(255, 159, 64, 1)',
+         'rgba(255, 51, 153, 1)',
+         'rgba(0, 204, 204, 1)',
+         'rgba(0, 0, 153, 1)']
+
+function Data_obj(label,data,colors){
 	this.type = 'bubble';
 	this.label = city;
 	this.data = data;
-	this.backgroundColor = backgroundColor;
-	this.borderColor = transparent;
-	this.borderWidth = borderWidth;
+	if(this.label == 'Washington DC'){
+		this.backgroundColor = colors[0];
+		this.borderColor = 'transparent';
+	}
+	else if(this.label == 'Miami'){
+		this.backgroundColor = colors[1];
+		this.borderColor = 'transparent';
+	}
+	else{
+		this.backgroundColor = colors[2];
+		this.borderColor = 'transparent';
+	}
 }
 
 
@@ -22,9 +41,8 @@ function create_bubble_chart(procurement, colors, element, labels){
 				labels: labels,
 				 datasets: 
 					procurement.map(function(i){
-					  return new Data_obj(i[0],Object.values(i).slice(1,13),
-					           	['rgba(0,0,0,0.2)'],
-					            [i[13]],1);})
+					  return new Data_obj(i['city'],i['freqCat'],
+					           	colors);})
 					    },
 					    options: {
 					        scales: {
@@ -42,4 +60,5 @@ function create_bubble_chart(procurement, colors, element, labels){
 var procurement = {{ site.data.proc_type | jsonify}}
 
 console.log(procurement);
-//create_bubble_chart(procurement, colors, 'myChart');
+
+create_bubble_chart(procurement, colors, 'myChart2');
