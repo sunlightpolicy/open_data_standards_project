@@ -33,11 +33,11 @@ function Data_obj(label, data, xs, colors){
 
 function unique_vals(procurement){
 	unique_list = [];
-	for(row in Object.values(procurement)){
+	procurement.map(function(row){
 		console.log(row);
-		if(!(Object.values(row)[1] in unique_list)){
-			unique_list.push(Object.values(row)[1]);
-		}
+		if(!(Object.values(row[1])in unique_list)){
+			unique_list.push(Object.values(row[1]));
+		}};)
 	}
 
 	return unique_list;
