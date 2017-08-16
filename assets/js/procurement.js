@@ -35,7 +35,7 @@ function unique_vals(procurement){
 	unique_list = [];
 	for(row in procurement){
 		if(!(row['categoryMonth'] in unique_list)){
-			unique_list.add(row['categoryMonth']);
+			unique_list.push(row['categoryMonth']);
 		}
 	}
 
