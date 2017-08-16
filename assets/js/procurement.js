@@ -35,7 +35,7 @@ function unique_vals(procurement){
 	unique_list = [];
 	procurement.map(function(row){
 		console.log(row['categoryMonth']);
-		unique_list.push(row['categoryMonth']);
+		unique_list.push(row['categoryMonth']);})
 
 	return Array.from(new Set(unique_list));
 }
