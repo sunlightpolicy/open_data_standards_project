@@ -52,7 +52,7 @@ function create_bubble_chart(procurement, colors, element, labels){
 				 datasets: 
 					procurement.map(function(i){
 					  console.log(i);
-					  return new Data_obj(i[2],i[0],i[1],
+					  return new Data_obj(i['city'],i['categoryMonth'],i['freqCat'],
 					           	colors);})
 					    },
 					    options: {
