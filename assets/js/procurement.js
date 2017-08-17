@@ -100,11 +100,9 @@ xy = make_xy(procurement, 'categoryMonth', 'freqCat');
 
 console.log(xy);
 
-//city_array = make_array(procurement,'city');
+city_array = make_array(procurement,'city');
 
-//color_array = make_color_array(procurement,'city');
-
-
+color_array = make_color_array(procurement,'city');
 
 
-//create_bubble_chart(xy, colors, 'myChart2', unique_vals(procurement));
+create_bubble_chart(xy, colors, 'myChart2', unique_vals(procurement));
