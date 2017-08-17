@@ -24,6 +24,7 @@ colors = ['rgba(255,99,132,1)',
 function make_xy(file, field1, field2, field3, field4, labels, colors){
 	new_array = []
 	for(i=0;i< procurement.length;i++){
+
 		if(procurement[i][field3] == 'Washington DC'){
 			if(procurement[i][field1] == 'good'){
 				color = colors[0];
@@ -34,10 +35,12 @@ function make_xy(file, field1, field2, field3, field4, labels, colors){
 			else{
 				color = colors[2];
 				}
-			else if(procurement[i][field3] == 'Miami'){
-				if(procurement[i][field1] == 'good'){
-				color = colors[3];
-				}
+			}
+
+		else if(procurement[i][field3] == 'Miami'){
+			if(procurement[i][field1] == 'good'){
+			color = colors[3];
+			}
 			else if(procurement[i][field1]== 'service'){
 				color = colors[4];
 				}
@@ -45,7 +48,8 @@ function make_xy(file, field1, field2, field3, field4, labels, colors){
 				color = colors[5];
 				}
 			}
-			else{
+			
+		else{
 				if(procurement[i][field1] == 'good'){
 				color = colors[6];
 				}
