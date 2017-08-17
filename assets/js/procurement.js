@@ -77,7 +77,7 @@ function make_array(file, field){
 // }
 
 
-function create_bubble_chart(xy, city_array, colors, element){
+function create_bubble_chart(xy, city_array, colors, element, labels_list){
 
 		var ctx = document.getElementById(element);
 
@@ -85,7 +85,7 @@ function create_bubble_chart(xy, city_array, colors, element){
 		var myChart = new Chart(ctx, {
 			type: 'bubble',
 			data:{
-				 labels: labels.map(function(x){return {labels.indexOf(x):x}}),
+				 labels: labels_list.map(function(x){return {labels_list.indexOf(x):x}}),
 				 datasets: 
 					xy
 					    },
