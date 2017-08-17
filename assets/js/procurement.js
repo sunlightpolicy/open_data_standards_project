@@ -129,12 +129,20 @@ function create_bubble_chart(xy, colors, element, labels_list){
 					            yAxes: [{
 					                ticks: {
 					                    beginAtZero:true
-						                }
+						                },
+						             scaleLabel: {
+								        display: true,
+								        labelString: 'Percentage of Procurement Contracts'
+      									}
 						            }],
 			            		xAxes: [{
 						                ticks: {
 						                    beginAtZero:true
-		        }
+		        },
+						             scaleLabel: {
+								        display: true,
+								        labelString: 'Month'
+      									}
 		    }],
 		}}});
 	}
