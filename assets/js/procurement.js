@@ -12,11 +12,19 @@ colors = ['rgba(255,99,132,1)',
          'rgba(0, 204, 204, 1)',
          'rgba(0, 0, 153, 1)']
 
-function plot_arrays(x,y, label, colors){
+function plot_arrays(xy, label, colors){
 	this.type = 'bubble';
 	this.label = label;
 	this.data = {x:x,y:y};
 	this.backgroundColor = color_array;
+}
+
+function make_xy(file,x,y){
+	new_array = []
+	for(i=0;i< procurement.length;i++){
+		new_array.push({x:procurement[i]['categoryMonth'],y:y[i]['freqCat']});
+	}
+	return new_array
 }
 
 function unique_vals(procurement){
@@ -82,16 +90,21 @@ function create_bubble_chart(catMonth_array,
 
 var procurement = {{ site.data.proc_type | jsonify}}
 
-console.log(unique_vals(procurement));
+//console.log(unique_vals(procurement));
 
-catMonth_array = make_array(procurement,'categoryMonth');
+//catMonth_array = make_array(procurement,'categoryMonth');
 
-frequency_array = make_array(procurement, 'freqCat');
+//frequency_array = make_array(procurement, 'freqCat');
 
-city_array = make_array(procurement,'city');
+xy = make_xy(procurement, 'categoryMonth', 'freqCat');
 
-color_array = make_color_array(procurement,'city');
+console.log(xy);
+
+//city_array = make_array(procurement,'city');
+
+//color_array = make_color_array(procurement,'city');
 
 
 
-create_bubble_chart(procurement, colors, 'myChart2', unique_vals(procurement));
+
+//create_bubble_chart(xy, colors, 'myChart2', unique_vals(procurement));
