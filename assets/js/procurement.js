@@ -16,7 +16,7 @@ function plot_arrays(xy, label, colors){
 	function Data_obj(xy, label, colors){
 		this.label = label;
 		this.data = xy;
-		this.backgroundColor = colors;
+		this.backgroundColor = colors[1];
 	}
 	return new Data_obj(xy,label, colors)
 }
