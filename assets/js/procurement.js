@@ -24,7 +24,7 @@ function plot_arrays(xy, label, colors){
 function make_xy(file,field1,field2,labels){
 	new_array = []
 	for(i=0;i< procurement.length;i++){
-		new_array.push({x:labels.indexOf(procurement[i][field1]),y:procurement[i][field2]});
+		new_array.push({x:labels.indexOf(procurement[i][field1]),y:procurement[i][field2], r: 1});
 	}
 	return new_array;
 }
