@@ -121,12 +121,15 @@ function create_bubble_chart(xy, colors, element, labels_list){
 					    },
 					    options: {
 					        scales: {
-					            yAxes: [{
-					                ticks: {
-					                    beginAtZero:true
-		                }
-		            }],
-		            xAxes: [{
+					        	legend: {
+						            display: false
+						         },
+				            yAxes: [{
+				                ticks: {
+				                    beginAtZero:true
+					                }
+					            }],
+		            		xAxes: [{
 					                ticks: {
 					                    beginAtZero:true
 		        }
