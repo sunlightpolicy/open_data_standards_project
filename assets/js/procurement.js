@@ -37,7 +37,7 @@ function make_xy(file, field3, field1, field2, labels, colors){
 		 backgroundColor:color,
 		  data:[{x:labels.indexOf(procurement[i][field1])/10,
 		  y:procurement[i][field2], 
-		  r: 1}]});
+		  r: 10}]});
 	}
 	return new_array;
 }
