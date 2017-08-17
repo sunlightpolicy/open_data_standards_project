@@ -76,20 +76,19 @@ function create_bubble_chart(xy, city_array, color_array, element, labels){
 				 datasets: 
 					plot_arrays(xy, city_array, color_array)
 					    },
-		    	options: { Chart.defaults.bubble}
-// 			        scales: {
-// 			            yAxes: [{
-// 			                ticks: {
-// 			                    beginAtZero:true
-//                 }
-//             }],
-//             xAxes: [{
-// 			                ticks: {
-// 			                    beginAtZero:true
-//         }
-//     }],
-// }}}
-		});
+					    options: {
+					        scales: {
+					            yAxes: [{
+					                ticks: {
+					                    beginAtZero:true
+		                }
+		            }],
+		            xAxes: [{
+					                ticks: {
+					                    beginAtZero:true
+		        }
+		    }],
+		}}});
 	}
 
 
