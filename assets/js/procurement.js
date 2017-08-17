@@ -45,7 +45,6 @@ function make_xy(file, field3, field1, field2, labels, colors){
 function unique_vals(procurement){
 	unique_list = [];
 	procurement.map(function(row){
-		console.log(row['categoryMonth']);
 		unique_list.push(row['categoryMonth']);})
 
 	return Array.from(new Set(unique_list));
@@ -85,7 +84,7 @@ function create_bubble_chart(xy, city_array, colors, element, labels_list){
 		var myChart = new Chart(ctx, {
 			type: 'bubble',
 			data:{
-				 labels: labels_list.map(function(x){return {labels_list.indexOf(x):x}}),
+				 labels: labels_list.map(function(x,index){return {index:x}}) ,
 				 datasets: 
 					xy
 					    },
