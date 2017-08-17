@@ -12,22 +12,11 @@ colors = ['rgba(255,99,132,1)',
          'rgba(0, 204, 204, 1)',
          'rgba(0, 0, 153, 1)']
 
-function Data_obj(label, x,y, colors){
+function plot_arrays(x,y, label, colors){
 	this.type = 'bubble';
 	this.label = label;
 	this.data = {x:x,y:y};
-	if(this.label == 'Washington DC'){
-		this.backgroundColor = colors[0];
-		this.borderColor = 'transparent';
-	}
-	else if(this.label == 'Miami'){
-		this.backgroundColor = colors[1];
-		this.borderColor = 'transparent';
-	}
-	else{
-		this.backgroundColor = colors[2];
-		this.borderColor = 'transparent';
-	}
+	this.backgroundColor = color_array;
 }
 
 function unique_vals(procurement){
@@ -39,9 +28,35 @@ function unique_vals(procurement){
 	return Array.from(new Set(unique_list));
 }
 
+function make_array(file, field){
+	new_array = [];
+	file.map((function(row)){
+		console.log(row[field]);
+		new_array.push(row[field]);})
+	return new_array;
+}
+
+function make_color_array(file, field){
+	new_array = [];
+		file.map((function(row)){
+			console.log(row[field]);
+			if(row[field]] == 'Washington DC'){
+				new_array.push(colors[0]);
+			}
+			else if(row[field] == 'Miami'){
+				new_array.push(colors[1]);
+			}
+			else{
+				new_array.push(colors[2]);
+			}
+		return new_array;
+}
 
 
-function create_bubble_chart(procurement, colors, element, labels){
+function create_bubble_chart(catMonth_array, 
+	frequency_array, city_array, color_array,
+	 colors, element, labels){
+
 		var ctx = document.getElementById(element);
 
 
@@ -49,10 +64,7 @@ function create_bubble_chart(procurement, colors, element, labels){
 			data:{
 				 labels: labels,
 				 datasets: 
-					procurement.map(function(i){
-					  console.log(i);
-					  return new Data_obj(i['city'],i['categoryMonth'],i['freqCat'],
-					           	colors);})
+					plot_arrays(catMonth_array, frequency_array, city_array, color_array);
 					    },
 					    options: {
 					        scales: {
@@ -70,5 +82,15 @@ function create_bubble_chart(procurement, colors, element, labels){
 var procurement = {{ site.data.proc_type | jsonify}}
 
 console.log(unique_vals(procurement));
+
+catMonth_array = make_array(procurement,'categoryMonth');
+
+frequency_array = make_array(procurement, 'freqCat');
+
+city_array = make_array(procurement,'city');
+
+color_array = make_color_array(procurement,'city');
+
+
 
 create_bubble_chart(procurement, colors, 'myChart2', unique_vals(procurement));
