@@ -123,7 +123,7 @@ function create_bubble_chart(xy, colors, element, labels_list){
 						            display: false
 						         },
 						    tooltips: {
-						            enabled: false
+						            enabled: true
 						         },
 						    scales: {
 					            yAxes: [{
