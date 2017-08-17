@@ -23,6 +23,7 @@ colors = ['rgba(255,99,132,1)',
 
 function make_xy(file, field1, field2, field3, field4, labels, colors){
 	new_array = []
+	label_array=[]
 	for(i=0;i< procurement.length;i++){
 
 		if(procurement[i][field3] == 'Washington DC'){
@@ -48,7 +49,7 @@ function make_xy(file, field1, field2, field3, field4, labels, colors){
 				color = colors[5];
 				}
 			}
-			
+
 		else{
 				if(procurement[i][field1] == 'good'){
 				color = colors[6];
@@ -61,7 +62,9 @@ function make_xy(file, field1, field2, field3, field4, labels, colors){
 				}
 			}
 
-		new_array.push({label:procurement[i][field3].concat(' ').concat(procurement[i][field1]),
+		label_array.push(procurement[i][field3].concat(' ').concat(procurement[i][field1]));
+
+		new_array.push({ label: unique_vals(label_array),
 		 backgroundColor:color,
 		  data:[{x:procurement[i][field4],
 		  y:procurement[i][field2], 
@@ -70,10 +73,10 @@ function make_xy(file, field1, field2, field3, field4, labels, colors){
 	return new_array;
 }
 
-function unique_vals(procurement){
+function unique_vals(array,field1){
 	unique_list = [];
-	procurement.map(function(row){
-		unique_list.push(row['months']);})
+	array.map(function(row){
+		unique_list.push(row[field1]);})
 
 	return Array.from(new Set(unique_list));
 }
@@ -104,7 +107,7 @@ function make_array(file, field){
 // }
 
 
-function create_bubble_chart(xy, colors, element, labels_list){
+function create_bubble_chart(xy, label_array, colors, element, labels_list){
 
 		var ctx = document.getElementById(element);
 
@@ -140,7 +143,7 @@ var procurement = {{ site.data.proc_type2 | jsonify}}
 
 //frequency_array = make_array(procurement, 'freqCat');
 
-labels = unique_vals(procurement);
+labels = unique_vals(procurement,'months');
 
 xy = make_xy(procurement, 'category', 'freqCat', 'city', 'months', labels, colors);
 
