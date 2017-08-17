@@ -21,7 +21,7 @@ function plot_arrays(xy){
 	return new Data_obj(xy)
 }
 
-function make_xy(file, field3,field1,field2,colors){
+function make_xy(file, field3, field1, field2, labels, colors){
 	new_array = []
 	for(i=0;i< procurement.length;i++){
 		if(procurement[i][field3] == 'Washington DC'){
@@ -115,7 +115,7 @@ var procurement = {{ site.data.proc_type | jsonify}}
 
 labels = unique_vals(procurement);
 
-xy = make_xy(procurement,'city', 'categoryMonth', 'freqCat', labels);
+xy = make_xy(procurement,'city', 'categoryMonth', 'freqCat', labels, colors);
 
 console.log(xy);
 
