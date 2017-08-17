@@ -13,10 +13,13 @@ colors = ['rgba(255,99,132,1)',
          'rgba(0, 0, 153, 1)']
 
 function plot_arrays(xy, label, colors){
-	this.type = 'bubble';
-	this.label = label;
-	this.data = xy;
-	this.backgroundColor = colors;
+	function Data_obj(xy, label, colors){
+		this.type = 'bubble';
+		this.label = label;
+		this.data = xy;
+		this.backgroundColor = colors;
+	}
+	return new Data_obj(xy, label, colors)
 }
 
 function make_xy(file,field1,field2,labels){
@@ -71,7 +74,7 @@ function create_bubble_chart(xy, city_array, color_array, element, labels){
 			data:{
 				 labels: labels,
 				 datasets: 
-					return new plot_arrays(xy, city_array, color_array)
+					plot_arrays(xy, city_array, color_array)
 					    },
 					    options: {
 					        scales: {
