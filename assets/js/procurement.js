@@ -28,7 +28,7 @@ function make_xy(file, field1, field2, field3, field4, labels, colors){
 			if(procurement[i][field1] == 'good'){
 				color = colors[0];
 				}
-			elif(procurement[i][field1]== 'service'){
+			else if(procurement[i][field1]== 'service'){
 				color = colors[1];
 				}
 			else{
@@ -38,7 +38,7 @@ function make_xy(file, field1, field2, field3, field4, labels, colors){
 				if(procurement[i][field1] == 'good'){
 				color = colors[3];
 				}
-			elif(procurement[i][field1]== 'service'){
+			else if(procurement[i][field1]== 'service'){
 				color = colors[4];
 				}
 			else{
@@ -49,7 +49,7 @@ function make_xy(file, field1, field2, field3, field4, labels, colors){
 				if(procurement[i][field1] == 'good'){
 				color = colors[6];
 				}
-			elif(procurement[i][field1]== 'service'){
+			else if(procurement[i][field1]== 'service'){
 				color = colors[7];
 				}
 			else{
