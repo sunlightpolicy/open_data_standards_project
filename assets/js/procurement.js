@@ -15,7 +15,7 @@ colors = ['rgba(255,99,132,1)',
 function plot_arrays(xy, label, colors){
 	this.type = 'bubble';
 	this.label = label;
-	this.data = {x:x,y:y};
+	this.data = xy;
 	this.backgroundColor = color_array;
 }
 
