@@ -107,7 +107,7 @@ function make_array(file, field){
 // }
 
 
-function create_bubble_chart(xy, label_array, colors, element, labels_list){
+function create_bubble_chart(xy, colors, element, labels_list){
 
 		var ctx = document.getElementById(element);
 
