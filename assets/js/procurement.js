@@ -62,9 +62,8 @@ function make_xy(file, field1, field2, field3, field4, labels, colors){
 				}
 			}
 
-		label_array.push(procurement[i][field3].concat(' ').concat(procurement[i][field1]));
-
-		new_array.push({ label: unique_vals(label_array),
+	
+		new_array.push({ label: procurement[i][field3].concat(' ').concat(procurement[i][field1]),
 		 backgroundColor:color,
 		  data:[{x:procurement[i][field4],
 		  y:procurement[i][field2], 
