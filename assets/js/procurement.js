@@ -15,8 +15,7 @@ colors = ['rgba(255,99,132,1)',
 function Data_obj(label, x,y, colors){
 	this.type = 'bubble';
 	this.label = label;
-	this.x = x;
-	this.y = y;
+	this.data = {x:x,y:y};
 	if(this.label == 'Washington DC'){
 		this.backgroundColor = colors[0];
 		this.borderColor = 'transparent';
