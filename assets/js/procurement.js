@@ -16,7 +16,7 @@ function plot_arrays(xy, label, colors){
 	this.type = 'bubble';
 	this.label = label;
 	this.data = xy;
-	this.backgroundColor = color_array;
+	this.backgroundColor = colors;
 }
 
 function make_xy(file,field1,field2){
