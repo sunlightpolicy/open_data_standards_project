@@ -73,7 +73,7 @@ function create_bubble_chart(catMonth_array,
 			data:{
 				 labels: labels,
 				 datasets: 
-					plot_arrays(catMonth_array, frequency_array, city_array, color_array)
+					plot_arrays(xy, city_array, color_array)
 					    },
 					    options: {
 					        scales: {
