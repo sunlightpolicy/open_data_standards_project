@@ -21,7 +21,7 @@ function plot_arrays(xy){
 	return new Data_obj(xy)
 }
 
-function make_xy(file,field1,field2,colors){
+function make_xy(file, field3,field1,field2,colors){
 	new_array = []
 	for(i=0;i< procurement.length;i++){
 		if(procurement[i][field3] == 'Washington DC'){
