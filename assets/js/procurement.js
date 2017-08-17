@@ -14,9 +14,9 @@ colors = ['rgba(255,99,132,1)',
 
 function plot_arrays(xy, label, colors){
 	function Data_obj(xy, label, colors){
-		this.label = label;
+		//this.label = label;
 		this.data = xy;
-		this.backgroundColor = colors[1];
+		//this.backgroundColor = colors;
 	}
 	return new Data_obj(xy,label, colors)
 }
