@@ -12,19 +12,32 @@ colors = ['rgba(255,99,132,1)',
          'rgba(0, 204, 204, 1)',
          'rgba(0, 0, 153, 1)']
 
-function plot_arrays(xy, label, colors){
-	function Data_obj(xy, label, colors){
+function plot_arrays(xy){
+	function Data_obj(xy){
 		//this.label = label;
 		this.data = xy;
 		//this.backgroundColor = colors;
 	}
-	return new Data_obj(xy,label, colors)
+	return new Data_obj(xy)
 }
 
-function make_xy(file,field1,field2,labels){
+function make_xy(file,field1,field2,colors){
 	new_array = []
 	for(i=0;i< procurement.length;i++){
-		new_array.push({x:labels.indexOf(procurement[i][field1]),y:procurement[i][field2], r: 1});
+		if(procurement[i][field3] == 'Washington DC'){
+				color = colors[0];
+			}
+			else if(procurement[i][field3] == 'Miami'){
+				color = colors[1];
+			}
+			else{
+				color = colors[2];
+			}
+		new_array.push({label:procurement[i][field3],
+		 backgroundColor:color,
+		  data:[{x:labels.indexOf(procurement[i][field1]),
+		  y:procurement[i][field2], 
+		  r: 1}]});
 	}
 	return new_array;
 }
@@ -46,25 +59,25 @@ function make_array(file, field){
 	return new_array;
 }
 
-function make_color_array(file, field){
-	new_array = [];
-		file.map(function(row){
-			console.log(row[field]);
-			if(row[field] == 'Washington DC'){
-				new_array.push(colors[0]);
-			}
-			else if(row[field] == 'Miami'){
-				new_array.push(colors[1]);
-			}
-			else{
-				new_array.push(colors[2]);
-			}})
+// function make_color_array(file, field){
+// 	new_array = [];
+// 		file.map(function(row){
+// 			console.log(row[field]);
+// 			if(row[field] == 'Washington DC'){
+// 				new_array.push(colors[0]);
+// 			}
+// 			else if(row[field] == 'Miami'){
+// 				new_array.push(colors[1]);
+// 			}
+// 			else{
+// 				new_array.push(colors[2]);
+// 			}})
 	
-	return new_array
-}
+// 	return new_array
+// }
 
 
-function create_bubble_chart(xy, city_array, color_array, element, labels){
+function create_bubble_chart(xy, city_array, colors, element){
 
 		var ctx = document.getElementById(element);
 
@@ -74,7 +87,7 @@ function create_bubble_chart(xy, city_array, color_array, element, labels){
 			data:{
 				 //labels: labels,
 				 datasets: 
-					plot_arrays(xy, city_array, color_array)
+					plot_arrays(xy)
 					    },
 					    options: {
 					        scales: {
@@ -102,7 +115,7 @@ var procurement = {{ site.data.proc_type | jsonify}}
 
 labels = unique_vals(procurement);
 
-xy = make_xy(procurement, 'categoryMonth', 'freqCat', labels);
+xy = make_xy(procurement,'city', 'categoryMonth', 'freqCat', labels);
 
 console.log(xy);
 
@@ -110,7 +123,7 @@ console.log(xy);
 
 city_array = make_array(procurement,'city');
 
-color_array = make_color_array(procurement,'city');
+//color_array = make_color_array(procurement,'city');
 
 
-create_bubble_chart(xy, city_array, color_array, 'myChart2', labels);
+create_bubble_chart(xy, city_array, colors, 'myChart2', labels);
