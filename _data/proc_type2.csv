@@ -1,346 +1,70 @@
-,category,freqCat,city,month
-0,good,0.002201389152465176,Washington DC,1.0
-1,good,0.002239344137852507,Washington DC,2.0
-2,good,0.0023532090940144986,Washington DC,3.0
-3,good,0.0057691577788742555,Washington DC,4.0
-4,good,0.0060727976619729005,Washington DC,5.0
-5,good,0.0018597942839792007,Washington DC,6.0
-6,good,0.002011614225528523,Washington DC,10.0
-7,good,0.002011614225528523,Washington DC,11.0
-8,good,0.0026568489771131437,Washington DC,12.0
-9,service,0.015371769081868903,Washington DC,1.0
-10,service,0.017117698409686112,Washington DC,2.0
-11,service,0.030629673207575814,Washington DC,3.0
-12,service,0.016472463658101493,Washington DC,4.0
-13,service,0.028200554142786657,Washington DC,5.0
-14,service,0.01085512582077656,Washington DC,6.0
-15,service,0.01935704254753862,Washington DC,10.0
-16,service,0.025923255019546818,Washington DC,11.0
-17,service,0.027555319391202034,Washington DC,12.0
-18,work,0.06600371958856796,Washington DC,1.0
-19,work,0.07644134057008388,Washington DC,2.0
-20,work,0.09796181728470034,Washington DC,3.0
-21,work,0.07606179071621058,Washington DC,4.0
-22,work,0.11314381143963259,Washington DC,5.0
-23,work,0.04205412380916233,Washington DC,6.0
-24,work,0.12263255778646526,Washington DC,10.0
-25,work,0.10354120013663795,Washington DC,11.0
-26,work,0.08350096785212738,Washington DC,12.0
-27,good,0.004733218588640275,Baton Rouge,1.0
-28,good,0.0015060240963855422,Baton Rouge,2.0
-29,good,0.003227194492254733,Baton Rouge,3.0
-30,good,0.0015060240963855422,Baton Rouge,4.0
-31,good,0.013123924268502582,Baton Rouge,5.0
-32,good,0.00193631669535284,Baton Rouge,6.0
-33,good,0.0015060240963855422,Baton Rouge,7.0
-34,good,0.0006454388984509467,Baton Rouge,8.0
-35,service,0.022160068846815834,Baton Rouge,1.0
-36,service,0.020438898450946645,Baton Rouge,2.0
-37,service,0.017426850258175558,Baton Rouge,3.0
-38,service,0.018072289156626505,Baton Rouge,4.0
-39,service,0.027538726333907058,Baton Rouge,5.0
-40,service,0.01161790017211704,Baton Rouge,6.0
-41,service,0.016781411359724614,Baton Rouge,7.0
-42,service,0.009036144578313253,Baton Rouge,8.0
-43,work,0.05959552495697074,Baton Rouge,1.0
-44,work,0.04539586919104992,Baton Rouge,2.0
-45,work,0.0770223752151463,Baton Rouge,3.0
-46,work,0.0660499139414802,Baton Rouge,4.0
-47,work,0.125,Baton Rouge,5.0
-48,work,0.08261617900172118,Baton Rouge,6.0
-49,work,0.06755593803786575,Baton Rouge,7.0
-50,work,0.058089500860585196,Baton Rouge,8.0
-51,good,0.046,Miami,1.0
-52,good,0.05198,Miami,2.0
-53,good,0.07574,Miami,3.0
-54,good,0.06708,Miami,4.0
-55,good,0.07974,Miami,5.0
-56,good,0.04724,Miami,6.0
-57,service,0.01298,Miami,1.0
-58,service,0.01392,Miami,2.0
-59,service,0.01508,Miami,3.0
-60,service,0.01276,Miami,4.0
-61,service,0.01232,Miami,5.0
-62,service,0.00928,Miami,6.0
-63,work,0.0907,Miami,1.0
-64,work,0.09398,Miami,2.0
-65,work,0.10364,Miami,3.0
-66,work,0.09028,Miami,4.0
-67,work,0.10508,Miami,5.0
-68,work,0.0722,Miami,6.0
-69,,,Washington DC,
-70,,,Washington DC,
-71,,,Washington DC,
-72,,,Washington DC,
-73,,,Washington DC,
-74,,,Washington DC,
-75,,,Washington DC,
-76,,,Washington DC,
-77,,,Washington DC,
-78,,,Washington DC,
-79,,,Washington DC,
-80,,,Washington DC,
-81,,,Washington DC,
-82,,,Washington DC,
-83,,,Washington DC,
-84,,,Washington DC,
-85,,,Washington DC,
-86,,,Washington DC,
-87,,,Washington DC,
-88,,,Washington DC,
-89,,,Washington DC,
-90,,,Washington DC,
-91,,,Washington DC,
-92,,,Washington DC,
-93,,,Washington DC,
-94,,,Washington DC,
-95,,,Washington DC,
-96,,,Baton Rouge,
-97,,,Baton Rouge,
-98,,,Baton Rouge,
-99,,,Baton Rouge,
-100,,,Baton Rouge,
-101,,,Baton Rouge,
-102,,,Baton Rouge,
-103,,,Baton Rouge,
-104,,,Baton Rouge,
-105,,,Baton Rouge,
-106,,,Baton Rouge,
-107,,,Baton Rouge,
-108,,,Baton Rouge,
-109,,,Baton Rouge,
-110,,,Baton Rouge,
-111,,,Baton Rouge,
-112,,,Baton Rouge,
-113,,,Baton Rouge,
-114,,,Baton Rouge,
-115,,,Baton Rouge,
-116,,,Baton Rouge,
-117,,,Baton Rouge,
-118,,,Baton Rouge,
-119,,,Baton Rouge,
-120,,,Miami,
-121,,,Miami,
-122,,,Miami,
-123,,,Miami,
-124,,,Miami,
-125,,,Miami,
-126,,,Miami,
-127,,,Miami,
-128,,,Miami,
-129,,,Miami,
-130,,,Miami,
-131,,,Miami,
-132,,,Miami,
-133,,,Miami,
-134,,,Miami,
-135,,,Miami,
-136,,,Miami,
-137,,,Miami,
-138,,,Washington DC,
-139,,,Washington DC,
-140,,,Washington DC,
-141,,,Washington DC,
-142,,,Washington DC,
-143,,,Washington DC,
-144,,,Washington DC,
-145,,,Washington DC,
-146,,,Washington DC,
-147,,,Washington DC,
-148,,,Washington DC,
-149,,,Washington DC,
-150,,,Washington DC,
-151,,,Washington DC,
-152,,,Washington DC,
-153,,,Washington DC,
-154,,,Washington DC,
-155,,,Washington DC,
-156,,,Washington DC,
-157,,,Washington DC,
-158,,,Washington DC,
-159,,,Washington DC,
-160,,,Washington DC,
-161,,,Washington DC,
-162,,,Washington DC,
-163,,,Washington DC,
-164,,,Washington DC,
-165,,,Baton Rouge,
-166,,,Baton Rouge,
-167,,,Baton Rouge,
-168,,,Baton Rouge,
-169,,,Baton Rouge,
-170,,,Baton Rouge,
-171,,,Baton Rouge,
-172,,,Baton Rouge,
-173,,,Baton Rouge,
-174,,,Baton Rouge,
-175,,,Baton Rouge,
-176,,,Baton Rouge,
-177,,,Baton Rouge,
-178,,,Baton Rouge,
-179,,,Baton Rouge,
-180,,,Baton Rouge,
-181,,,Baton Rouge,
-182,,,Baton Rouge,
-183,,,Baton Rouge,
-184,,,Baton Rouge,
-185,,,Baton Rouge,
-186,,,Baton Rouge,
-187,,,Baton Rouge,
-188,,,Baton Rouge,
-189,,,Miami,
-190,,,Miami,
-191,,,Miami,
-192,,,Miami,
-193,,,Miami,
-194,,,Miami,
-195,,,Miami,
-196,,,Miami,
-197,,,Miami,
-198,,,Miami,
-199,,,Miami,
-200,,,Miami,
-201,,,Miami,
-202,,,Miami,
-203,,,Miami,
-204,,,Miami,
-205,,,Miami,
-206,,,Miami,
-207,,,Washington DC,
-208,,,Washington DC,
-209,,,Washington DC,
-210,,,Washington DC,
-211,,,Washington DC,
-212,,,Washington DC,
-213,,,Washington DC,
-214,,,Washington DC,
-215,,,Washington DC,
-216,,,Washington DC,
-217,,,Washington DC,
-218,,,Washington DC,
-219,,,Washington DC,
-220,,,Washington DC,
-221,,,Washington DC,
-222,,,Washington DC,
-223,,,Washington DC,
-224,,,Washington DC,
-225,,,Washington DC,
-226,,,Washington DC,
-227,,,Washington DC,
-228,,,Washington DC,
-229,,,Washington DC,
-230,,,Washington DC,
-231,,,Washington DC,
-232,,,Washington DC,
-233,,,Washington DC,
-234,,,Baton Rouge,
-235,,,Baton Rouge,
-236,,,Baton Rouge,
-237,,,Baton Rouge,
-238,,,Baton Rouge,
-239,,,Baton Rouge,
-240,,,Baton Rouge,
-241,,,Baton Rouge,
-242,,,Baton Rouge,
-243,,,Baton Rouge,
-244,,,Baton Rouge,
-245,,,Baton Rouge,
-246,,,Baton Rouge,
-247,,,Baton Rouge,
-248,,,Baton Rouge,
-249,,,Baton Rouge,
-250,,,Baton Rouge,
-251,,,Baton Rouge,
-252,,,Baton Rouge,
-253,,,Baton Rouge,
-254,,,Baton Rouge,
-255,,,Baton Rouge,
-256,,,Baton Rouge,
-257,,,Baton Rouge,
-258,,,Miami,
-259,,,Miami,
-260,,,Miami,
-261,,,Miami,
-262,,,Miami,
-263,,,Miami,
-264,,,Miami,
-265,,,Miami,
-266,,,Miami,
-267,,,Miami,
-268,,,Miami,
-269,,,Miami,
-270,,,Miami,
-271,,,Miami,
-272,,,Miami,
-273,,,Miami,
-274,,,Miami,
-275,,,Miami,
-276,,,Washington DC,
-277,,,Washington DC,
-278,,,Washington DC,
-279,,,Washington DC,
-280,,,Washington DC,
-281,,,Washington DC,
-282,,,Washington DC,
-283,,,Washington DC,
-284,,,Washington DC,
-285,,,Washington DC,
-286,,,Washington DC,
-287,,,Washington DC,
-288,,,Washington DC,
-289,,,Washington DC,
-290,,,Washington DC,
-291,,,Washington DC,
-292,,,Washington DC,
-293,,,Washington DC,
-294,,,Washington DC,
-295,,,Washington DC,
-296,,,Washington DC,
-297,,,Washington DC,
-298,,,Washington DC,
-299,,,Washington DC,
-300,,,Washington DC,
-301,,,Washington DC,
-302,,,Washington DC,
-303,,,Baton Rouge,
-304,,,Baton Rouge,
-305,,,Baton Rouge,
-306,,,Baton Rouge,
-307,,,Baton Rouge,
-308,,,Baton Rouge,
-309,,,Baton Rouge,
-310,,,Baton Rouge,
-311,,,Baton Rouge,
-312,,,Baton Rouge,
-313,,,Baton Rouge,
-314,,,Baton Rouge,
-315,,,Baton Rouge,
-316,,,Baton Rouge,
-317,,,Baton Rouge,
-318,,,Baton Rouge,
-319,,,Baton Rouge,
-320,,,Baton Rouge,
-321,,,Baton Rouge,
-322,,,Baton Rouge,
-323,,,Baton Rouge,
-324,,,Baton Rouge,
-325,,,Baton Rouge,
-326,,,Baton Rouge,
-327,,,Miami,
-328,,,Miami,
-329,,,Miami,
-330,,,Miami,
-331,,,Miami,
-332,,,Miami,
-333,,,Miami,
-334,,,Miami,
-335,,,Miami,
-336,,,Miami,
-337,,,Miami,
-338,,,Miami,
-339,,,Miami,
-340,,,Miami,
-341,,,Miami,
-342,,,Miami,
-343,,,Miami,
-344,,,Miami,
+,category,freqCat,city,months
+0,good,0.002201389152465176,Washington DC,1
+1,good,0.002239344137852507,Washington DC,2
+2,good,0.0023532090940144986,Washington DC,3
+3,good,0.0057691577788742555,Washington DC,4
+4,good,0.0060727976619729005,Washington DC,5
+5,good,0.0018597942839792007,Washington DC,6
+6,good,0.002011614225528523,Washington DC,10
+7,good,0.002011614225528523,Washington DC,11
+8,good,0.0026568489771131437,Washington DC,12
+9,service,0.015371769081868903,Washington DC,1
+10,service,0.017117698409686112,Washington DC,2
+11,service,0.030629673207575814,Washington DC,3
+12,service,0.016472463658101493,Washington DC,4
+13,service,0.028200554142786657,Washington DC,5
+14,service,0.01085512582077656,Washington DC,6
+15,service,0.01935704254753862,Washington DC,10
+16,service,0.025923255019546818,Washington DC,11
+17,service,0.027555319391202034,Washington DC,12
+18,work,0.06600371958856796,Washington DC,1
+19,work,0.07644134057008388,Washington DC,2
+20,work,0.09796181728470034,Washington DC,3
+21,work,0.07606179071621058,Washington DC,4
+22,work,0.11314381143963259,Washington DC,5
+23,work,0.04205412380916233,Washington DC,6
+24,work,0.12263255778646526,Washington DC,10
+25,work,0.10354120013663795,Washington DC,11
+26,work,0.08350096785212738,Washington DC,12
+27,good,0.004733218588640275,Baton Rouge,1
+28,good,0.0015060240963855422,Baton Rouge,2
+29,good,0.003227194492254733,Baton Rouge,3
+30,good,0.0015060240963855422,Baton Rouge,4
+31,good,0.013123924268502582,Baton Rouge,5
+32,good,0.00193631669535284,Baton Rouge,6
+33,good,0.0015060240963855422,Baton Rouge,7
+34,good,0.0006454388984509467,Baton Rouge,8
+35,service,0.022160068846815834,Baton Rouge,1
+36,service,0.020438898450946645,Baton Rouge,2
+37,service,0.017426850258175558,Baton Rouge,3
+38,service,0.018072289156626505,Baton Rouge,4
+39,service,0.027538726333907058,Baton Rouge,5
+40,service,0.01161790017211704,Baton Rouge,6
+41,service,0.016781411359724614,Baton Rouge,7
+42,service,0.009036144578313253,Baton Rouge,8
+43,work,0.05959552495697074,Baton Rouge,1
+44,work,0.04539586919104992,Baton Rouge,2
+45,work,0.0770223752151463,Baton Rouge,3
+46,work,0.0660499139414802,Baton Rouge,4
+47,work,0.125,Baton Rouge,5
+48,work,0.08261617900172118,Baton Rouge,6
+49,work,0.06755593803786575,Baton Rouge,7
+50,work,0.058089500860585196,Baton Rouge,8
+51,good,0.046,Miami,1
+52,good,0.05198,Miami,2
+53,good,0.07574,Miami,3
+54,good,0.06708,Miami,4
+55,good,0.07974,Miami,5
+56,good,0.04724,Miami,6
+57,service,0.01298,Miami,1
+58,service,0.01392,Miami,2
+59,service,0.01508,Miami,3
+60,service,0.01276,Miami,4
+61,service,0.01232,Miami,5
+62,service,0.00928,Miami,6
+63,work,0.0907,Miami,1
+64,work,0.09398,Miami,2
+65,work,0.10364,Miami,3
+66,work,0.09028,Miami,4
+67,work,0.10508,Miami,5
+68,work,0.0722,Miami,6
