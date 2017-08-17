@@ -19,12 +19,12 @@ function plot_arrays(xy, label, colors){
 	this.backgroundColor = colors;
 }
 
-function make_xy(file,field1,field2){
+function make_xy(file,field1,field2,labels){
 	new_array = []
 	for(i=0;i< procurement.length;i++){
-		new_array.push({x:procurement[i][field1],y:procurement[i][field2]});
+		new_array.push({x:labels.indexOf(procurement[i][field1]),y:procurement[i][field2]});
 	}
-	return new_array
+	return new_array;
 }
 
 function unique_vals(procurement){
@@ -94,13 +94,17 @@ var procurement = {{ site.data.proc_type | jsonify}}
 
 //frequency_array = make_array(procurement, 'freqCat');
 
-xy = make_xy(procurement, 'categoryMonth', 'freqCat');
+labels = unique_vals(procurement);
+
+xy = make_xy(procurement, 'categoryMonth', 'freqCat', labels);
 
 console.log(xy);
+
+
 
 city_array = make_array(procurement,'city');
 
 color_array = make_color_array(procurement,'city');
 
 
-create_bubble_chart(xy, city_array, color_array, 'myChart2', unique_vals(procurement));
+create_bubble_chart(xy, city_array, color_array, 'myChart2', labels);
