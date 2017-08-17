@@ -19,10 +19,10 @@ function plot_arrays(xy, label, colors){
 	this.backgroundColor = color_array;
 }
 
-function make_xy(file,x,y){
+function make_xy(file,field1,field2){
 	new_array = []
 	for(i=0;i< procurement.length;i++){
-		new_array.push({x:procurement[i]['categoryMonth'],y:y[i]['freqCat']});
+		new_array.push({x:procurement[i][field1],y:procurement[i][field2]});
 	}
 	return new_array
 }
