@@ -35,7 +35,7 @@ function make_xy(file, field3, field1, field2, labels, colors){
 			}
 		new_array.push({label:procurement[i][field3],
 		 backgroundColor:color,
-		  data:[{x:procurement[i][field1],
+		  data:[{x:labels.indexOf(procurement[i][field1]),
 		  y:procurement[i][field2], 
 		  r: 10}]});
 	}
@@ -85,7 +85,7 @@ function create_bubble_chart(xy, city_array, colors, element){
 		var myChart = new Chart(ctx, {
 			type: 'bubble',
 			data:{
-				 labels: labels,
+				 labels: labels.map(function(x){return {labels.indexOf(x):x}}),
 				 datasets: 
 					xy
 					    },
