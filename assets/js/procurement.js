@@ -30,17 +30,17 @@ function unique_vals(procurement){
 
 function make_array(file, field){
 	new_array = [];
-	file.map((function(row)){
-		console.log(row[field]);
-		new_array.push(row[field]);})
+		file.map(function(row){
+			console.log(row[field]);
+			new_array.push(row[field]);})
 	return new_array;
 }
 
 function make_color_array(file, field){
 	new_array = [];
-		file.map((function(row)){
+		file.map(function(row){
 			console.log(row[field]);
-			if(row[field]] == 'Washington DC'){
+			if(row[field] == 'Washington DC'){
 				new_array.push(colors[0]);
 			}
 			else if(row[field] == 'Miami'){
@@ -48,8 +48,9 @@ function make_color_array(file, field){
 			}
 			else{
 				new_array.push(colors[2]);
-			}
-		return new_array;
+			}})
+	
+	return new_array
 }
 
 
