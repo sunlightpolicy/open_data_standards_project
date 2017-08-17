@@ -14,7 +14,7 @@ colors = ['rgba(255,99,132,1)',
 
 function plot_arrays(xy, label, colors){
 	this.type = 'bubble';
-	this.label = label;
+	//this.label = label;
 	this.data = xy;
 	this.backgroundColor = colors;
 }
@@ -69,7 +69,7 @@ function create_bubble_chart(xy, city_array, color_array, element, labels){
 
 		var myChart = new Chart(ctx, {
 			data:{
-				 labels: labels,
+				 //labels: labels,
 				 datasets: 
 					plot_arrays(xy, city_array, color_array)
 					    },
