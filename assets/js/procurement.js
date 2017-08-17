@@ -62,9 +62,7 @@ function make_color_array(file, field){
 }
 
 
-function create_bubble_chart(catMonth_array, 
-	frequency_array, city_array, color_array,
-	 colors, element, labels){
+function create_bubble_chart(xy, city_array, color_array, element, labels){
 
 		var ctx = document.getElementById(element);
 
@@ -105,4 +103,4 @@ city_array = make_array(procurement,'city');
 color_array = make_color_array(procurement,'city');
 
 
-create_bubble_chart(xy, colors, 'myChart2', unique_vals(procurement));
+create_bubble_chart(xy, city_array, color_array, 'myChart2', unique_vals(procurement));
