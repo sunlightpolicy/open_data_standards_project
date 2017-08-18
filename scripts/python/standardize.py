@@ -334,7 +334,7 @@ def pick_dfs(permit_dfs):
         
 def csv_dfs(permit_dfs):
     for city,df in permit_dfs.items():
-        df.to_csv('_data/blds_csvs/cities/'+city+'.csv')
+        df.to_csv('../_data/blds_csvs/cities/'+city+'.csv')
 
     #df is the permittype specific df
 def make_tally_list(df,permittype,permit_col, month_col):

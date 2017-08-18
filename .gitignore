@@ -5,3 +5,4 @@
 *.RData
 *.Rhistory
 *Rapp.history
+*_data/Raleigh.csv
