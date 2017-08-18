@@ -44,15 +44,13 @@ function plot_icon(pt, row, mymap){
 	pt_dict['other'] =  L.icon({iconUrl:'https://upload.wikimedia.org/wikipedia/commons/2/25/Icon-round-Question_mark.jpg',
 		iconSize: [19, 19] });
 	
-	console.log(Object.keys(pt_dict));
-
-	if(!pt_dict.hasOwnProperty(pt)){
-		console.log(pt);
-	};
+	// if(!pt_dict.hasOwnProperty(pt)){
+	// 	console.log(pt);
+	// };
 
 	if(row['latitude'] != null && row['longitude'] != null){
 		if(pt != null){
-		console.log(pt, row['latitude'],row['longitude']);
+		// console.log(pt, row['latitude'],row['longitude']);
 	    var marker = L.marker([row['latitude'], row['longitude']], {icon: pt_dict[pt]}).bindPopup( '<p>'+ row['description']+'</p>'+'<p>'+ row['permittypemapped']+'</p>'+'<p>'+row['issueddate']+ '</p>').addTo(mymap);
 	  	}
 	 };
