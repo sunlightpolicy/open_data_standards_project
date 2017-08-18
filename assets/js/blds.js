@@ -50,7 +50,7 @@ function plot_icon(pt, row, mymap){
 		console.log(pt);
 	};
 
-	if(row['latitude'] != null){
+	if(row['latitude'] != null && row['longitude'] != null){
 		if(pt != null){
 		console.log(row['latitude'],row['longitude']);
 	    var marker = L.marker([row['latitude'], row['longitude']], {icon: pt_dict[pt]}).bindPopup( '<p>'+ row['description']+'</p>'+'<p>'+ row['permittypemapped']+'</p>'+'<p>'+row['issueddate']+ '</p>').addTo(mymap);
