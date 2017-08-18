@@ -52,7 +52,7 @@ function plot_icon(pt, row, mymap){
 
 	if(row['latitude'] != null){
 		if(pt != null){
-
+		console.log(row['latitude'],row['longitude']);
 	    var marker = L.marker([row['latitude'], row['longitude']], {icon: pt_dict[pt]}).bindPopup( '<p>'+ row['description']+'</p>'+'<p>'+ row['permittypemapped']+'</p>'+'<p>'+row['issueddate']+ '</p>').addTo(mymap);
 	  	}
 	 };
