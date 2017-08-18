@@ -48,7 +48,7 @@ function show_data(table, mymap) {
     //console.log(table[i].business_dba);
 
 
-  table.map(function(row, mymap){
+  table.map(function(row){
     return plot_to_map(row,mymap);
   })
 
