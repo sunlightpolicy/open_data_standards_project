@@ -3,8 +3,8 @@
 ---
 
 
-function show_map(mapid) { 
-	var mymap = L.map(mapid, { zoomControl:false }).setView([33.0398,-116.9687],9);
+function show_map(mapid,coords,zoom) { 
+	var mymap = L.map(mapid, { zoomControl:false }).setView(coords,zoom);
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 	maxZoom: 18,
 	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
@@ -81,7 +81,7 @@ function update_dict(permit_dict,pt){
 }
 
 
-function create_line_chart(tallies, colors, element){
+function create_line_chart(tallies, colors, element,text){
 		var ctx = document.getElementById(element);
 
 
@@ -99,7 +99,7 @@ function create_line_chart(tallies, colors, element){
 					    options: {
 					    	title: {
 					            display: true,
-					            text: 'Raleigh Permits by Month'
+					            text: text
         							},
 					        scales: {
 					            yAxes: [{
@@ -112,7 +112,7 @@ function create_line_chart(tallies, colors, element){
 		});
 	}
 
-mymap = show_map('mapid');
+mymap = show_map('mapid',[33.0398,-116.9687],9);
 
 permit_dict =  {
 	'building': 0,
@@ -157,10 +157,10 @@ var tallies = {{ site.data.sd_tallies | jsonify}}
 //             borderWidth: 1}});
 
 
-create_line_chart(tallies, colors, 'myChart');
+create_line_chart(tallies, colors, 'myChart', 'San Diego Permits by Month');
 
 
-mymap2 = show_map('mapid2');
+mymap2 = show_map('mapid2',[35.8070,-78.6257],11);
 
 {% for table in site.data.Raleigh %}
   
@@ -183,5 +183,5 @@ var tallies_Raleigh = {{ site.data.raleigh_tallies | jsonify}}
 //             borderWidth: 1}});
 
 
-create_line_chart(tallies_Raleigh, colors, 'myChart2');
+create_line_chart(tallies_Raleigh, colors, 'myChart2','Raleigh Permits by Month');
 
