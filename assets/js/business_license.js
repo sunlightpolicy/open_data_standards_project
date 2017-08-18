@@ -17,7 +17,27 @@ function show_map() {
   return mymap;
 }
 
+function choose_icon(row){
+  var indIcon = L.icon({ iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Red_star.svg', iconSize: [19, 19] });
+  var kcIcon = L.icon({ iconUrl: 'http://www.gaf.com/_Images/icon-star-on.svg', iconSize: [19, 19] });
+  var licenseIcon = L.icon({ iconUrl: '../images/license.svg', iconSize: [19, 12] });
+
+  return plot_to_map(row,mymap);
+}
+
+function plot_to_map(marker,mymap){
+
+  if (row['city'] === 'INDEPENDENCE'){
+    var marker = L.marker([row['latitude'], row['longitude']], {icon: indIcon}).bindPopup( '<p>'+ row['business_dba']+'</p>'+'<p>'+row['business_type']+ '</p>').addTo(mymap);
+  }
+  else {
+    var marker = L.marker([row['latitude'], row['longitude']], {icon: kcIcon}).bindPopup( '<p>'+ row['business_dba']+'</p>'+'<p>'+row['business_type']+ '</p>').addTo(mymap);
+    //}
+  }
+}
+
 function show_data(table, mymap) {
+
 
   var indIcon = L.icon({ iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Red_star.svg', iconSize: [19, 19] });
   var kcIcon = L.icon({ iconUrl: 'http://www.gaf.com/_Images/icon-star-on.svg', iconSize: [19, 19] });
@@ -29,22 +49,27 @@ function show_data(table, mymap) {
 
     //console.log(table[i].business_dba);
 
-  if (table['city'] === 'INDEPENDENCE'){
-    var marker = L.marker([table['latitude'], table['longitude']], {icon: indIcon}).bindPopup( '<p>'+ table['business_dba']+'</p>'+'<p>'+table['business_type']+ '</p>').addTo(mymap);
-  }
-  else {
-    var marker = L.marker([table['latitude'], table['longitude']], {icon: kcIcon}).bindPopup( '<p>'+ table['business_dba']+'</p>'+'<p>'+table['business_type']+ '</p>').addTo(mymap);
-    //}
-  }
+
+  table.map(choose_icon(row, mymap))
+
+  // if (table['city'] === 'INDEPENDENCE'){
+  //   var marker = L.marker([table['latitude'], table['longitude']], {icon: indIcon}).bindPopup( '<p>'+ table['business_dba']+'</p>'+'<p>'+table['business_type']+ '</p>').addTo(mymap);
+  // }
+  // else {
+  //   var marker = L.marker([table['latitude'], table['longitude']], {icon: kcIcon}).bindPopup( '<p>'+ table['business_dba']+'</p>'+'<p>'+table['business_type']+ '</p>').addTo(mymap);
+  //   //}
+  // }
 }
 
 
 mymap = show_map();
 
-{% for table in site.data.jackson_lic %}
+//{% for table in site.data.jackson_lic %}
   
-  var table = {{ table | jsonify }};
+//  var table = {{ table | jsonify }};
 
-  show_data(table, mymap);
+table = {{ site.data.jackson_lic | jsonify}}
+
+show_data(table, mymap);
 
 {% endfor %}
