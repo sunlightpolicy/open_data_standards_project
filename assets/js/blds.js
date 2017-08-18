@@ -146,7 +146,7 @@ colors = ['rgba(255,99,132,1)',
 
 
 
-var tallies = {{ site.data.san_diego_tallies | jsonify}}
+var tallies = {{ site.data.sd_tallies | jsonify}}
 
 
 // data_info = tallies.map(function(i){
