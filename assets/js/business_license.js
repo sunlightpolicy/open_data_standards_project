@@ -17,15 +17,13 @@ function show_map() {
   return mymap;
 }
 
-function choose_icon(row){
+
+function plot_to_map(row,mymap){
+
   var indIcon = L.icon({ iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Red_star.svg', iconSize: [19, 19] });
   var kcIcon = L.icon({ iconUrl: 'http://www.gaf.com/_Images/icon-star-on.svg', iconSize: [19, 19] });
   var licenseIcon = L.icon({ iconUrl: '../images/license.svg', iconSize: [19, 12] });
 
-  return plot_to_map(row,mymap);
-}
-
-function plot_to_map(marker,mymap){
 
   if (row['city'] === 'INDEPENDENCE'){
     var marker = L.marker([row['latitude'], row['longitude']], {icon: indIcon}).bindPopup( '<p>'+ row['business_dba']+'</p>'+'<p>'+row['business_type']+ '</p>').addTo(mymap);
@@ -50,7 +48,9 @@ function show_data(table, mymap) {
     //console.log(table[i].business_dba);
 
 
-  table.map(choose_icon(row, mymap))
+  table.map(function(row, mymap){
+    return plot_to_map(row,mymap);
+  })
 
   // if (table['city'] === 'INDEPENDENCE'){
   //   var marker = L.marker([table['latitude'], table['longitude']], {icon: indIcon}).bindPopup( '<p>'+ table['business_dba']+'</p>'+'<p>'+table['business_type']+ '</p>').addTo(mymap);
