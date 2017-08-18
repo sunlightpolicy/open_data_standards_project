@@ -160,19 +160,19 @@ var tallies = {{ site.data.sd_tallies | jsonify}}
 create_line_chart(tallies, colors, 'myChart', 'San Diego Permits by Month');
 
 
-mymap2 = show_map('mapid2',[35.8070,-78.6257],11);
+mymap2 = show_map('mapid2',[35.0918,-85.2398],11);
 
-{% for table in site.data.Raleigh %}
+{% for table in site.data.Chattanooga %}
   
-  var table_Raleigh = {{ table | jsonify }};
+  var table_chatt = {{ table | jsonify }};
 
-  pt = show_data(table_Raleigh, mymap2);
+  pt = show_data(table_chatt, mymap2);
 
 {% endfor %}
 
 
 
-var tallies_Raleigh = {{ site.data.raleigh_tallies | jsonify}}
+var tallies_chatt = {{ site.data.chatt_tallies | jsonify}}
 
 
 // data_info = tallies_Raleigh.map(function(i){
@@ -183,5 +183,5 @@ var tallies_Raleigh = {{ site.data.raleigh_tallies | jsonify}}
 //             borderWidth: 1}});
 
 
-create_line_chart(tallies_Raleigh, colors, 'myChart2','Raleigh Permits by Month');
+create_line_chart(tallies_chatt, colors, 'myChart2','Chattanooga Permits by Month');
 
