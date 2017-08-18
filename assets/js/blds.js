@@ -100,7 +100,7 @@ function create_line_chart(tallies, colors, element){
 					    	title: {
 					            display: true,
 					            text: 'Raleigh Permits by Month'
-        							}
+        							},
 					        scales: {
 					            yAxes: [{
 					                ticks: {
