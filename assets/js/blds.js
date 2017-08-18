@@ -112,7 +112,7 @@ function create_line_chart(tallies, colors, element){
 		});
 	}
 
-mymap = show_map('mymap');
+mymap = show_map('mapid');
 
 permit_dict =  {
 	'building': 0,
@@ -145,13 +145,28 @@ colors = ['rgba(255,99,132,1)',
 {% endfor %}
 
 
-mymap2 = show_map('mymap2');
+
+var tallies = {{ site.data.san_diego_tallies | jsonify}}
+
+
+// data_info = tallies.map(function(i){
+//   return {label: i[0],
+//             data : Object.values(i).slice(1,13),
+//             backgroundColor : ['rgba(255,255,255,0.2)'],
+//             borderColor : i[13],
+//             borderWidth: 1}});
+
+
+create_line_chart(tallies, colors, 'myChart');
+
+
+mymap2 = show_map('mapid2');
 
 {% for table in site.data.Raleigh %}
   
   var table_Raleigh = {{ table | jsonify }};
 
-  pt = show_data(table, mymap2);
+  pt = show_data(table_Raleigh, mymap2);
 
 {% endfor %}
 
@@ -160,12 +175,12 @@ mymap2 = show_map('mymap2');
 var tallies_Raleigh = {{ site.data.raleigh_tallies | jsonify}}
 
 
-data_info = tallies_Raleigh.map(function(i){
-  return {label: i[0],
-            data : Object.values(i).slice(1,13),
-            backgroundColor : ['rgba(255,255,255,0.2)'],
-            borderColor : i[13],
-            borderWidth: 1}});
+// data_info = tallies_Raleigh.map(function(i){
+//   return {label: i[0],
+//             data : Object.values(i).slice(1,13),
+//             backgroundColor : ['rgba(255,255,255,0.2)'],
+//             borderColor : i[13],
+//             borderWidth: 1}});
 
 
 create_line_chart(tallies_Raleigh, colors, 'myChart2');
