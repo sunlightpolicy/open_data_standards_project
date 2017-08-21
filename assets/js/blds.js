@@ -187,7 +187,7 @@ colors = ['rgba(255,99,132,1)',
 
 var tallies = {{ site.data.sd_tallies | jsonify}}
 
-var tallies_SD_year = {{ site.data.sd_tallies_year | jsonify}}
+var tallies_SD_year = {{ site.data.tallies_sd_year | jsonify}}
 
 create_bar_chart(tallies, colors, 'myChart', 'San Diego Permits by Month');
 
@@ -209,6 +209,7 @@ mymap2 = show_map('mapid2',[35.0918,-85.2398],11);
 
 var tallies_chatt = {{ site.data.chatt_tallies | jsonify}}
 
+var tallies_chatt_year = {{ site.data.tallies_chatt_year | jsonify}}
 
 var key_list = Object.keys(tallies_Raleigh_year[0]).sort(function(a,b) {
   return (Number(a) - Number(b));});
