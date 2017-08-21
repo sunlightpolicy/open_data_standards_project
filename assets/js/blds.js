@@ -125,7 +125,7 @@ function create_bar_year(tallies, colors, element,text){
 			return lastValue
 		}
 
-		label_years = create_years(tallies);
+		label_years = create_years(tallies).slice(0);
 
 		console.log(label_years);		
 
