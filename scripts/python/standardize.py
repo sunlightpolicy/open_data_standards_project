@@ -392,7 +392,7 @@ def tallies_by_permit(df,permit_col, date_col, colors, date_kind):
         if date_kind == 'year':
             pt_list, s_range_min, s_range_max = make_tally_list(df, p_type, permit_col,date_col, date_kind)
             pt_list += [colors[i]]
-            pt_list.append([list(range(s_range_min, s_range_max)),'year'])
+            pt_list.append(list(range(s_range_min, s_range_max)))
         else:
             pt_list = make_tally_list(df, p_type, permit_col,date_col, date_kind)+[colors[i]]
 
