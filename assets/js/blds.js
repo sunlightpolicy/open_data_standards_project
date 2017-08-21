@@ -113,7 +113,7 @@ function create_bar_chart(tallies, colors, element,text){
 function create_bar_year(tallies, colors, element,text){
 		var ctx = document.getElementById(element);
 
-		console.log(tallies[0].slice(-1).slice(0);
+		console.log(tallies[0].slice(-1)[0];
 
 		function create_years(range){
 
@@ -129,7 +129,7 @@ function create_bar_year(tallies, colors, element,text){
 		var myChart = new Chart(ctx, {
 			type : 'bar',
 			data:{
-				labels: create_years(tallies[0][-1][0]),
+				labels: create_years(tallies[0].slice(-1)[0]),
 				 datasets: 
 					tallies.map(function(i){
 					  return new Data_obj(i[0],Object.values(i).slice(1,-2),
