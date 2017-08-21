@@ -224,7 +224,7 @@ var tallies_chatt = {{ site.data.chatt_tallies | jsonify}}
 
 var tallies_Raleigh_year = {{ site.data.raleigh_tallies_year | jsonify}}
 
-var key_list = Object.keys(tallies[0]).map(function(a){ if(a){return parseInt(a)};})
+var key_list = Object.keys(tallies[0]).map(function(a){ if(a){return parseInt(a)};}).sort().reverse();
 var lastKey = key_list.slice(-2)
 var lastValue = tallies_Raleigh_year[0][lastKey];
 
