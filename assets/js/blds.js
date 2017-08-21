@@ -21,7 +21,7 @@ function show_map(mapid,coords,zoom) {
 function Data_obj(label,data,backgroundColor,borderColor,borderWidth){
 	this.label = label;
 	this.data = data;
-	this.backgroundColor = backgroundColor;
+	this.fillColor = backgroundColor;
 	//this.borderColor = borderColor;
 	this.borderWidth = borderWidth;
 }
