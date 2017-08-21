@@ -82,6 +82,8 @@ function update_dict(permit_dict,pt){
 function create_line_chart(tallies, colors, element,text){
 		var ctx = document.getElementById(element);
 
+		console.log(tallies['0'][-1]);
+
 		console.log(tallies[0][-1]);
 
 		var myChart = new Chart(ctx, {
@@ -92,8 +94,8 @@ function create_line_chart(tallies, colors, element,text){
 				 datasets: 
 					tallies.map(function(i){
 					  return new Data_obj(i[0],Object.values(i).slice(1,13),
-					           	['rgba(0,0,0,0.2)'],
-					            [i[13]],1);})
+					           	[i[13]]],
+					            [i[13]],2);})
 					    },
 					    options: {
 					    	title: {
