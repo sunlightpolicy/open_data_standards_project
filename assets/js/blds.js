@@ -224,10 +224,11 @@ var tallies_chatt = {{ site.data.chatt_tallies | jsonify}}
 
 var tallies_Raleigh_year = {{ site.data.raleigh_tallies_year | jsonify}}
 
-var lastKey = Object.keys(tallies[0]).map(function(a){ if(a){return parseInt(a)};}).sort().reverse()[1];
+var key_list = Object.keys(tallies[0]).map(function(a){ if(a){return parseInt(a)};})
+var lastKey = key_list.slice(-2)
 var lastValue = tallies_Raleigh_year[0][lastKey];
 
-console.log(Object.keys(tallies[0]).map(function(a){ if(a){return parseInt(a)};}),lastKey, lastValue);
+console.log(key_list,lastKey, lastValue);
 
 
 create_line_chart(tallies_chatt, colors, 'myChart2','Chattanooga Permits by Month');
