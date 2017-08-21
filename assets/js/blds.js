@@ -82,7 +82,7 @@ function update_dict(permit_dict,pt){
 function create_line_chart(tallies, colors, element,text){
 		var ctx = document.getElementById(element);
 
-		console.log(tallies[0].slice(-1));
+		console.log(tallies[0]);
 
 		var myChart = new Chart(ctx, {
 			type : 'bar',
