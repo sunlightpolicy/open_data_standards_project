@@ -134,8 +134,8 @@ function create_bar_year(tallies, colors, element,text){
 				 datasets: 
 					tallies.map(function(i){
 					  return new Data_obj(i[0],Object.values(i).slice(1,-2),
-					           	i.slice(-2),
-					            i.slice(-2),2);})
+					           	Object.values(i).slice(-2),
+					            Object.values(i).slice(-2),2);})
 					    },
 					    options: {
 					    	title: {
