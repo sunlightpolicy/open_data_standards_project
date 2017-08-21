@@ -82,6 +82,8 @@ function update_dict(permit_dict,pt){
 function create_line_chart(tallies, colors, element,text){
 		var ctx = document.getElementById(element);
 
+		console.log(tallies);
+
 		var myChart = new Chart(ctx, {
 			type : 'bar',
 			data:{
