@@ -350,16 +350,16 @@ def make_tally_list(df,permittype,permit_col, date_col, date_kind):
         s_range_max = int(df_by_permittype[date_col].max()+1)-2000
         
         if s_range_min == s_range_max-1:
-            slots = df[date_col].max()-df[date_col].min() + 2
-            tallies = [0]*int(slots)
+            slots = int(df[date_col].max()-df[date_col].min() + 2)
+            tallies = [0]*slots
         else:
-            slots = df[date_col].max()-df[date_col].min() + 1
-            tallies = [0]*int(slots)
+            slots = int(df[date_col].max()-df[date_col].min() + 1)
+            tallies = [0]*slots
 
     tallies.insert(0,permittype)
     
 
-    for m in range(0,slots):
+    for m in range(s_range_min,s_range_max):
 
         if date_kind == 'month':
             real_date = m
@@ -367,8 +367,8 @@ def make_tally_list(df,permittype,permit_col, date_col, date_kind):
             real_date = float(m+2000)
 
         if real_date in set(df_by_permittype[date_col].values):
-            m = 
-            tallies[m+1] = int(df_by_permittype[df_by_permittype[date_col] == real_date].tally)
+
+            tallies[m-(s_range_min-1)] = int(df_by_permittype[df_by_permittype[date_col] == real_date].tally)
 
     if date_kind == 'year':
         return tallies, s_range_min, s_range_max

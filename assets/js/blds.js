@@ -131,9 +131,9 @@ function create_bar_year(tallies, colors, element,text){
 				labels: create_years(tallies[0][-1]),
 				 datasets: 
 					tallies.map(function(i){
-					  return new Data_obj(i[0],Object.values(i).slice(1,tallies[0][-1][1]),
-					           	['rgba(0,0,0,0.2)'],
-					            [i[13]],1);})
+					  return new Data_obj(i[0],Object.values(i).slice(1,-2),
+					           	i.slice(-2),
+					            i.slice(-2),2);})
 					    },
 					    options: {
 					    	title: {
@@ -187,11 +187,11 @@ colors = ['rgba(255,99,132,1)',
 
 var tallies = {{ site.data.sd_tallies | jsonify}}
 
-var tallies_Raleigh_year = {{ site.data.sd_tallies_year | jsonify}}
+var tallies_SD_year = {{ site.data.sd_tallies_year | jsonify}}
 
 create_bar_chart(tallies, colors, 'myChart', 'San Diego Permits by Month');
 
-create_bar_year(tallies_Raleigh_year, colors, 'myChart2','San Diego Permits by Year')
+create_bar_year(tallies_SD_year, colors, 'myChart2','San Diego Permits by Year')
 
 
 
