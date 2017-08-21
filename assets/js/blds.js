@@ -120,7 +120,7 @@ function create_bar_year(tallies, colors, element,text){
 			return (Number(a) - Number(b));});
 
 			var lastKey = key_list.slice(-1);
-			var lastValue = tallies_chatt_year[0][lastKey];
+			var lastValue = tallies[0][lastKey];
 
 			return lastValue
 		}
