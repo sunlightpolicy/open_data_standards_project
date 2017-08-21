@@ -79,7 +79,7 @@ function update_dict(permit_dict,pt){
 }
 
 
-function create_line_chart(tallies, colors, element,text){
+function create_bar_chart(tallies, colors, element,text){
 		var ctx = document.getElementById(element);
 
 
@@ -110,46 +110,46 @@ function create_line_chart(tallies, colors, element,text){
 		});
 	}
 
-// function create_line_chart_year(tallies, colors, element,text){
-// 		var ctx = document.getElementById(element);
+function create_bar_year(tallies, colors, element,text){
+		var ctx = document.getElementById(element);
 
 
-// 		function create_years(range){
+		function create_years(range){
 
-// 			a = range;
-// 			b = [];
-// 			for(i=0; i < a[1]; i++){
-// 				b.push(i);
-// 			};
+			a = range;
+			b = [];
+			for(i=0; i < a[1]; i++){
+				b.push(i);
+			};
 
-// 			return b
-// 		}
+			return b
+		}
 
-// 		var myChart = new Chart(ctx, {
-// 			type : 'bar',
-// 			data:{
-// 				labels: create_years(tallies[0][-1]),
-// 				 datasets: 
-// 					tallies.map(function(i){
-// 					  return new Data_obj(i[0],Object.values(i).slice(1,tallies[0][-1][1]),
-// 					           	['rgba(0,0,0,0.2)'],
-// 					            [i[13]],1);})
-// 					    },
-// 					    options: {
-// 					    	title: {
-// 					            display: true,
-// 					            text: text
-//         							},
-// 					        scales: {
-// 					            yAxes: [{
-// 					                ticks: {
-// 					                    beginAtZero:true
-// 		                }
-// 		            }]
-// 		        }
-// 		    }
-// 		});
-// 	}
+		var myChart = new Chart(ctx, {
+			type : 'bar',
+			data:{
+				labels: create_years(tallies[0][-1]),
+				 datasets: 
+					tallies.map(function(i){
+					  return new Data_obj(i[0],Object.values(i).slice(1,tallies[0][-1][1]),
+					           	['rgba(0,0,0,0.2)'],
+					            [i[13]],1);})
+					    },
+					    options: {
+					    	title: {
+					            display: true,
+					            text: text
+        							},
+					        scales: {
+					            yAxes: [{
+					                ticks: {
+					                    beginAtZero:true
+		                }
+		            }]
+		        }
+		    }
+		});
+	}
 
 mymap = show_map('mapid',[33.0398,-116.9687],9);
 
@@ -187,16 +187,12 @@ colors = ['rgba(255,99,132,1)',
 
 var tallies = {{ site.data.sd_tallies | jsonify}}
 
+var tallies_Raleigh_year = {{ site.data.sd_tallies_year | jsonify}}
 
-// data_info = tallies.map(function(i){
-//   return {label: i[0],
-//             data : Object.values(i).slice(1,13),
-//             backgroundColor : ['rgba(255,255,255,0.2)'],
-//             borderColor : i[13],
-//             borderWidth: 1}});
+create_bar_chart(tallies, colors, 'myChart', 'San Diego Permits by Month');
 
+create_bar_year(tallies_Raleigh_year, colors, 'myChart2','San Diego Permits by Year')
 
-create_line_chart(tallies, colors, 'myChart', 'San Diego Permits by Month');
 
 
 mymap2 = show_map('mapid2',[35.0918,-85.2398],11);
@@ -214,24 +210,15 @@ mymap2 = show_map('mapid2',[35.0918,-85.2398],11);
 var tallies_chatt = {{ site.data.chatt_tallies | jsonify}}
 
 
-// data_info = tallies_Raleigh.map(function(i){
-//   return {label: i[0],
-//             data : Object.values(i).slice(1,13),
-//             backgroundColor : ['rgba(255,255,255,0.2)'],
-//             borderColor : i[13],
-//             borderWidth: 1}});
-
-
-var tallies_Raleigh_year = {{ site.data.raleigh_tallies_year | jsonify}}
-
 var key_list = Object.keys(tallies_Raleigh_year[0]).sort(function(a,b) {
   return (Number(a) - Number(b));});
 
 var lastKey = key_list.slice(-1);
-var lastValue = tallies_Raleigh_year[0][lastKey];
+var lastValue = tallies_chatt_year[0][lastKey];
 
 console.log(key_list,lastKey, lastValue);
 
 
-create_line_chart(tallies_chatt, colors, 'myChart2','Chattanooga Permits by Month');
+create_line_chart(tallies_chatt, colors, 'myChart3','Chattanooga Permits by Month');
 
+create_bar_year(tallies_chatt_year, colors, 'myChart4','Chattanooga Permits by Year')
