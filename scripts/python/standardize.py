@@ -337,13 +337,36 @@ def csv_dfs(permit_dfs):
         df.to_csv('../_data/blds_csvs/cities/'+city+'.csv')
 
     #df is the permittype specific df
-def make_tally_list(df,permittype,permit_col, month_col):
-    tallies = [0]*12
+def make_tally_list(df,permittype,permit_col, date_col, date_kind):
+    if date_kind == 'month':
+        tallies = [0]*12
+    else:
+        tallies = [0]*int(df[date_col].max()-df[date_col].min() + 1)
+
     tallies.insert(0,permittype)
     df_by_permittype= df[df[permit_col]==permittype]
-    for m in range(1,13):
-        if m in set(df_by_permittype['issuedMonth'].values):
-            tallies[m] = int(df_by_permittype[df_by_permittype['issuedMonth'] == m].tally)
+
+    if date_kind == 'month':
+        s_range_min = 0
+        s_range_max = 13
+    else:
+        s_range_min = int(df[date_col].min())-2000
+        s_range_max = int(df[date_col].max()+1)-2000
+
+    for m in range(s_range_min,s_range_max):
+
+        if date_kind == 'month':
+            real_date = m
+        else:
+            real_date = float(m+2000)
+
+        if real_date in set(df_by_permittype[date_col].values):
+
+            tallies[m] = int(df_by_permittype[df_by_permittype[date_col] == real_date].tally)
+
+    if date_kind == 'year':
+        return tallies, s_range_min, s_range_max
+
     return tallies
 
 colors = ['rgba(255,99,132,1)',
@@ -356,10 +379,17 @@ colors = ['rgba(255,99,132,1)',
          'rgba(0, 204, 204, 1)',
          'rgba(0, 0, 153, 1)']
 
-def tallies_by_permit(df,permit_col, month_col, colors):
+def tallies_by_permit(df,permit_col, date_col, colors, date_kind):
     tally_permit_list = []
     for i, p_type in enumerate(set(df[permit_col].values)):
-        print(p_type)
-        pt_list = make_tally_list(df, p_type, permit_col,month_col)+[colors[i]]
+
+        if date_kind == 'year':
+            pt_list, s_range_min, s_range_max = make_tally_list(df, p_type, permit_col,date_col, date_kind)
+            pt_list += [colors[i]]
+            pt_list.append([s_range_min, s_range_max,'year'])
+        else:
+            pt_list = make_tally_list(df, p_type, permit_col,date_col, date_kind)+[colors[i]]
+
         tally_permit_list.append(pt_list)
+
     return tally_permit_list

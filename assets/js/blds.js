@@ -82,9 +82,10 @@ function update_dict(permit_dict,pt){
 function create_line_chart(tallies, colors, element,text){
 		var ctx = document.getElementById(element);
 
+		console.log(tallies[0][-1]);
 
 		var myChart = new Chart(ctx, {
-			type : 'line',
+			type : 'bar',
 			data:{
 				labels: ['January','February','March','April','May','June','July','August','September',
 				'October','November','December'],
@@ -109,6 +110,47 @@ function create_line_chart(tallies, colors, element,text){
 		    }
 		});
 	}
+
+// function create_line_chart_year(tallies, colors, element,text){
+// 		var ctx = document.getElementById(element);
+
+
+// 		function create_years(range){
+
+// 			a = range;
+// 			b = [];
+// 			for(i=0; i < a[1]; i++){
+// 				b.push(i);
+// 			};
+
+// 			return b
+// 		}
+
+// 		var myChart = new Chart(ctx, {
+// 			type : 'bar',
+// 			data:{
+// 				labels: create_years(tallies[0][-1]),
+// 				 datasets: 
+// 					tallies.map(function(i){
+// 					  return new Data_obj(i[0],Object.values(i).slice(1,tallies[0][-1][1]),
+// 					           	['rgba(0,0,0,0.2)'],
+// 					            [i[13]],1);})
+// 					    },
+// 					    options: {
+// 					    	title: {
+// 					            display: true,
+// 					            text: text
+//         							},
+// 					        scales: {
+// 					            yAxes: [{
+// 					                ticks: {
+// 					                    beginAtZero:true
+// 		                }
+// 		            }]
+// 		        }
+// 		    }
+// 		});
+// 	}
 
 mymap = show_map('mapid',[33.0398,-116.9687],9);
 
