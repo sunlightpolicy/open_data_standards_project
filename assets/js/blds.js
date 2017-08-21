@@ -21,7 +21,7 @@ function show_map(mapid,coords,zoom) {
 function Data_obj(label,data,backgroundColor,borderColor,borderWidth){
 	this.label = label;
 	this.data = data;
-	this.fillColor = backgroundColor;
+	this.backgroundColor = backgroundColor;
 	//this.borderColor = borderColor;
 	this.borderWidth = borderWidth;
 }
@@ -90,8 +90,8 @@ function create_line_chart(tallies, colors, element,text){
 				 datasets: 
 					tallies.map(function(i){
 					  return new Data_obj(i[0],Object.values(i).slice(1,13),
-					           	[i[13]],
-					            [i[13]],2);})
+					           	i[13],
+					            i[13],2);})
 					    },
 					    options: {
 					    	title: {
