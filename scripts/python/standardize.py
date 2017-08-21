@@ -338,6 +338,7 @@ def csv_dfs(permit_dfs):
 
     #df is the permittype specific df
 def make_tally_list(df,permittype,permit_col, date_col, date_kind):
+
     if date_kind == 'month':
         tallies = [0]*12
     else:
@@ -347,7 +348,7 @@ def make_tally_list(df,permittype,permit_col, date_col, date_kind):
     df_by_permittype= df[df[permit_col]==permittype]
 
     if date_kind == 'month':
-        s_range_min = 0
+        s_range_min = 1
         s_range_max = 13
     else:
         s_range_min = int(df[date_col].min())-2000
@@ -362,7 +363,7 @@ def make_tally_list(df,permittype,permit_col, date_col, date_kind):
 
         if real_date in set(df_by_permittype[date_col].values):
 
-            tallies[m] = int(df_by_permittype[df_by_permittype[date_col] == real_date].tally)
+            tallies[m+1] = int(df_by_permittype[df_by_permittype[date_col] == real_date].tally)
 
     if date_kind == 'year':
         return tallies, s_range_min, s_range_max
@@ -386,7 +387,7 @@ def tallies_by_permit(df,permit_col, date_col, colors, date_kind):
         if date_kind == 'year':
             pt_list, s_range_min, s_range_max = make_tally_list(df, p_type, permit_col,date_col, date_kind)
             pt_list += [colors[i]]
-            pt_list.append([s_range_min, s_range_max,'year'])
+            pt_list.append([list(range(s_range_min, s_range_max)),'year'])
         else:
             pt_list = make_tally_list(df, p_type, permit_col,date_col, date_kind)+[colors[i]]
 

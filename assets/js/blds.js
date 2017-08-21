@@ -82,10 +82,6 @@ function update_dict(permit_dict,pt){
 function create_line_chart(tallies, colors, element,text){
 		var ctx = document.getElementById(element);
 
-		var lastKey = Object.keys(tallies[0]).sort()[-1];
-		var lastValue = tallies[0][lastKey];
-
-		console.log(lastKey, lastValue);
 
 		var myChart = new Chart(ctx, {
 			type : 'bar',
@@ -224,6 +220,14 @@ var tallies_chatt = {{ site.data.chatt_tallies | jsonify}}
 //             backgroundColor : ['rgba(255,255,255,0.2)'],
 //             borderColor : i[13],
 //             borderWidth: 1}});
+
+
+var tallies_Raleigh_year = {{ site.data.raleigh_tallies_year | jsonify}}
+
+var lastKey = Object.keys(tallies[0]).sort()[-1];
+var lastValue = tallies_Raleigh_year[0][lastKey];
+
+console.log(lastKey, lastValue);
 
 
 create_line_chart(tallies_chatt, colors, 'myChart2','Chattanooga Permits by Month');
