@@ -113,23 +113,24 @@ function create_bar_chart(tallies, colors, element,text){
 function create_bar_year(tallies, colors, element,text){
 		var ctx = document.getElementById(element);
 
-		console.log(tallies[0].slice(-1)[0]);
 
-		function create_years(range){
+		function create_years(tallies){
 
-			a = range;
-			b = [];
-			for(i=0; i < a[1]; i++){
-				b.push(i);
-			};
+			var key_list = Object.keys(tallies[0]).sort(function(a,b) {
+			return (Number(a) - Number(b));});
 
-			return b
+			var lastKey = key_list.slice(-1);
+			var lastValue = tallies_chatt_year[0][lastKey];
+
+			return lastValue
 		}
+
+		
 
 		var myChart = new Chart(ctx, {
 			type : 'bar',
 			data:{
-				labels: create_years(tallies[0].slice(-1)[0]),
+				labels: create_years(tallies), // figure this out
 				 datasets: 
 					tallies.map(function(i){
 					  return new Data_obj(i[0],Object.values(i).slice(1,-2),
@@ -211,14 +212,6 @@ mymap2 = show_map('mapid2',[35.0918,-85.2398],11);
 var tallies_chatt = {{ site.data.chatt_tallies | jsonify}}
 
 var tallies_chatt_year = {{ site.data.tallies_chatt_year | jsonify}}
-
-var key_list = Object.keys(tallies_Raleigh_year[0]).sort(function(a,b) {
-  return (Number(a) - Number(b));});
-
-var lastKey = key_list.slice(-1);
-var lastValue = tallies_chatt_year[0][lastKey];
-
-console.log(key_list,lastKey, lastValue);
 
 
 create_line_chart(tallies_chatt, colors, 'myChart3','Chattanooga Permits by Month');
