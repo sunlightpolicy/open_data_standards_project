@@ -125,9 +125,9 @@ function create_bar_year(tallies, colors, element,text){
 			return lastValue
 		}
 
-		label_years = create_years(tallies)[0] ;
+		label_years = create_years(tallies);
 
-		console.log(label_years);		
+		console.log(label_years[0]);		
 
 		var myChart = new Chart(ctx, {
 			type : 'bar',
