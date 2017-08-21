@@ -125,17 +125,19 @@ function create_bar_year(tallies, colors, element,text){
 			return lastValue
 		}
 
-		
+		label_years = create_years(tallies) ;
+
+		console.log(label_years);		
 
 		var myChart = new Chart(ctx, {
 			type : 'bar',
 			data:{
-				labels: create_years(tallies), // figure this out
+				labels: label_years, // figure this out
 				 datasets: 
 					tallies.map(function(i){
-					  return new Data_obj(i[0],Object.values(i).slice(1,-2),
-					           	Object.values(i).slice(-2),
-					            Object.values(i).slice(-2),2);})
+					  return new Data_obj(i[0], Object.values(i).slice(1,i.length-2),
+					           	Object.values(i).slice(i.length-2),
+					            Object.values(i).slice(i.length-2),2);})
 					    },
 					    options: {
 					    	title: {
