@@ -82,7 +82,7 @@ function update_dict(permit_dict,pt){
 function create_line_chart(tallies, colors, element,text){
 		var ctx = document.getElementById(element);
 
-		var lastKey = Object.keys(tallies[0])[-1];
+		var lastKey = Object.keys(tallies[0]).sorted()[-1];
 		var lastValue = tallies[0][lastKey];
 
 		console.log(lastValue);
