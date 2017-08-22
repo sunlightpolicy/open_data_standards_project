@@ -194,6 +194,10 @@ var tallies = {{ site.data.sd_tallies | jsonify}}
 
 var tallies_SD_year = {{ site.data.tallies_sd_year | jsonify}}
 
+test = d3.csv("/_data/tallies_sd_year.csv", callback);
+
+console.log(test);
+
 create_bar_chart(tallies, colors, 'myChart', 'San Diego Permits by Month');
 
 create_bar_year(tallies_SD_year, colors, 'myChart2','San Diego Permits by Year')
