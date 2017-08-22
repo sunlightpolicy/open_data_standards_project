@@ -24,6 +24,7 @@ function Data_obj(label,data,backgroundColor,borderColor,borderWidth){
 	this.backgroundColor = backgroundColor;
 	//this.borderColor = borderColor;
 	this.borderWidth = borderWidth;
+	console.log('label',label,'data',data,'backgroundColor',backgroundColor)
 }
 
 function plot_icon(pt, row, mymap){
