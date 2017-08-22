@@ -128,7 +128,7 @@ function create_bar_year(tallies, colors, element,text){
 
 		function use_indeces(row, index_lower, index_upper){
 			console.log(row);
-			row.items.pop();
+			row.items.pop("");
 			console.log(row);
 
 			console.log(row.splice(index_lower,index_upper))
