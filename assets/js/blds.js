@@ -194,7 +194,7 @@ var tallies = {{ site.data.sd_tallies | jsonify}}
 
 var tallies_SD_year = {{ site.data.tallies_sd_year | jsonify}}
 
-test = d3.csv("_data/tallies_sd_year.csv", function(data) {
+test = d3.csv("/open_data_standards_project/_data/tallies_sd_year.csv", function(data) {
   console.log(data[0]);
 });
 
