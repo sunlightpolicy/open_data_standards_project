@@ -139,7 +139,7 @@ function create_bar_year(tallies, colors, element,text){
 		function get_color(row){
 
 			test = Object.values(row);
-			work = test.slice(test.length-3);
+			work = test[test.length-3];
 
 			console.log(work);
 
