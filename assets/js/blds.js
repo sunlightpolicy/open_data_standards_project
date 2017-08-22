@@ -24,7 +24,7 @@ function Data_obj(label,data,backgroundColor,borderColor,borderWidth){
 	this.backgroundColor = backgroundColor;
 	//this.borderColor = borderColor;
 	this.borderWidth = borderWidth;
-	console.log('data',data);
+	// console.log('data',data);
 }
 
 function plot_icon(pt, row, mymap){
@@ -132,6 +132,7 @@ function create_bar_year(tallies, colors, element,text){
 			return (Number(a) - Number(b));});
 
 			var desiredKeys = key_list.slice(index_lower,index_upper);
+
 			for(i in desiredKeys){
 				x_vals.push(tallies[0][i])
 			}
@@ -151,8 +152,7 @@ function create_bar_year(tallies, colors, element,text){
 					tallies.map(function(i){
 
 					  b_color = use_index(tallies,-2);
-					  data = use_indeces(tallies,1,i.length-2)
-					  return new Data_obj(i[0], data,
+					  return new Data_obj(i[0], use_indeces(tallies,1,i.length-2),
 					           	b_color,
 					            b_color,2);})
 					    },
