@@ -194,7 +194,9 @@ var tallies = {{ site.data.sd_tallies | jsonify}}
 
 var tallies_SD_year = {{ site.data.tallies_sd_year | jsonify}}
 
-test = d3.csv("/_data/tallies_sd_year.csv", callback);
+test = d3.csv("/_data/tallies_sd_year.csv", function(data) {
+  console.log(data[0]);
+});
 
 console.log(test);
 
