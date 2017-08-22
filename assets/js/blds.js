@@ -126,7 +126,7 @@ function create_bar_year(tallies, colors, element,text){
 			return lastValue;
 		}
 
-		function use_indeces(row, index_lower, index_upper){
+		function use_indeces(row){
 
 			// no_null = Object.keys(row).map(function(a){if(a){return a;}})
 			// console.log(no_null);
@@ -136,9 +136,10 @@ function create_bar_year(tallies, colors, element,text){
 			// return (Number(a) - Number(b));});
 
 			// console.log(key_list);
-			test = Object.values(row).slice(index_lower,index_upper-1);
+			test = Object.values(row);
+			work = test.slice(1, test.length-2);
 
-			console.log(test);
+			console.log(work);
 
 			return test;
 
@@ -163,7 +164,7 @@ function create_bar_year(tallies, colors, element,text){
 					tallies.map(function(i){
 
 					  b_color = use_index(tallies,-2);
-					  return new Data_obj(i[0], use_indeces(i,1,i.length-1),
+					  return new Data_obj(i[0], use_indeces(i),
 					           	b_color,
 					            b_color,2);})
 					    },
