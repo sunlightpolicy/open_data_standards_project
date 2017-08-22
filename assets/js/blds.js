@@ -22,9 +22,7 @@ function Data_obj(label,data,backgroundColor,borderColor,borderWidth){
 	this.label = label;
 	this.data = data;
 	this.backgroundColor = backgroundColor;
-	//this.borderColor = borderColor;
 	this.borderWidth = borderWidth;
-	console.log('data',data);
 }
 
 function plot_icon(pt, row, mymap){
@@ -51,7 +49,6 @@ function plot_icon(pt, row, mymap){
 
 	if(row['latitude'] != null && row['longitude'] != null){
 		if(pt != null){
-		// console.log(pt, row['latitude'],row['longitude']);
 	    var marker = L.marker([row['latitude'], row['longitude']], {icon: pt_dict[pt]}).bindPopup( '<p>'+ row['description']+'</p>'+'<p>'+ row['permittypemapped']+'</p>'+'<p>'+row['issueddate']+ '</p>').addTo(mymap);
 	  	}
 	 };
@@ -131,8 +128,6 @@ function create_bar_year(tallies, colors, element,text){
 			test = Object.values(row);
 			work = test.slice(1, test.length-3);
 
-			console.log(work);
-
 			return work;
 		}
 
@@ -141,14 +136,10 @@ function create_bar_year(tallies, colors, element,text){
 			test = Object.values(row);
 			work = test[test.length-3];
 
-			console.log(work);
-
 			return work;
 		}
 
-		label_years = use_index(tallies,-1);
-
-		console.log(label_years);		
+		label_years = use_index(tallies,-1);	
 
 		var myChart = new Chart(ctx, {
 			type : 'bar',
