@@ -151,7 +151,7 @@ function create_bar_year(tallies, colors, element,text){
 					tallies.map(function(i){
 
 					  b_color = use_index(tallies,-2);
-					  data = use_indeces(1,i.length-2)
+					  data = use_indeces(tallies,1,i.length-2)
 					  return new Data_obj(i[0], data,
 					           	b_color,
 					            b_color,2);})
