@@ -128,13 +128,21 @@ function create_bar_year(tallies, colors, element,text){
 
 		function use_indeces(row, index_lower, index_upper){
 			console.log(row);
+			row.items.pop();
+			console.log(row);
+
+			console.log(row.splice(index_lower,index_upper))
 			var x_vals = [];
-			var key_list = Object.keys(row).sort(function(a,b) {
+			var key_list = Object.keys(row.sort(function(a,b) {
 			return (Number(a) - Number(b));});
+
 			console.log(key_list);
+
 			var desiredKeys = key_list.slice(index_lower,index_upper);
+
 			console.log(desiredKeys);
-			for(i in desiredKeys){
+
+			for(i in Number(desiredKeys)){
 				x_vals.push(row[i])
 			}
 
