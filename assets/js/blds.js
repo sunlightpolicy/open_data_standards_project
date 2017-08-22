@@ -132,7 +132,7 @@ function create_bar_year(tallies, colors, element,text){
 		var myChart = new Chart(ctx, {
 			type : 'bar',
 			data:{
-				labels: label_years.split(','), // figure this out
+				labels: label_years.slice(1,-1).split(','), // figure this out
 				 datasets: 
 					tallies.map(function(i){
 					  return new Data_obj(i[0], Object.values(i).slice(1,i.length-2),
@@ -216,6 +216,6 @@ var tallies_chatt = {{ site.data.chatt_tallies | jsonify}}
 var tallies_chatt_year = {{ site.data.tallies_chatt_year | jsonify}}
 
 
-create_line_chart(tallies_chatt, colors, 'myChart3','Chattanooga Permits by Month');
+create_bar_chart(tallies_chatt, colors, 'myChart3','Chattanooga Permits by Month');
 
 create_bar_year(tallies_chatt_year, colors, 'myChart4','Chattanooga Permits by Year')
