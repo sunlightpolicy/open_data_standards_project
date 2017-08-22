@@ -115,18 +115,31 @@ function create_bar_year(tallies, colors, element,text){
 		var ctx = document.getElementById(element);
 
 
-		function create_years(tallies){
+		function use_index(tallies, index){
 
 			var key_list = Object.keys(tallies[0]).sort(function(a,b) {
 			return (Number(a) - Number(b));});
 
-			var lastKey = key_list.slice(-1);
+			var lastKey = key_list.slice(index);
 			var lastValue = tallies[0][lastKey];
 
-			return lastValue
+			return lastValue;
 		}
 
-		label_years = create_years(tallies);
+		function use_indeces(tallies, index_lower, index_upper){
+			var x_vals = []
+			var key_list = Object.keys(tallies[0]).sort(function(a,b) {
+			return (Number(a) - Number(b));});
+
+			var desiredKeys = key_list.slice(index_lower,index_upper);
+			for(i in desiredKeys){
+				x_vals.push(tallies[0][i])
+			}
+
+			return x_vals;
+		}
+
+		label_years = use_index(tallies,-1);
 
 		console.log(label_years);		
 
@@ -136,9 +149,12 @@ function create_bar_year(tallies, colors, element,text){
 				labels: label_years.slice(1,-1).split(','), // figure this out
 				 datasets: 
 					tallies.map(function(i){
-					  return new Data_obj(i[0], Object.values(i).slice(2,i.length-3),
-					           	Object.values(i).slice(i.length-3),
-					            Object.values(i).slice(i.length-3),2);})
+
+					  b_color = use_index(tallies,-2);
+					  data = use_indeces(1,i.length-2)
+					  return new Data_obj(i[0], data,
+					           	b_color,
+					            b_color,2);})
 					    },
 					    options: {
 					    	title: {
@@ -194,9 +210,9 @@ var tallies = {{ site.data.sd_tallies | jsonify}}
 
 var tallies_SD_year = {{ site.data.tallies_sd_year | jsonify}}
 
-test = d3.csv("/open_data_standards_project/_data/tallies_sd_year.csv", function(data) {
-  console.log(data[0]);
-});
+// test = d3.csv("/open_data_standards_project/_data/tallies_sd_year.csv", function(data) {
+//   console.log(data[0]);
+// });
 
 console.log(test);
 
