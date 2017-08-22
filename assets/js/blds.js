@@ -128,28 +128,22 @@ function create_bar_year(tallies, colors, element,text){
 
 		function use_indeces(row){
 
-			// no_null = Object.keys(row).map(function(a){if(a){return a;}})
-			// console.log(no_null);
-
-			// var x_vals = [];
-			// var key_list = Object.keys(row).map(function(a){if(a){return a;}}).sort(function(a,b) {
-			// return (Number(a) - Number(b));});
-
-			// console.log(key_list);
 			test = Object.values(row);
-			work = test.slice(1, test.length-2);
+			work = test.slice(1, test.length-3);
 
 			console.log(work);
 
-			return test;
+			return work;
+		}
 
-			// console.log(desiredKeys);
+		function get_color(row){
 
-			// for(i in Number(desiredKeys)){
-			// 	x_vals.push(row[i])
-			// }
+			test = Object.values(row);
+			work = test.slice(test.length-2);
 
-			// return x_vals;
+			console.log(work);
+
+			return work;
 		}
 
 		label_years = use_index(tallies,-1);
@@ -162,11 +156,9 @@ function create_bar_year(tallies, colors, element,text){
 				labels: label_years.slice(1,-1).split(','), // figure this out
 				 datasets: 
 					tallies.map(function(i){
-
-					  b_color = use_index(tallies,-2);
 					  return new Data_obj(i[0], use_indeces(i),
-					           	b_color,
-					            b_color,2);})
+					           	get_color(i),
+					            get_color(i),2);})
 					    },
 					    options: {
 					    	title: {
