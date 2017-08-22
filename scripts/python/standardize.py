@@ -349,12 +349,12 @@ def make_tally_list(df,permittype,permit_col, date_col, date_kind):
         s_range_min = int(df_by_permittype[date_col].min())-2000
         s_range_max = int(df_by_permittype[date_col].max()+1)-2000
         
-        if s_range_min == s_range_max-1:
-            slots = int(df[date_col].max()-df[date_col].min() + 2)
-            tallies = [0]*slots
-        else:
-            slots = int(df[date_col].max()-df[date_col].min() + 1)
-            tallies = [0]*slots
+        # if s_range_min == s_range_max-1:
+        #     slots = int(df[date_col].max()-df[date_col].min() + 2)
+        #     tallies = [0]*slots
+        # else:
+        slots = int(df[date_col].max()-df[date_col].min() + 1)
+        tallies = [0]*slots
 
     tallies.insert(0,permittype)
     
@@ -387,6 +387,7 @@ colors = ['rgba(255,99,132,1)',
 
 def tallies_by_permit(df,permit_col, date_col, colors, date_kind):
     tally_permit_list = []
+    years = []
     for i, p_type in enumerate(set(df[permit_col].values)):
 
         if date_kind == 'year':
@@ -399,3 +400,16 @@ def tallies_by_permit(df,permit_col, date_col, colors, date_kind):
         tally_permit_list.append(pt_list)
 
     return tally_permit_list
+
+def get_years(year_tallies):
+    years = []
+    for n in year_tallies:
+        for y in n[-1]:
+            if y not in years:
+                years.append(y)
+
+    new_years = sorted(years)
+    for n in year_tallies:
+        n[-1] = new_years
+
+    return year_tallies
