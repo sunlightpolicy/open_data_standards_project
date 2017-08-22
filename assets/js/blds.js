@@ -136,11 +136,11 @@ function create_bar_year(tallies, colors, element,text){
 			// return (Number(a) - Number(b));});
 
 			// console.log(key_list);
-			test = Object.values(row);
+			test = Object.values(row).slice(index_lower,index_upper-1);
 
 			console.log(test);
 
-			return test.slice(index_lower,index_upper);
+			return test;
 
 			// console.log(desiredKeys);
 
