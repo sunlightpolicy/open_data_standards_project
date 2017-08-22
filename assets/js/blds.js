@@ -134,7 +134,7 @@ function create_bar_year(tallies, colors, element,text){
 			console.log(row.splice(index_lower,index_upper))
 			var x_vals = [];
 			var key_list = Object.keys(row.sort(function(a,b) {
-			return (Number(a) - Number(b));});
+			return (Number(a) - Number(b));}));
 
 			console.log(key_list);
 
