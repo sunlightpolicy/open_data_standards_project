@@ -136,7 +136,7 @@ function create_bar_year(tallies, colors, element,text){
 				labels: label_years.slice(1,-1).split(','), // figure this out
 				 datasets: 
 					tallies.map(function(i){
-					  return new Data_obj(i[0], Object.values(i).slice(1,i.length-3),
+					  return new Data_obj(i[0], Object.values(i).slice(2,i.length-3),
 					           	Object.values(i).slice(i.length-3),
 					            Object.values(i).slice(i.length-3),2);})
 					    },
