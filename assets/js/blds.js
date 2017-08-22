@@ -128,23 +128,27 @@ function create_bar_year(tallies, colors, element,text){
 
 		function use_indeces(row, index_lower, index_upper){
 
-			console.log(row[""]);
+			// no_null = Object.keys(row).map(function(a){if(a){return a;}})
+			// console.log(no_null);
 
-			var x_vals = [];
-			var key_list = Object.keys(row.sort(function(a,b) {
-			return (Number(a) - Number(b));}));
+			// var x_vals = [];
+			// var key_list = Object.keys(row).map(function(a){if(a){return a;}}).sort(function(a,b) {
+			// return (Number(a) - Number(b));});
 
-			console.log(key_list);
+			// console.log(key_list);
+			test = Object.values(row).slice(index_lower,index_upper);
 
-			var desiredKeys = key_list.slice(index_lower,index_upper);
+			console.log(test);
 
-			console.log(desiredKeys);
+			return test.slice(index_lower,index_upper);
 
-			for(i in Number(desiredKeys)){
-				x_vals.push(row[i])
-			}
+			// console.log(desiredKeys);
 
-			return x_vals;
+			// for(i in Number(desiredKeys)){
+			// 	x_vals.push(row[i])
+			// }
+
+			// return x_vals;
 		}
 
 		label_years = use_index(tallies,-1);
