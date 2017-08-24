@@ -21,12 +21,18 @@ colors = ['rgba(255,99,132,1)',
 // 	return new Data_obj(xy)
 // }
 
+//Look up the population of the city to display the size of the city at scale
+Washington_DC = 681,170*.00002
+Miami = 453,579*00002
+Baton_Rouge = 227,715*.00002 
+
 function make_xy(file, field1, field2, field3, field4, labels, colors){
 	new_array = []
 	label_array=[]
 	for(i=0;i< procurement.length;i++){
 
 		if(procurement[i][field3] == 'Washington DC'){
+			r = Washington_DC
 			if(procurement[i][field1] == 'good'){
 				color = colors[0];
 				}
@@ -39,6 +45,7 @@ function make_xy(file, field1, field2, field3, field4, labels, colors){
 			}
 
 		else if(procurement[i][field3] == 'Miami'){
+			r = Miami
 			if(procurement[i][field1] == 'good'){
 			color = colors[3];
 			}
@@ -51,15 +58,16 @@ function make_xy(file, field1, field2, field3, field4, labels, colors){
 			}
 
 		else{
-				if(procurement[i][field1] == 'good'){
-				color = colors[6];
-				}
-			else if(procurement[i][field1]== 'service'){
-				color = colors[7];
-				}
-			else{
-				color = colors[8];
-				}
+			r = Baton_Rouge
+			if(procurement[i][field1] == 'good'){
+			color = colors[6];
+			}
+		else if(procurement[i][field1]== 'service'){
+			color = colors[7];
+			}
+		else{
+			color = colors[8];
+			}
 			}
 
 	
@@ -67,7 +75,7 @@ function make_xy(file, field1, field2, field3, field4, labels, colors){
 		 backgroundColor:color,
 		  data:[{x:procurement[i][field4],
 		  y:procurement[i][field2], 
-		  r: 10}]});
+		  r: r}]});
 	}
 	return new_array;
 }
