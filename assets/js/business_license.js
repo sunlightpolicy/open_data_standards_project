@@ -19,9 +19,9 @@ function show_map() {
 
 function show_data(table, mymap) {
 
-  var indIcon = L.icon({ iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Red_star.svg', iconSize: [19, 19] });
-  var kcIcon = L.icon({ iconUrl: 'http://www.gaf.com/_Images/icon-star-on.svg', iconSize: [19, 19] });
-  var licenseIcon = L.icon({ iconUrl: '../images/license.svg', iconSize: [19, 12] });
+  var indIcon = L.icon({ iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Red_star.svg', iconSize: [10, 10] });
+  var kcIcon = L.icon({ iconUrl: 'http://www.gaf.com/_Images/icon-star-on.svg', iconSize: [10, 10] });
+  var licenseIcon = L.icon({ iconUrl: '../images/license.svg', iconSize: [10, 6] });
   
 
   //for (var i = 0; i < table.length; i++) {
