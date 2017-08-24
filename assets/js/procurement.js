@@ -90,7 +90,7 @@ function make_xy(file, field1, field2, field3, field4, labels, colors){
 
 	
 	}
-	return DC_array, BR_array, Miami_array;
+	return [DC_array, BR_array, Miami_array];
 }
 
 function unique_vals(array,field1){
@@ -166,7 +166,7 @@ var procurement = {{ site.data.proc_type2 | jsonify}}
 
 labels = unique_vals(procurement,'months');
 
-xy_DC, xy_Miami, xy_BR = make_xy(procurement, 'category', 'freqCat', 'city', 'months', labels, colors);
+let [xy_DC, xy_Miami, xy_BR] = make_xy(procurement, 'category', 'freqCat', 'city', 'months', labels, colors);
 
 // console.log(xy);
 
