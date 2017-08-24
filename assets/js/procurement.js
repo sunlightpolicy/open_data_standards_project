@@ -27,8 +27,10 @@ Miami = 453579*.00002;
 Baton_Rouge = 227715*.00002; 
 
 function make_xy(file, field1, field2, field3, field4, labels, colors){
-	new_array = []
-	label_array=[]
+	DC_array = []
+	Miami_array = []
+	BR_array = []
+
 	for(i=0;i< procurement.length;i++){
 
 		if(procurement[i][field3] == 'Washington DC'){
@@ -42,6 +44,11 @@ function make_xy(file, field1, field2, field3, field4, labels, colors){
 			else{
 				color = colors[2];
 				}
+			DC_array.push({ label: procurement[i][field3].concat(' ').concat(procurement[i][field1]),
+	 backgroundColor:color,
+	  data:[{x:procurement[i][field4],
+	  y:procurement[i][field2], 
+	  r: r}]});
 			}
 
 		else if(procurement[i][field3] == 'Miami'){
@@ -55,6 +62,12 @@ function make_xy(file, field1, field2, field3, field4, labels, colors){
 			else{
 				color = colors[5];
 				}
+		Miami_array.push({ label: procurement[i][field3].concat(' ').concat(procurement[i][field1]),
+	 backgroundColor:color,
+	  data:[{x:procurement[i][field4],
+	  y:procurement[i][field2], 
+	  r: r}]});
+
 			}
 
 		else{
@@ -68,16 +81,16 @@ function make_xy(file, field1, field2, field3, field4, labels, colors){
 		else{
 			color = colors[8];
 			}
+		BR_array.push({ label: procurement[i][field3].concat(' ').concat(procurement[i][field1]),
+	 backgroundColor:color,
+	  data:[{x:procurement[i][field4],
+	  y:procurement[i][field2], 
+	  r: r}]});
 			}
 
 	
-		new_array.push({ label: procurement[i][field3].concat(' ').concat(procurement[i][field1]),
-		 backgroundColor:color,
-		  data:[{x:procurement[i][field4],
-		  y:procurement[i][field2], 
-		  r: r}]});
 	}
-	return new_array;
+	return DC_array, BR_array, Miami_array;
 }
 
 function unique_vals(array,field1){
@@ -97,7 +110,7 @@ function make_array(file, field){
 
 
 
-function create_bubble_chart(xy, colors, element, labels_list){
+function create_bubble_chart(xy, colors, element, labels_list, title){
 
 		var ctx = document.getElementById(element);
 
@@ -110,6 +123,10 @@ function create_bubble_chart(xy, colors, element, labels_list){
 					xy
 					    },
 					    options: {
+					    	title: {
+					            display: true,
+					            text: title
+        							},
 					        legend: {
 						            display: false
 						         },
@@ -149,12 +166,13 @@ var procurement = {{ site.data.proc_type2 | jsonify}}
 
 labels = unique_vals(procurement,'months');
 
-xy = make_xy(procurement, 'category', 'freqCat', 'city', 'months', labels, colors);
+xy_DC, xy_Miami, xy_BR = make_xy(procurement, 'category', 'freqCat', 'city', 'months', labels, colors);
 
 // console.log(xy);
 
 
 //color_array = make_color_array(procurement,'city');
 
-
-create_bubble_chart(xy, colors, 'myChart2', labels);
+create_bubble_chart(xy_DC, colors, 'myChart1', labels, 'Procurement in DC Type by Percentage for 2017');
+create_bubble_chart(xy_Miami, colors, 'myChart2', labels, 'Procurement in Miami Type by Percentage for 2017');
+create_bubble_chart(xy_BR, colors, 'myChart3', labels, 'Procurement in Baton Rouge Type by Percentage for 2017');
