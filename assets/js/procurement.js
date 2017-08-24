@@ -140,7 +140,7 @@ function create_bubble_chart(xy, colors, element, labels_list, title){
 						                },
 						             scaleLabel: {
 								        display: true,
-								        labelString: 'Percentage of Procurement Contracts'
+								        labelString: 'Percentage of Procurement Contracts for 2017'
       									}
 						            }],
 			            		xAxes: [{

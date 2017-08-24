@@ -29,19 +29,19 @@ function plot_icon(pt, row, mymap){
 	
 	pt_dict = {};
 
-	pt_dict['building'] = L.icon({iconUrl:'/open_data_standards_project/images/building.png', iconSize: [19, 19] });
-	pt_dict['roofing'] = L.icon({iconUrl:'/open_data_standards_project/images/roof.png', iconSize: [19, 19] });
+	pt_dict['building'] = L.icon({iconUrl:'/open_data_standards_project/images/building.png', iconSize: [10, 10] });
+	pt_dict['roofing'] = L.icon({iconUrl:'/open_data_standards_project/images/roof.png', iconSize: [10, 10] });
 	pt_dict['demolition'] = L.icon({iconUrl:'https://upload.wikimedia.org/wikipedia/commons/6/67/Hammer_icon_-_Noun_Project_8246.svg', iconSize: [19, 19] });
 	pt_dict['fencing'] = L.icon({iconUrl:'https://camo.githubusercontent.com/3d0b70e5e229dc6985ee795acb6c96fa03e0d5a7/68747470733a2f2f63646e312e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f7265616c2d6573746174652d7365742d322f3531322f34302d3531322e706e67'
-		, iconSize: [19, 19] });
-	pt_dict['pool'] = L.icon({iconUrl:'/open_data_standards_project/images/pool.png', iconSize: [19, 19] });
-	pt_dict['pool/spa'] = L.icon({iconUrl:'/open_data_standards_project/images/pool.png', iconSize: [19, 19] });
-	pt_dict['mechanical'] = L.icon({iconUrl:'/open_data_standards_project/images/mechanic.png', iconSize: [19, 19] });
-	pt_dict['electrical'] = L.icon({iconUrl:'/open_data_standards_project/images/electric.png', iconSize: [19, 19] });
-	pt_dict['grading'] = L.icon({iconUrl:'/open_data_standards_project/images/grading.png', iconSize: [19, 19] });
-	pt_dict['plumbing'] = L.icon({iconUrl:'/open_data_standards_project/images/toilet.png', iconSize: [19, 19] });
+		, iconSize: [10, 10] });
+	pt_dict['pool'] = L.icon({iconUrl:'/open_data_standards_project/images/pool.png', iconSize: [10, 10] });
+	pt_dict['pool/spa'] = L.icon({iconUrl:'/open_data_standards_project/images/pool.png', iconSize: [10, 10] });
+	pt_dict['mechanical'] = L.icon({iconUrl:'/open_data_standards_project/images/mechanic.png', iconSize: [10, 10] });
+	pt_dict['electrical'] = L.icon({iconUrl:'/open_data_standards_project/images/electric.png', iconSize: [10, 10] });
+	pt_dict['grading'] = L.icon({iconUrl:'/open_data_standards_project/images/grading.png', iconSize: [10, 10] });
+	pt_dict['plumbing'] = L.icon({iconUrl:'/open_data_standards_project/images/toilet.png', iconSize: [10, 10] });
 	pt_dict['other'] =  L.icon({iconUrl:'https://upload.wikimedia.org/wikipedia/commons/2/25/Icon-round-Question_mark.jpg',
-		iconSize: [19, 19] });
+		iconSize: [10, 10] });
 	
 	// if(!pt_dict.hasOwnProperty(pt)){
 	// 	console.log(pt);
@@ -77,7 +77,7 @@ function update_dict(permit_dict,pt){
 }
 
 
-function create_bar_chart(tallies, colors, element,text){
+function create_bar_chart(tallies, element,text){
 		var ctx = document.getElementById(element);
 
 
@@ -108,7 +108,7 @@ function create_bar_chart(tallies, colors, element,text){
 		});
 	}
 
-function create_bar_year(tallies, colors, element,text){
+function create_bar_year(tallies, element,text){
 		var ctx = document.getElementById(element);
 
 
@@ -181,15 +181,6 @@ permit_dict =  {
 
 }
 
-colors = ['rgba(255,99,132,1)',
-         'rgba(54, 162, 235, 1)',
-         'rgba(255, 206, 86, 1)',
-         'rgba(75, 192, 192, 1)',
-         'rgba(153, 102, 255, 1)',
-         'rgba(255, 159, 64, 1)',
-         'rgba(255, 51, 153, 1)',
-         'rgba(0, 204, 204, 1)',
-         'rgba(0, 0, 153, 1)']
 
 {% for table in site.data.San_Diego %}
   
@@ -209,9 +200,9 @@ var tallies_SD_year = {{ site.data.tallies_sd_year | jsonify}}
 //   console.log(data[0]);
 // });
 
-create_bar_chart(tallies, colors, 'myChart', 'San Diego Permits by Month');
+create_bar_chart(tallies, 'myChart', 'San Diego Permits by Month (for all years in data)');
 
-create_bar_year(tallies_SD_year, colors, 'myChart2','San Diego Permits by Year')
+create_bar_year(tallies_SD_year, 'myChart2','San Diego Permits by Year')
 
 
 
@@ -232,6 +223,6 @@ var tallies_chatt = {{ site.data.chatt_tallies | jsonify}}
 var tallies_chatt_year = {{ site.data.tallies_chatt_year | jsonify}}
 
 
-create_bar_chart(tallies_chatt, colors, 'myChart3','Chattanooga Permits by Month');
+create_bar_chart(tallies_chatt, 'myChart3','Chattanooga Permits by Month (for all years in data)');
 
-create_bar_year(tallies_chatt_year, colors, 'myChart4','Chattanooga Permits by Year')
+create_bar_year(tallies_chatt_year, 'myChart4','Chattanooga Permits by Year')

@@ -375,31 +375,35 @@ def make_tally_list(df,permittype,permit_col, date_col, date_kind):
 
     return tallies
 
-colors = ['rgba(255,99,132,1)',
-         'rgba(54, 162, 235, 1)',
-         'rgba(255, 206, 86, 1)',
-         'rgba(75, 192, 192, 1)',
-         'rgba(153, 102, 255, 1)',
-         'rgba(255, 159, 64, 1)',
-         'rgba(255, 51, 153, 1)',
-         'rgba(0, 204, 204, 1)',
-         'rgba(0, 0, 153, 1)']
+colors = {'building': 'rgba(255,99,132,1)',
+    'roofing': 'rgba(54, 162, 235, 1)',
+    'demolition': 'rgba(255, 206, 86, 1)',
+    'fencing': 'rgba(75, 192, 192, 1)',
+    'pool/spa':'rgba(153, 102, 255, 1)',
+    'electrical':'rgba(255, 159, 64, 1)',
+    'grading':'rgba(255, 51, 153, 1)',
+    'plumbing':'rgba(0, 204, 204, 1)',
+    'mechanical': 'rgba(178, 19, 19, 1)',
+    'other': 'rgba(0, 0, 153, 1)'}
 
 def tallies_by_permit(df,permit_col, date_col, colors, date_kind):
     tally_permit_list = []
     years = []
     for i, p_type in enumerate(set(df[permit_col].values)):
+        
+        p_type_lower = p_type.lower()
 
         if date_kind == 'year':
             pt_list, s_range_min, s_range_max = make_tally_list(df, p_type, permit_col,date_col, date_kind)
-            pt_list += [colors[i]]
+            pt_list += [colors[p_type_lower]]
             pt_list.append(list(range(s_range_min, s_range_max)))
         else:
-            pt_list = make_tally_list(df, p_type, permit_col,date_col, date_kind)+[colors[i]]
+            pt_list = make_tally_list(df, p_type, permit_col,date_col, date_kind)+[colors[p_type_lower]]
 
         tally_permit_list.append(pt_list)
 
     return tally_permit_list
+
 
 categories = {'works': ['rehabilitation',
  'construction','demolition','restoration','electrical','plumbing','carpentry','rehabilitation','restoration','repair','repairs','repair/rep'],
