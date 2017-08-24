@@ -401,6 +401,31 @@ def tallies_by_permit(df,permit_col, date_col, colors, date_kind):
 
     return tally_permit_list
 
+categories = {'works': ['rehabilitation',
+ 'construction','demolition','restoration','electrical','plumbing','carpentry','rehabilitation','restoration','repair','repairs','repair/rep'],
+'services':['services','services','control','systems','system','inspection','treat','protect','output'],
+             'goods':['items','fixtures','materials','equipment','supplies']}
+
+def segment_commodoties(categories, series):
+    cat_dict ={'goods':[],'works':[],'services':[]}
+    if type(series) == float:
+        return
+    for good in categories['goods']:
+        if good.upper() in series.split():
+            cat_dict['goods'].append(series)
+            return 'good'
+    for work in categories['works']:
+        if work.upper() in series.split():
+            cat_dict['works'].append(series)
+            return 'work'
+    for service in categories['services']:
+        if service.upper() in series.split():
+            cat_dict['services'].append(series)
+            return 'service'
+    cat_dict['goods'].append(series)
+    return 'work'
+
+
 def get_years(year_tallies):
     years = []
     for n in year_tallies:
