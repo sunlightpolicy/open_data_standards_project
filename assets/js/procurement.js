@@ -22,9 +22,9 @@ colors = ['rgba(255,99,132,1)',
 // }
 
 //Look up the population of the city to display the size of the city at scale
-Washington_DC = 681,170*.00002
-Miami = 453,579*00002
-Baton_Rouge = 227,715*.00002 
+Washington_DC = 681170*.00002
+Miami = 453579*00002
+Baton_Rouge = 227715*.00002 
 
 function make_xy(file, field1, field2, field3, field4, labels, colors){
 	new_array = []
