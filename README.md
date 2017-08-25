@@ -3,6 +3,7 @@
 Many methods of exploration and visualizations were experimented with to create "the value of open data standards project."  Ultimately, we decided to present some simple spatial plots and graphs on a portfolio-style webpage to give people an idea of what can be created with open data sets that follow or can be fit into data standards.
 
 The general outline of the process that was used to create the visualizations available on the Open Data Standards Project site is as follows:
+
 	1) Download or make an API call for the appropriate dataset based on the standard (and the cities that follow that standard or in the case of procurement have any data at all) you wish to use for any of the given example project types and then load it into a pandas data frame.
 
 	2) This is where the instructions will go down three different paths based on the standard example project type you wish to use.
