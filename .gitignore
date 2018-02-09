@@ -5,4 +5,4 @@
 *.RData
 *.Rhistory
 *Rapp.history
-*_data/Raleigh.csv
+*_data/Raleigh.csv.DS_Store
