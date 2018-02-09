@@ -1,8 +1,5 @@
-
-*_config
-*/pickles
 */blds_csvs
-*.RData
-*.Rhistory
-*Rapp.history
-*_data/Raleigh.csv.DS_Store
+*_data/Raleigh.csv
+_site
+.sass-cache
+.DS_Store
