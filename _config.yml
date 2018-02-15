@@ -1,20 +1,16 @@
 
 # SEO settings
-title: "Open Data Standards"
-title2: " Project" # default: ""
+title: "Exploring Possibilities for Open Data Standards"
 description: "A catalog of projects that demonstrate the value of open data standards"
-keywords: "Jekyll, open, data, sunlight, standards, free, civic, innovation, engagement, technology, tech"
-url: http://heiswayi.github.io/thinkspace # site url
+keywords: "open, data, sunlight, standards, free, civic, innovation, engagement, technology, tech"
+url: http://github.com/sunlightpolicy/open_data_standards_project
 baseurl: "" # apply repo name if use it under gh-pages branch
 # baseurl: null # apply null if repo name is something like username.github.io
 
-google_analytics: UA-XXXXX-XX
-repo: http://github.com/aycrazy/open_data_standards_project
-twitter_username: "andrewyaspan"
-comments: true
+google_analytics: UA-48789618-8
+repo: http://github.com/sunlightpolicy/open_data_standards_project
 
 # Build settings
-permalink   : /:year/:title/
 markdown    : kramdown
 highlighter : rouge
 
@@ -30,11 +26,8 @@ sass:
 author:
   name     : "Andrew Yaspan"
   job      : "Computational Analysis and Public Policy Student"
-  bio      : "I am a Sunlight Foundation Open Cities Fellow who has created a portfolio of projects to understand and try to demonstrate
-  the value of open data standards.  Some can be viewed right here on this site!"
   thumb    : /images/author.jpg
   email    : ayaspan@sunlightfoundation.com
-  url      : https://opencitystandards.github.io
   github   : http://github.com/aycrazy
   twitter  : http://twitter.com/andrewyaspan
 
@@ -48,12 +41,5 @@ twitter_site: "@andrewyaspan"
 plugins:
   - bourbon
   - jekyll-paginate
-
-# navbar pages
-navbar:
-  - slug : about
-    title: About
-  - slug : blog
-    title: Blog
 
 exclude: ["gulp", "node_modules", "bower", "bower_components", "config.rb", "src", "Gemfile", "Gemfile.lock", ".rvmrc", ".rbenv-version", "package.json", "gulpfile.js", "README.md", "Rakefile", "changelog.md"]

@@ -1,28 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-	
-	<title>Quick Start - Leaflet</title>
+---
+layout: default
+title: "Mapping data across municipalities in a metro area"
+---
 
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+<p>Many city challenges are actually region-wide challenges. Yet the lack of usage of standards for many datasets means that it is often time-consuming to do something as simple as making a map of a metropolitan area showing data seamlessly across jurisdictions. For this project, I created an example of a map showing business licenses for both Kansas City and Independence, Missouri:
+<div id="mapid" style="width: 600px; height: 400px;"></div>
+<br>
+<p>Of course, this concept isn’t limited to business licenses — in fact, that's probably not even the best use case, it's just the example used here. There could be regional maps of everything from 911 calls to building permits.</p>
+<p>If you are wondering why there appear to be some locations outside of these two cities, it has to do with issues in the original data. [Let's double check this!]</p>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css" integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js" integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA==" crossorigin=""></script>
-
-
-	
-</head>
-<body>
-
-
-
- <div id="mapid" style="width: 600px; height: 400px;"></div>
-
-  <script src = 'assets/js/business_license.js'></script>
-
-
-</body>
-</html>
+<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css" integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw==" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js" integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA==" crossorigin=""></script>
+<script src="/assets/js/business_license.js"></script>
