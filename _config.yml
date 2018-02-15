@@ -4,7 +4,7 @@ title: "Exploring Possibilities for Open Data Standards"
 description: "A catalog of projects that demonstrate the value of open data standards"
 keywords: "open, data, sunlight, standards, free, civic, innovation, engagement, technology, tech"
 url: http://github.com/sunlightpolicy/open_data_standards_project
-baseurl: "" # apply repo name if use it under gh-pages branch
+baseurl: "/open_data_standards_project" # apply repo name if use it under gh-pages branch
 # baseurl: null # apply null if repo name is something like username.github.io
 
 google_analytics: UA-48789618-8
